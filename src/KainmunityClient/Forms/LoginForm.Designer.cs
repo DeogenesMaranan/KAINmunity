@@ -92,7 +92,7 @@
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.button2.Location = new System.Drawing.Point(605, 407);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 28);
+            this.button2.Size = new System.Drawing.Size(68, 24);
             this.button2.TabIndex = 3;
             this.button2.Text = "Signup First";
             this.button2.UseVisualStyleBackColor = true;

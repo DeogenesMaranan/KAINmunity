@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lastName = new System.Windows.Forms.TextBox();
-            this.firstName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.emailAddress = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.contactNumber = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.homeAddress = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.yearlyIncome = new System.Windows.Forms.TextBox();
+            this.back = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.householdSize = new System.Windows.Forms.TextBox();
-            this.save = new System.Windows.Forms.Button();
-            this.back = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.yearlyIncome = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.homeAddress = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.contactNumber = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.emailAddress = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.firstName = new System.Windows.Forms.TextBox();
+            this.lastName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,84 +74,69 @@
             this.panel1.Size = new System.Drawing.Size(515, 449);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // back
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(175, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 60);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PROFILE";
+            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.back.Location = new System.Drawing.Point(14, 14);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(52, 23);
+            this.back.TabIndex = 16;
+            this.back.Text = "BACK";
+            this.back.UseVisualStyleBackColor = false;
             // 
-            // lastName
+            // save
             // 
-            this.lastName.Location = new System.Drawing.Point(278, 143);
-            this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(115, 20);
-            this.lastName.TabIndex = 1;
+            this.save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.save.FlatAppearance.BorderSize = 0;
+            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save.ForeColor = System.Drawing.Color.White;
+            this.save.Location = new System.Drawing.Point(194, 370);
+            this.save.Margin = new System.Windows.Forms.Padding(2);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(120, 40);
+            this.save.TabIndex = 15;
+            this.save.Text = "SAVE";
+            this.save.UseVisualStyleBackColor = false;
             // 
-            // firstName
+            // label8
             // 
-            this.firstName.Location = new System.Drawing.Point(123, 143);
-            this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(149, 20);
-            this.firstName.TabIndex = 2;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(284, 308);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(101, 17);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Household Size";
             // 
-            // label2
+            // householdSize
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(120, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "First Name";
+            this.householdSize.Location = new System.Drawing.Point(278, 328);
+            this.householdSize.Name = "householdSize";
+            this.householdSize.Size = new System.Drawing.Size(115, 20);
+            this.householdSize.TabIndex = 13;
             // 
-            // label3
+            // label7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(275, 123);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Last Name";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(120, 308);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(95, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Annual Income";
             // 
-            // emailAddress
+            // yearlyIncome
             // 
-            this.emailAddress.Location = new System.Drawing.Point(123, 183);
-            this.emailAddress.Name = "emailAddress";
-            this.emailAddress.Size = new System.Drawing.Size(270, 20);
-            this.emailAddress.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(120, 163);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Email Address";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 212);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Contact Number";
-            // 
-            // contactNumber
-            // 
-            this.contactNumber.Location = new System.Drawing.Point(123, 232);
-            this.contactNumber.Name = "contactNumber";
-            this.contactNumber.Size = new System.Drawing.Size(270, 20);
-            this.contactNumber.TabIndex = 7;
+            this.yearlyIncome.Location = new System.Drawing.Point(123, 328);
+            this.yearlyIncome.Name = "yearlyIncome";
+            this.yearlyIncome.Size = new System.Drawing.Size(149, 20);
+            this.yearlyIncome.TabIndex = 11;
             // 
             // label6
             // 
@@ -170,69 +155,84 @@
             this.homeAddress.Size = new System.Drawing.Size(270, 20);
             this.homeAddress.TabIndex = 9;
             // 
-            // label7
+            // label5
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(120, 308);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Yearly Income";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(120, 212);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Contact Number";
             // 
-            // yearlyIncome
+            // contactNumber
             // 
-            this.yearlyIncome.Location = new System.Drawing.Point(123, 328);
-            this.yearlyIncome.Name = "yearlyIncome";
-            this.yearlyIncome.Size = new System.Drawing.Size(149, 20);
-            this.yearlyIncome.TabIndex = 11;
+            this.contactNumber.Location = new System.Drawing.Point(123, 232);
+            this.contactNumber.Name = "contactNumber";
+            this.contactNumber.Size = new System.Drawing.Size(270, 20);
+            this.contactNumber.TabIndex = 7;
             // 
-            // label8
+            // label4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(275, 308);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 17);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Household Size";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(120, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Email Address";
             // 
-            // householdSize
+            // emailAddress
             // 
-            this.householdSize.Location = new System.Drawing.Point(278, 328);
-            this.householdSize.Name = "householdSize";
-            this.householdSize.Size = new System.Drawing.Size(115, 20);
-            this.householdSize.TabIndex = 13;
+            this.emailAddress.Location = new System.Drawing.Point(123, 183);
+            this.emailAddress.Name = "emailAddress";
+            this.emailAddress.Size = new System.Drawing.Size(270, 20);
+            this.emailAddress.TabIndex = 5;
             // 
-            // save
+            // label3
             // 
-            this.save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.save.FlatAppearance.BorderSize = 0;
-            this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save.ForeColor = System.Drawing.Color.White;
-            this.save.Location = new System.Drawing.Point(194, 370);
-            this.save.Margin = new System.Windows.Forms.Padding(2);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(120, 40);
-            this.save.TabIndex = 15;
-            this.save.Text = "SAVE";
-            this.save.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(275, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Last Name";
             // 
-            // back
+            // label2
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
-            this.back.FlatAppearance.BorderSize = 0;
-            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.back.Location = new System.Drawing.Point(14, 14);
-            this.back.Margin = new System.Windows.Forms.Padding(2);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(52, 23);
-            this.back.TabIndex = 16;
-            this.back.Text = "BACK";
-            this.back.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(120, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "First Name";
+            // 
+            // firstName
+            // 
+            this.firstName.Location = new System.Drawing.Point(123, 143);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(149, 20);
+            this.firstName.TabIndex = 2;
+            // 
+            // lastName
+            // 
+            this.lastName.Location = new System.Drawing.Point(278, 143);
+            this.lastName.Name = "lastName";
+            this.lastName.Size = new System.Drawing.Size(115, 20);
+            this.lastName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.label1.Location = new System.Drawing.Point(175, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(172, 60);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "PROFILE";
             // 
             // UserProfileForm
             // 
