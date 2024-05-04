@@ -13,30 +13,21 @@ namespace KainmunityServer.Controllers
         public async Task<JsonResult> ContributeDonation(DonationItem donationItem)
         {
             var isSuccess = await DonationsManager.AddDonation(donationItem);
-
-            if (isSuccess)
-            {
-                return new JsonResult(Ok());
-            }
-            else
-            {
-                return new JsonResult(Unauthorized());
-            }
+            return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 
         [HttpPost("request")]
         public async Task<JsonResult> RequestDonation(DonationRequest donationRequest)
         {
             var isSuccess = await DonationsManager.MakeRequest(donationRequest);
+            return new JsonResult(isSuccess ? Ok() : Unauthorized());
+        }
 
-            if (isSuccess)
-            {
-                return new JsonResult(Ok());
-            }
-            else
-            {
-                return new JsonResult(Unauthorized());
-            }
+        [HttpPut("request")]
+        public async Task<JsonResult> UpdateRequest(DonationRequest donationRequest)
+        {
+            var isSuccess = await DonationsManager.UpdateRequest(donationRequest);
+            return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 
         [HttpGet("available")]

@@ -38,6 +38,42 @@ namespace KainmunityServer.DataAccess
             return res == 1;
         }
 
+        public static async Task<bool> UpdateRequest(DonationRequest donationRequest)
+        {
+            string query = "UPDATE Requests SET RequestStatus = @RequestStatus WHERE RequestId = @RequestId";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@RequestStatus", donationRequest.Status },
+                { "@RequestId", donationRequest.DonationId },
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+            if (res != 1)
+            {
+                return false;
+            }
+
+            if (donationRequest.Status == "Accepted")
+            {
+                query = "UPDATE Donations SET DonationQuantity = DonationQuantity - @RequestQuantity WHERE DonationId = @DonationId";
+                parameters = new Dictionary<string, object>()
+                {
+                    { "@RequestQuantity", donationRequest.Quantity },
+                    { "@DonationId", donationRequest.DonationId },
+                };
+
+                res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+                if (res != 1)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static async Task<List<Dictionary<string, object>>> GetAvailable()
         {
             string query = "SELECT * FROM Donations WHERE DonationQuantity > 0 AND DonationExpiry > @CurrentDate ORDER BY DonationExpiry";
