@@ -90,7 +90,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.button2.Location = new System.Drawing.Point(605, 407);
+            this.button2.Location = new System.Drawing.Point(602, 407);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 24);
             this.button2.TabIndex = 3;
@@ -103,7 +103,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(566, 112);
+            this.label1.Location = new System.Drawing.Point(567, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 60);
             this.label1.TabIndex = 6;
@@ -167,7 +167,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label4.Location = new System.Drawing.Point(514, 172);
+            this.label4.Location = new System.Drawing.Point(519, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(235, 19);
             this.label4.TabIndex = 12;

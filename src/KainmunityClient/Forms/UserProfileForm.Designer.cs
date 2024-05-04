@@ -108,7 +108,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(284, 308);
+            this.label8.Location = new System.Drawing.Point(284, 315);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 17);
             this.label8.TabIndex = 14;
@@ -116,7 +116,7 @@
             // 
             // householdSize
             // 
-            this.householdSize.Location = new System.Drawing.Point(278, 328);
+            this.householdSize.Location = new System.Drawing.Point(278, 335);
             this.householdSize.Name = "householdSize";
             this.householdSize.Size = new System.Drawing.Size(115, 20);
             this.householdSize.TabIndex = 13;
@@ -125,7 +125,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(120, 308);
+            this.label7.Location = new System.Drawing.Point(120, 315);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 17);
             this.label7.TabIndex = 12;
@@ -133,7 +133,7 @@
             // 
             // yearlyIncome
             // 
-            this.yearlyIncome.Location = new System.Drawing.Point(123, 328);
+            this.yearlyIncome.Location = new System.Drawing.Point(123, 335);
             this.yearlyIncome.Name = "yearlyIncome";
             this.yearlyIncome.Size = new System.Drawing.Size(149, 20);
             this.yearlyIncome.TabIndex = 11;
@@ -142,7 +142,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(120, 259);
+            this.label6.Location = new System.Drawing.Point(120, 266);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 17);
             this.label6.TabIndex = 10;
@@ -150,7 +150,7 @@
             // 
             // homeAddress
             // 
-            this.homeAddress.Location = new System.Drawing.Point(123, 279);
+            this.homeAddress.Location = new System.Drawing.Point(123, 286);
             this.homeAddress.Name = "homeAddress";
             this.homeAddress.Size = new System.Drawing.Size(270, 20);
             this.homeAddress.TabIndex = 9;
@@ -159,7 +159,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 212);
+            this.label5.Location = new System.Drawing.Point(120, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 17);
             this.label5.TabIndex = 8;
@@ -167,7 +167,7 @@
             // 
             // contactNumber
             // 
-            this.contactNumber.Location = new System.Drawing.Point(123, 232);
+            this.contactNumber.Location = new System.Drawing.Point(123, 239);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.Size = new System.Drawing.Size(270, 20);
             this.contactNumber.TabIndex = 7;
@@ -176,7 +176,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(120, 163);
+            this.label4.Location = new System.Drawing.Point(120, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 17);
             this.label4.TabIndex = 6;
@@ -184,7 +184,7 @@
             // 
             // emailAddress
             // 
-            this.emailAddress.Location = new System.Drawing.Point(123, 183);
+            this.emailAddress.Location = new System.Drawing.Point(123, 190);
             this.emailAddress.Name = "emailAddress";
             this.emailAddress.Size = new System.Drawing.Size(270, 20);
             this.emailAddress.TabIndex = 5;
@@ -228,7 +228,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(175, 35);
+            this.label1.Location = new System.Drawing.Point(170, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 60);
             this.label1.TabIndex = 0;

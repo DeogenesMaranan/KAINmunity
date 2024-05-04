@@ -56,7 +56,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label2.Location = new System.Drawing.Point(199, 152);
+            this.label2.Location = new System.Drawing.Point(189, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.regButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regButton.ForeColor = System.Drawing.Color.White;
-            this.regButton.Location = new System.Drawing.Point(123, 395);
+            this.regButton.Location = new System.Drawing.Point(107, 395);
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(144, 44);
             this.regButton.TabIndex = 14;
@@ -116,7 +116,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tw Cen MT", 9.75F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.button1.Location = new System.Drawing.Point(155, 445);
+            this.button1.Location = new System.Drawing.Point(136, 445);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 25);
             this.button1.TabIndex = 17;
@@ -140,7 +140,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label7.Location = new System.Drawing.Point(113, 75);
+            this.label7.Location = new System.Drawing.Point(96, 75);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 60);
             this.label7.TabIndex = 19;
@@ -151,14 +151,14 @@
             // 
             this.firstName.Location = new System.Drawing.Point(47, 172);
             this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(149, 20);
+            this.firstName.Size = new System.Drawing.Size(139, 20);
             this.firstName.TabIndex = 21;
             // 
             // lastName
             // 
-            this.lastName.Location = new System.Drawing.Point(202, 172);
+            this.lastName.Location = new System.Drawing.Point(192, 172);
             this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(115, 20);
+            this.lastName.Size = new System.Drawing.Size(125, 20);
             this.lastName.TabIndex = 20;
             // 
             // contactNumber
