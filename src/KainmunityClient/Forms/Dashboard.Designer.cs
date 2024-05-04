@@ -30,6 +30,7 @@
         {
             this.firstName = new System.Windows.Forms.Label();
             this.donationBox = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstName
@@ -52,11 +53,22 @@
             this.donationBox.UseVisualStyleBackColor = true;
             this.donationBox.Click += new System.EventHandler(this.donationBox_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(296, 74);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 203);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.donationBox);
             this.Controls.Add(this.firstName);
             this.Name = "Dashboard";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.Button donationBox;
+        private System.Windows.Forms.Button button1;
     }
 }
