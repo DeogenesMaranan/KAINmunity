@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KainmunityClient.ServerAPI;
+using System.Text.Json;
 
 namespace KainmunityClient.Forms
 {
@@ -16,11 +17,9 @@ namespace KainmunityClient.Forms
         public Dashboard()
         {
             InitializeComponent();
-
-            // await AccountManager.GetAccountInfo();
         }
 
-        private void firstName_Click(object sender, EventArgs e)
+        private async void firstName_Click(object sender, EventArgs e)
         {
         }
 
@@ -30,5 +29,30 @@ namespace KainmunityClient.Forms
             DonationForm donation = new DonationForm();
             donation.Show();
         }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var res = await AccountManager.GetAccountInfo();
+            MessageBox.Show(JsonSerializer.Serialize(res));
+
+            if (res.ContainsKey("UserFirstName"))
+            {
+                string userFirstName = res["UserFirstName"] as string;
+                if (userFirstName != null)
+                {
+                    MessageBox.Show($"User First Name: {userFirstName}");
+                }
+                else
+                {
+                    MessageBox.Show("UserFirstName is null");
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserFirstName not found in response");
+            }
+        }
+
+
     }
 }
