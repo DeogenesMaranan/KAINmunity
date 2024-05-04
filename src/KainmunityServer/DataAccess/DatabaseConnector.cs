@@ -27,19 +27,19 @@ namespace KainmunityServer.DataAccess
             return new MySqlConnection(_connectionString);
         }
 
-        public static void PingDatabase()
+        public static async Task PingDatabase()
         {
             Console.WriteLine("Connecting to database...");
 
-            var res = ExecuteQuery("SELECT 1");
+            var res = await ExecuteQuery("SELECT 1");
 
-            if (res.Count() > 0)
+            if (res.Count > 0)
             {
                 Console.WriteLine("Successfully connected to database.");
             }
         }
 
-        public static List<Dictionary<string, object>> ExecuteQuery(string query, Dictionary<string, object>? parameters = null)
+        public static async Task<List<Dictionary<string, object>>> ExecuteQuery(string query, Dictionary<string, object>? parameters = null)
         {
             parameters ??= new Dictionary<string, object>();
             List<Dictionary<string, object>> results = new();
@@ -54,12 +54,12 @@ namespace KainmunityServer.DataAccess
                     command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
 
-                connection.Open();
+                await connection.OpenAsync();
 
-                using MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                using MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
                 {
-                    Dictionary<string, object> row = new Dictionary<string, object>();
+                    var row = new Dictionary<string, object>();
 
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
@@ -77,10 +77,9 @@ namespace KainmunityServer.DataAccess
             return results;
         }
 
-        public static int ExecuteNonQuery(string query, Dictionary<string, object>? parameters = null)
+        public static async Task<int> ExecuteNonQuery(string query, Dictionary<string, object>? parameters = null)
         {
             parameters ??= new Dictionary<string, object>();
-
             int rowsAffected = 0;
 
             try
@@ -92,8 +91,8 @@ namespace KainmunityServer.DataAccess
                     command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
 
-                connection.Open();
-                rowsAffected = command.ExecuteNonQuery();
+                await connection.OpenAsync();
+                rowsAffected = await command.ExecuteNonQueryAsync();
             }
             catch (Exception ex)
             {

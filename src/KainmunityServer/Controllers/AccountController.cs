@@ -10,19 +10,19 @@ namespace KainmunityServer.Controllers
     public class AccountController : ControllerBase
     {
         [HttpPost("login")]
-        public JsonResult loginAccount(LoginDetails loginDetails)
+        public async Task<JsonResult> LoginAccount(LoginDetails loginDetails)
         {
             return new JsonResult(Ok(loginDetails));
         }
 
         [HttpPost("signup")]
-        public JsonResult registerAccount(UserDetails userDetails)
+        public async Task<JsonResult> RegisterAccount(UserDetails userDetails)
         {
             return new JsonResult(Ok(userDetails));
         }
 
         [HttpPut("edit")]
-        public JsonResult editAccount(UserDetails userDetails)
+        public async Task<JsonResult> EditAccount(UserDetails userDetails)
         {
             return new JsonResult(Ok(userDetails));
         }
