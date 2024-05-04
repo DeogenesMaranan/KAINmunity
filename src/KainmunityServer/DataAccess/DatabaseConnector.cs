@@ -46,36 +46,35 @@ namespace KainmunityServer.DataAccess
 
             try
             {
-                using (MySqlConnection connection = GetConnection())
+                using MySqlConnection connection = GetConnection();
+
+                using MySqlCommand command = new MySqlCommand(query, connection);
+                foreach (var parameter in parameters)
                 {
-                    using MySqlCommand command = new MySqlCommand(query, connection);
-                    foreach (var parameter in parameters)
-                    {
-                        command.Parameters.AddWithValue(parameter.Key, parameter.Value);
-                    }
-
-                    connection.Open();
-
-                    using MySqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Dictionary<string, object> row = new Dictionary<string, object>();
-
-                        for (int i = 0; i < reader.FieldCount; i++)
-                        {
-                            row[reader.GetName(i)] = reader.GetValue(i);
-                        }
-
-                        results.Add(row);
-                    }
+                    command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
-                return results;
+
+                connection.Open();
+
+                using MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Dictionary<string, object> row = new Dictionary<string, object>();
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        row[reader.GetName(i)] = reader.GetValue(i);
+                    }
+
+                    results.Add(row);
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-                return new List<Dictionary<string, object>>();
             }
+
+            return results;
         }
 
         public static int ExecuteNonQuery(string query, Dictionary<string, object>? parameters = null)
@@ -86,17 +85,15 @@ namespace KainmunityServer.DataAccess
 
             try
             {
-                using (MySqlConnection connection = GetConnection())
+                using MySqlConnection connection = GetConnection();
+                using MySqlCommand command = new MySqlCommand(query, connection);
+                foreach (var parameter in parameters)
                 {
-                    using MySqlCommand command = new MySqlCommand(query, connection);
-                    foreach (var parameter in parameters)
-                    {
-                        command.Parameters.AddWithValue(parameter.Key, parameter.Value);
-                    }
-
-                    connection.Open();
-                    rowsAffected = command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue(parameter.Key, parameter.Value);
                 }
+
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
