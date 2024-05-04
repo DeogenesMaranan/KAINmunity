@@ -35,5 +35,11 @@ namespace KainmunityClient.ServerAPI
 
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
+
+        public static async Task<Dictionary<string, object>> GetAccountInfo()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, "account/info");
+            return res;
+        }
     }
 }
