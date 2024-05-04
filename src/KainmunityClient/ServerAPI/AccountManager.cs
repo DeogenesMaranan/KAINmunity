@@ -18,5 +18,22 @@ namespace KainmunityClient.ServerAPI
 
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
+
+        public static async Task<bool> CreateAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.POST, "account/signup", new Dictionary<string, object>
+            {
+                {"firstName", firstName},
+                {"lastName", lastName },
+                {"emailAddress", email },
+                {"contactNumber", contactNumber},
+                {"homeAddress", address},
+                {"yearlyIncome", income},
+                {"householdSize", size},
+                {"password", pass}
+            });
+
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
     }
 }

@@ -31,11 +31,25 @@ namespace KainmunityClient.Forms
             if (isSuccess)
             {
                 MessageBox.Show("Success");
+                this.Hide();
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
             }
             else
             {
                 MessageBox.Show("Failed");
             }
+        }
+
+        private void inputContactNumber_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignupForm signup = new SignupForm();
+            signup.Show();
         }
     }
 }
