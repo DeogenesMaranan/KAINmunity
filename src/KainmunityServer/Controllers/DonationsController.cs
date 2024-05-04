@@ -23,5 +23,20 @@ namespace KainmunityServer.Controllers
                 return new JsonResult(Unauthorized());
             }
         }
+
+        [HttpPost("request")]
+        public async Task<JsonResult> RequestDonation(DonationRequest donationRequest)
+        {
+            var isSuccess = await DonationsManager.MakeRequest(donationRequest);
+
+            if (isSuccess)
+            {
+                return new JsonResult(Ok());
+            }
+            else
+            {
+                return new JsonResult(Unauthorized());
+            }
+        }
     }
 }
