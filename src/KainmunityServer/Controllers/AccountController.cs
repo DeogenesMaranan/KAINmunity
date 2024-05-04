@@ -12,6 +12,7 @@ namespace KainmunityServer.Controllers
         [HttpPost("login")]
         public async Task<JsonResult> LoginAccount(LoginDetails loginDetails)
         {
+            AccountManager.VerifyLogin(loginDetails);
             return new JsonResult(Ok(loginDetails));
         }
 
