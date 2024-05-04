@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KainmunityServer.Models;
+using KainmunityServer.DataAccess;
 
 namespace KainmunityServer.Controllers
 {
