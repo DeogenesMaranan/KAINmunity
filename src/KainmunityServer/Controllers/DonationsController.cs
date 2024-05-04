@@ -12,8 +12,16 @@ namespace KainmunityServer.Controllers
         [HttpPost("contribute")]
         public async Task<JsonResult> ContributeDonation(DonationItem donationItem)
         {
+            var isSuccess = await DonationsManager.AddDonation(donationItem);
 
-            return new JsonResult(Ok(donationItem));
+            if (isSuccess)
+            {
+                return new JsonResult(Ok());
+            }
+            else
+            {
+                return new JsonResult(Unauthorized());
+            }
         }
     }
 }

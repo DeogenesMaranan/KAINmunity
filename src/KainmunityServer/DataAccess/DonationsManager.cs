@@ -6,8 +6,19 @@ namespace KainmunityServer.DataAccess
     {
         public static async Task<bool> AddDonation(DonationItem donationItem)
         {
-            // TK
-            throw new NotImplementedException();
+            string query = "INSERT INTO Donations (DonorId, DonationName, DonationQuantity, DonationExpiry)" +
+                "Values (@DonorId, @Name, @Quantity, @Expiry);";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonorId", donationItem.DonorId },
+                { "Name", donationItem.Name },
+                { "Quantity", donationItem.Quantity },
+                { "@Expiry", donationItem.Expiry }
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+            return res == 1;
         }
     }
 }
