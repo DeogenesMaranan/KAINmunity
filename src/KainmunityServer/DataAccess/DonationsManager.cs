@@ -37,5 +37,17 @@ namespace KainmunityServer.DataAccess
 
             return res == 1;
         }
+
+        public static async Task<List<Dictionary<string, object>>> GetAvailable()
+        {
+            string query = "SELECT * FROM Donations WHERE DonationQuantity > 0 AND DonationExpiry > @CurrentDate ORDER BY DonationExpiry";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@CurrentDate", DateTime.Now.ToString("yyyy-MM-dd") },
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            return res;
+        }
     }
 }
