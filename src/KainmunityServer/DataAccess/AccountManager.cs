@@ -4,7 +4,7 @@ namespace KainmunityServer.DataAccess
 {
     public class AccountManager
     {
-        public static async Task<bool> VerifyLogin(LoginDetails loginDetails)
+        public static async Task<int> VerifyLogin(LoginDetails loginDetails)
         {
             string query = "SELECT * FROM UserCredentials WHERE UserContactNumber = @ContactNumber and UserPassword = @Password";
             var parameters = new Dictionary<string, object>()
@@ -12,9 +12,15 @@ namespace KainmunityServer.DataAccess
                 { "@ContactNumber", loginDetails.ContactNumber },
                 { "@Password", loginDetails.Password }
             };
-
+            
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
-            return res.Count > 0;
+            
+            if (res.Count == 0)
+            {
+                return -1;
+            }
+
+            return Convert.ToInt32(res[0]["UserId"]);
         }
 
         public static async Task<bool> CreateAccount(UserDetails userDetails)
@@ -56,6 +62,24 @@ namespace KainmunityServer.DataAccess
         {
             // TK: return true if account editing is successful, else false
             throw new NotImplementedException();
+        }
+
+        public static async Task<Dictionary<string, object>> GetAccountInfo(int userId)
+        {
+            string query = "SELECT * FROM UserInformations WHERE UserId = @UserId";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@UserId", userId },
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+
+            if (res.Count == 0)
+            {
+                return null;
+            }
+
+            return res[0];
         }
     }
 }
