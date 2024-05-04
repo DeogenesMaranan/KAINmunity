@@ -25,7 +25,9 @@ namespace KainmunityClient.Forms
         }
         private async void donateButton_Click(object sender, EventArgs e)
         {
-            bool isSuccess = await AccountManager.AddDonation(Convert.ToInt32(donorId.Text), donationName.Text, Convert.ToInt32(donationQuanity.Text), dateTimePicker1.Text);
+            DateTime selectedDateTime = dateTimePicker1.Value;
+            string formattedDateTime = selectedDateTime.ToString("yyyy-MM-dd");
+            bool isSuccess = await AccountManager.AddDonation(Convert.ToInt32(donorId.Text), donationName.Text, Convert.ToInt32(donationQuanity.Text), formattedDateTime);
 
             if (isSuccess)
             {
