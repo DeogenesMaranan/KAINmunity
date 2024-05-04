@@ -44,13 +44,13 @@ namespace KainmunityServer.DataAccess
             
             parameters = new Dictionary<string, object>()
             {
-                { "@FirstName", userDetails.FirstName},
-                { "@LastName", userDetails.LastName},
-                { "@EmailAddress", userDetails.EmailAddress},
-                { "@ContactNumber", userDetails.ContactNumber},
-                { "@HomeAddress", userDetails.HomeAddress},
-                { "@YearlyIncome", userDetails.YearlyIncome},
-                { "@HouseholdSize", userDetails.HouseholdSize},
+                { "@FirstName", userDetails.FirstName },
+                { "@LastName", userDetails.LastName },
+                { "@EmailAddress", userDetails.EmailAddress },
+                { "@ContactNumber", userDetails.ContactNumber },
+                { "@HomeAddress", userDetails.HomeAddress },
+                { "@YearlyIncome", userDetails.YearlyIncome },
+                { "@HouseholdSize", userDetails.HouseholdSize },
             };
 
             res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
@@ -58,10 +58,36 @@ namespace KainmunityServer.DataAccess
             return res == 1;
         }
 
-        public static async Task<bool> EditAccount(UserDetails userDetails)
+        public static async Task<bool> EditAccount(int userId, UserDetails userDetails)
         {
-            // TK: return true if account editing is successful, else false
-            throw new NotImplementedException();
+            string query = "UPDATE UserCredentials SET UserPassword = @Password WHERE UserId = @UserId";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@Password", userDetails.Password },
+                { "@UserId", userId },
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+            if (res != 1)
+            {
+                return false;
+            }
+
+            query = "UPDATE UserInformations SET UserEmailAddress = @EmailAddress, UserHomeAddress = @HomeAddress, UserYearlyIncome = @YearlyIncome, UserHouseholdSize = @HouseholdSize WHERE UserId = @UserId";
+
+            parameters = new Dictionary<string, object>()
+            {
+                { "@EmailAddress", userDetails.EmailAddress },
+                { "@HomeAddress", userDetails.HomeAddress },
+                { "@YearlyIncome", userDetails.YearlyIncome },
+                { "@HouseholdSize", userDetails.HouseholdSize },
+                { "@UserId", userId },
+            };
+
+            res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+            return res == 1;
         }
 
         public static async Task<Dictionary<string, object>> GetAccountInfo(int userId)

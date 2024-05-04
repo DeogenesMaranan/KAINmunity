@@ -43,7 +43,15 @@ namespace KainmunityServer.Controllers
         [HttpPut("edit")]
         public async Task<JsonResult> EditAccount(UserDetails userDetails)
         {
-            return new JsonResult(Ok(userDetails));
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+            {
+                return new JsonResult(NotFound());
+            }
+
+            bool isSuccess = await AccountManager.EditAccount((int)userId, userDetails);
+            return new JsonResult(isSuccess ? Ok() : NotFound());
         }
 
         [HttpGet("info")]
