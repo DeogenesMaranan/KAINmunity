@@ -12,10 +12,11 @@ namespace KainmunityServer.Controllers
         [HttpPost("login")]
         public async Task<JsonResult> LoginAccount(LoginDetails loginDetails)
         {
-            var isSuccess = await AccountManager.VerifyLogin(loginDetails);
+            var userId = await AccountManager.VerifyLogin(loginDetails);
 
-            if (isSuccess)
+            if (userId != -1)
             {
+                HttpContext.Session.SetInt32("UserId", userId);
                 return new JsonResult(Ok());
             }
             else
@@ -43,6 +44,20 @@ namespace KainmunityServer.Controllers
         public async Task<JsonResult> EditAccount(UserDetails userDetails)
         {
             return new JsonResult(Ok(userDetails));
+        }
+
+        [HttpGet("info")]
+        public async Task<JsonResult> GetAccount()
+        {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+
+            if (userId == null)
+            {
+                return new JsonResult(NotFound());
+            }
+
+            var res = await AccountManager.GetAccountInfo((int)userId);
+            return new JsonResult(Ok(res));
         }
     }
 }
