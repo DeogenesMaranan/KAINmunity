@@ -16,7 +16,7 @@ namespace KainmunityClient.ServerAPI
                 { "password", password },
             });
 
-            return res.Count > 0;
-        } 
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace KainmunityClient.ServerAPI
 {
     internal enum RequestMethod
     {
-        GET, POST, PUT
+        GET, POST, PUT, DELETE
     }
 
     internal class APIConnector
