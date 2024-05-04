@@ -6,21 +6,36 @@ namespace KainmunityServer.DataAccess
     {
         public static async Task<bool> VerifyLogin(LoginDetails loginDetails)
         {
-            string query = "SELECT * FROM UserTbl WHERE UserCPNumber = @ContactNumber and UserPass = @Password";
+            string query = "SELECT * FROM UserCredentials WHERE UserContactNumber = @ContactNumber and UserPassword = @Password";
             var parameters = new Dictionary<string, object>()
             {
                 { "@ContactNumber", loginDetails.ContactNumber },
-                { "@Password", loginDetails.Password },
+                { "@Password", loginDetails.Password }
             };
 
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
             return res.Count > 0;
         }
 
-        public static async Task<bool> CreateAccount(UserDetails userDetails)
+        public static async Task<bool> CreateAccount(UserDetails userDetails, LoginDetails loginDetails)
         {
-            // TK: return true if account registration is successful, else false
-            throw new NotImplementedException();
+            string query  =@"INSERT INTO UserInformations (UserFirstName, UserLastName, UserEmailAddress, UserContactNumber, UserHomeAddress, UserYearlyIncome, UserHouseholdSize) 
+                VALUES (@FirstName, @LastName, @EmailAddress, @ContactNumber, @HomeAddress, @YearlyIncome, @HouseholdSize)";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@FirstName", userDetails.FirstName},
+                { "@LastName", userDetails.LastName},
+                { "@EmailAddress", userDetails.EmailAddress},
+                { "@ContactNumber", userDetails.ContactNumber},
+                { "@HomeAddress", userDetails.HomeAddress},
+                { "@YearlyIncome", userDetails.YearlyIncome},
+                { "@HouseholdSize", userDetails.HouseholdSize},
+                { "@Password", loginDetails.Password}
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+            return res > 0;
         }
 
         public static async Task<bool> EditAccount(UserDetails userDetails)
