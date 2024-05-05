@@ -12,9 +12,9 @@ using System.Text.Json;
 
 namespace KainmunityClient.Forms
 {
-    public partial class Dashboard : Form
+    public partial class DashboardForm : Form
     {
-        public Dashboard()
+        public DashboardForm()
         {
             InitializeComponent();
             this.Load += Dashboard_Load;
@@ -34,7 +34,7 @@ namespace KainmunityClient.Forms
         private void requestButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RequestApproval request = new RequestApproval();
+            RequestApprovalForm request = new RequestApprovalForm();
             request.Show();
         }
         private void logoutButton_Click(object sender, EventArgs e)

@@ -66,6 +66,13 @@ namespace KainmunityClient.ServerAPI
         public static async Task<Dictionary<string, object>> GetAccountInfo()
         {
             var res = await APIConnector.SendRequest(RequestMethod.GET, "account/info");
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
             var json = JsonConvert.SerializeObject(res["value"]);
             var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             return dictionary;

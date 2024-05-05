@@ -38,7 +38,7 @@ namespace KainmunityClient.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Dashboard dashboard = new Dashboard();
+            DashboardForm dashboard = new DashboardForm();
             dashboard.Show();
         }
     }

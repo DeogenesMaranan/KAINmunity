@@ -65,7 +65,7 @@ namespace KainmunityClient.Forms
         private void ReturnToDashboard(object sender, EventArgs e)
         {
             this.Hide();
-            new Dashboard().Show();
+            new DashboardForm().Show();
         }
 
         private void showPassword_CheckStateChanged(object sender, EventArgs e)

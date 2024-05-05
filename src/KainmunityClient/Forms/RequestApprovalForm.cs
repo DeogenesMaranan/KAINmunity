@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KainmunityClient.ServerAPI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +11,28 @@ using System.Windows.Forms;
 
 namespace KainmunityClient.Forms
 {
-    public partial class RequestApproval : Form
+    public partial class RequestApprovalForm : Form
     {
-        public RequestApproval()
+        public RequestApprovalForm()
         {
             InitializeComponent();
         }
 
+        private async void FetchRequests(object sender, EventArgs e)
+        {
+            var requests = await DonationManager.GetRequests();
+
+            foreach (var request in requests)
+            {
+                int requestId = Convert.ToInt32(request["RequestId"]);
+                string requesterName = Convert.ToString(request["RequesterName"]);
+                string itemName = Convert.ToString(request["DonationName"]);
+                int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
+                string requestStatus = Convert.ToString(request["RequestStatus"]);
+
+                AddRequestEntry(requestId, requesterName, itemName, Convert.ToString(requestQuantity), requestStatus);
+            }
+        }
 
         private void AddRequestEntry(int requestId, string requesterName, string itemName, string itemQuantity, string requestStatus)
         {
@@ -57,6 +73,10 @@ namespace KainmunityClient.Forms
             flowLayoutPanel1.Controls.Add(requestEntryLayout);
         }
 
-
+        private void ReturnToDashboard(object sender, EventArgs e)
+        {
+            this.Hide();
+            new DashboardForm().Show();
+        }
     }
 }

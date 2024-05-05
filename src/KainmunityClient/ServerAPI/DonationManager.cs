@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,21 @@ namespace KainmunityClient.ServerAPI
             });
 
             return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
+        public static async Task<List<Dictionary<string, object>>> GetRequests()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/request");
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+            return dictionary;
         }
     }
 }

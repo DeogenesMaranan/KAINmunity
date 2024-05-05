@@ -32,7 +32,7 @@ namespace KainmunityClient.Forms
             {
                 MessageBox.Show("Success");
                 this.Hide();
-                Dashboard dashboard = new Dashboard();
+                DashboardForm dashboard = new DashboardForm();
                 dashboard.Show();
             }
             else
