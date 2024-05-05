@@ -39,6 +39,23 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
+        public static async Task<bool> EditAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.PUT, "account/edit", new Dictionary<string, object>
+            {
+                { "firstName", firstName },
+                { "lastName", lastName },
+                { "emailAddress", email },
+                { "contactNumber", contactNumber },
+                { "homeAddress", address },
+                { "yearlyIncome", income },
+                { "householdSize", size },
+                { "password", pass }
+            });
+
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
         public static async Task<bool> AddDonation(int donorID, string donationItem, int donationQuantity, string donationExpiry)
         {
             var res = await APIConnector.SendRequest(RequestMethod.POST, "donations/contribute", new Dictionary<string, object>
