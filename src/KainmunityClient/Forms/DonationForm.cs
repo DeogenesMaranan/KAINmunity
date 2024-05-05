@@ -19,15 +19,11 @@ namespace KainmunityClient.Forms
         {
             InitializeComponent();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
         private async void donateButton_Click(object sender, EventArgs e)
         {
             DateTime selectedDateTime = dateTimePicker1.Value;
             string formattedDateTime = selectedDateTime.ToString("yyyy-MM-dd");
-            bool isSuccess = await AccountManager.AddDonation(Convert.ToInt32(donorId.Text), donationName.Text, Convert.ToInt32(donationQuanity.Text), formattedDateTime);
+            bool isSuccess = await DonationManager.AddDonation(donationName.Text, Convert.ToInt32(donationQuanity.Text), formattedDateTime);
 
             if (isSuccess)
             {
@@ -38,16 +34,6 @@ namespace KainmunityClient.Forms
             {
                 MessageBox.Show("Failed");
             }
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
