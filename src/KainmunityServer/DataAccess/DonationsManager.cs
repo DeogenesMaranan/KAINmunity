@@ -44,7 +44,7 @@ namespace KainmunityServer.DataAccess
             var parameters = new Dictionary<string, object>()
             {
                 { "@RequestStatus", donationRequest.Status },
-                { "@RequestId", donationRequest.DonationId },
+                { "@RequestId", donationRequest.RequestId },
             };
 
             var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
@@ -83,6 +83,18 @@ namespace KainmunityServer.DataAccess
             };
 
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            return res;
+        }
+
+        public static async Task<List<Dictionary<string, object>>> GetRequests()
+        {
+            string query = @"
+                SELECT RequestId, RequesterId, (CONCAT(UserLastName, ', ', UserFirstName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
+                FROM Requests
+                JOIN UserInformations ON Requests.RequesterId = UserInformations.UserId
+                JOIN Donations ON Requests.DonationId = Donations.DonationId";
+
+            var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
         }
     }
