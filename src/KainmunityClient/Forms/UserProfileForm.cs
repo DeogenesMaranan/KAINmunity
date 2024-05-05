@@ -45,7 +45,7 @@ namespace KainmunityClient.Forms
             var isSuccess = await AccountManager.EditAccount(
                 firstName.Text,
                 lastName.Text,
-                "123123123", // TK: Change to password.Text after creating field for changing password
+                password.Text,
                 emailAddress.Text,
                 contactNumber.Text,
                 homeAddress.Text,
@@ -67,6 +67,23 @@ namespace KainmunityClient.Forms
         {
             this.Hide();
             new Dashboard().Show();
+        }
+
+        private void showPassword_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (showPassword.Checked)
+            {
+                password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                password.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void showCheckBox(object sender, EventArgs e)
+        {
+            showPassword.Visible = true;
         }
     }
 }
