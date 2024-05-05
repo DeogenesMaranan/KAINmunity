@@ -40,6 +40,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -70,8 +71,6 @@
             this.inputContactNumber.Name = "inputContactNumber";
             this.inputContactNumber.Size = new System.Drawing.Size(219, 22);
             this.inputContactNumber.TabIndex = 1;
-            this.inputContactNumber.Text = "Enter contact number";
-            this.inputContactNumber.TextChanged += new System.EventHandler(this.inputContactNumber_TextChanged);
             // 
             // inputPassword
             // 
@@ -82,7 +81,8 @@
             this.inputPassword.Name = "inputPassword";
             this.inputPassword.Size = new System.Drawing.Size(219, 23);
             this.inputPassword.TabIndex = 2;
-            this.inputPassword.Text = "Enter password";
+            this.inputPassword.UseSystemPasswordChar = true;
+            this.inputPassword.TextChanged += new System.EventHandler(this.showCheckBox);
             // 
             // button2
             // 
@@ -130,7 +130,6 @@
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Password";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel3
             // 
@@ -172,7 +171,17 @@
             this.label4.Size = new System.Drawing.Size(235, 19);
             this.label4.TabIndex = 12;
             this.label4.Text = "Welcome back you’ve been missed!";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // showPassword
+            // 
+            this.showPassword.AutoSize = true;
+            this.showPassword.Location = new System.Drawing.Point(731, 306);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(15, 14);
+            this.showPassword.TabIndex = 13;
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.Visible = false;
+            this.showPassword.CheckStateChanged += new System.EventHandler(this.showPasswordState);
             // 
             // LoginForm
             // 
@@ -180,6 +189,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(802, 502);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel3);
@@ -218,5 +228,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox showPassword;
     }
 }
