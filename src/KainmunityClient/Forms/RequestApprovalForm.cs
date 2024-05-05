@@ -36,42 +36,53 @@ namespace KainmunityClient.Forms
 
         private void AddRequestEntry(int requestId, string requesterName, string itemName, string itemQuantity, string requestStatus)
         {
-            // Create controls for the new request entry
-            Label nameLabel = new Label();
-            nameLabel.Text = requesterName;
-            nameLabel.Name = $"name_{requestId}";
+            TextBox nameTextBox = new TextBox();
+            nameTextBox.Text = requesterName;
+            nameTextBox.Size = new Size(224, 20);
+            nameTextBox.TextAlign = HorizontalAlignment.Center;
+            nameTextBox.ReadOnly = true;
+            nameTextBox.Name = $"name_{requestId}";
 
-            Label itemLabel = new Label();
-            itemLabel.Text = itemName;
-            itemLabel.Name = $"item_{requestId}";
+            TextBox itemTextBox = new TextBox();
+            itemTextBox.Text = itemName;
+            itemTextBox.Size = new Size(137, 20);
+            itemTextBox.TextAlign = HorizontalAlignment.Center;
+            nameTextBox.ReadOnly = true;
+            itemTextBox.Name = $"item_{requestId}";
 
-            Label quantityLabel = new Label();
-            quantityLabel.Text = itemQuantity;
-            quantityLabel.Name = $"quantity_{requestId}";
+            TextBox quantityTextBox = new TextBox();
+            quantityTextBox.Text = itemQuantity;
+            quantityTextBox.Size = new Size(80, 20);
+            quantityTextBox.TextAlign = HorizontalAlignment.Center;
+            nameTextBox.ReadOnly = true;
+            quantityTextBox.Name = $"quantity_{requestId}";
 
             ComboBox statusComboBox = new ComboBox();
             statusComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
             statusComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             statusComboBox.Items.AddRange(new object[] { "Pending", "Accepted", "Declined" });
             statusComboBox.Text = requestStatus;
+            statusComboBox.Size = new Size(110, 20);
             statusComboBox.Name = $"status_{requestId}";
 
-            // Create a new TableLayoutPanel for the request entry
             TableLayoutPanel requestEntryLayout = new TableLayoutPanel();
+            requestEntryLayout.Size = new Size(575, 27);
             requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
 
-            // Add controls to the TableLayoutPanel
-            requestEntryLayout.Controls.Add(nameLabel, 0, 0);
-            requestEntryLayout.Controls.Add(itemLabel, 1, 0);
-            requestEntryLayout.Controls.Add(quantityLabel, 2, 0);
+            requestEntryLayout.Controls.Add(nameTextBox, 0, 0);
+            requestEntryLayout.Controls.Add(itemTextBox, 1, 0);
+            requestEntryLayout.Controls.Add(quantityTextBox, 2, 0);
             requestEntryLayout.Controls.Add(statusComboBox, 3, 0);
 
-            // Add the TableLayoutPanel to the FlowLayoutPanel
             flowLayoutPanel1.Controls.Add(requestEntryLayout);
         }
+
+
+
+
 
         private void ReturnToDashboard(object sender, EventArgs e)
         {
