@@ -16,8 +16,11 @@ namespace KainmunityServer.Controllers
 
             if (userId != -1)
             {
-                HttpContext.Session.SetInt32("UserId", userId);
-                return new JsonResult(Ok());
+                return new JsonResult(new
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    UserId = userId,
+                });
             }
             else
             {
@@ -43,28 +46,28 @@ namespace KainmunityServer.Controllers
         [HttpPut("edit")]
         public async Task<JsonResult> EditAccount(UserDetails userDetails)
         {
-            int? userId = HttpContext.Session.GetInt32("UserId");
-
-            if (userId == null)
+            if (!Request.Headers.TryGetValue("User-Id", out var headerValue))
             {
                 return new JsonResult(NotFound());
             }
 
-            bool isSuccess = await AccountManager.EditAccount((int)userId, userDetails);
+            int userId = Convert.ToInt32(headerValue[0]);
+
+            bool isSuccess = await AccountManager.EditAccount(userId, userDetails);
             return new JsonResult(isSuccess ? Ok() : NotFound());
         }
 
         [HttpGet("info")]
         public async Task<JsonResult> GetAccount()
         {
-            int? userId = HttpContext.Session.GetInt32("UserId");
-
-            if (userId == null)
+            if (!Request.Headers.TryGetValue("User-Id", out var headerValue))
             {
                 return new JsonResult(NotFound());
             }
 
-            var res = await AccountManager.GetAccountInfo((int)userId);
+            int userId = Convert.ToInt32(headerValue[0]);
+
+            var res = await AccountManager.GetAccountInfo(userId);
             return new JsonResult(Ok(res));
         }
     }

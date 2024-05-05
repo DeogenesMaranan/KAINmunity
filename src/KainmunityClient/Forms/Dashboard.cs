@@ -33,7 +33,6 @@ namespace KainmunityClient.Forms
         private async void button1_Click(object sender, EventArgs e)
         {
             var res = await AccountManager.GetAccountInfo();
-            MessageBox.Show(JsonSerializer.Serialize(res));
 
             if (res.ContainsKey("UserFirstName"))
             {

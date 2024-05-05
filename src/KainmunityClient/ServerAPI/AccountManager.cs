@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace KainmunityClient.ServerAPI
 {
@@ -18,6 +18,7 @@ namespace KainmunityClient.ServerAPI
                 { "password", password },
             });
 
+            APIConnector.UserId = Convert.ToString(res["userId"]);
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
@@ -54,7 +55,9 @@ namespace KainmunityClient.ServerAPI
         public static async Task<Dictionary<string, object>> GetAccountInfo()
         {
             var res = await APIConnector.SendRequest(RequestMethod.GET, "account/info");
-            return res;
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            return dictionary;
         }
     }
 }

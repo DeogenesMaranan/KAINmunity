@@ -18,6 +18,8 @@ namespace KainmunityClient.ServerAPI
     {
         private static readonly string _api_url;
 
+        public static string UserId { get; set; }
+
         static APIConnector()
         {
             _api_url = "http://localhost:5000/api/";
@@ -30,6 +32,11 @@ namespace KainmunityClient.ServerAPI
                 try
                 {
                     HttpResponseMessage response = null;
+
+                    if (!string.IsNullOrEmpty(UserId))
+                    {
+                        client.DefaultRequestHeaders.Add("User-Id", UserId);
+                    }
 
                     switch (method)
                     {
