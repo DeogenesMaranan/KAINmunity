@@ -17,13 +17,10 @@ namespace KainmunityClient.Forms
         public UserProfileForm()
         {
             InitializeComponent();
-            emailAddress.Focus();
-            emailAddress.Enabled = false;
         }
 
         private async void FillUpInformation(object sender, EventArgs e)
         {
-            APIConnector.UserId = Convert.ToString(2); // TK: Delete line after finishing the form
             var info = await AccountManager.GetAccountInfo();
 
             firstName.Text = Convert.ToString(info["UserFirstName"]);
@@ -33,11 +30,13 @@ namespace KainmunityClient.Forms
             homeAddress.Text = Convert.ToString(info["UserHomeAddress"]);
             yearlyIncome.Text = Convert.ToString(info["UserYearlyIncome"]);
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
+            password.Text = Convert.ToString(info["UserPassword"]);
 
             emailAddress.Enabled = true;
             homeAddress.Enabled = true;
             yearlyIncome.Enabled = true;
             householdSize.Enabled = true;
+            password.Enabled = true;
         }
 
         private async void UploadInformation(object sender, EventArgs e)
