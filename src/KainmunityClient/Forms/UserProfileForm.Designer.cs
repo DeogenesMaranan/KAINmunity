@@ -1,4 +1,6 @@
-﻿namespace KainmunityClient.Forms
+﻿using System;
+
+namespace KainmunityClient.Forms
 {
     partial class UserProfileForm
     {
@@ -6,6 +8,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+
 
         /// <summary>
         /// Clean up any resources being used.
@@ -32,20 +35,20 @@
             this.back = new System.Windows.Forms.Button();
             this.save = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.householdSize = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.yearlyIncome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.homeAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.contactNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.emailAddress = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.firstName = new System.Windows.Forms.TextBox();
-            this.lastName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.householdSize = new System.Windows.Forms.TextBox();
+            this.yearlyIncome = new System.Windows.Forms.TextBox();
+            this.homeAddress = new System.Windows.Forms.TextBox();
+            this.contactNumber = new System.Windows.Forms.TextBox();
+            this.emailAddress = new System.Windows.Forms.TextBox();
+            this.lastName = new System.Windows.Forms.TextBox();
+            this.firstName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +69,8 @@
             this.panel1.Controls.Add(this.emailAddress);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.firstName);
             this.panel1.Controls.Add(this.lastName);
+            this.panel1.Controls.Add(this.firstName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(152, 26);
             this.panel1.Name = "panel1";
@@ -182,13 +185,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Email Address";
             // 
-            // emailAddress
-            // 
-            this.emailAddress.Location = new System.Drawing.Point(123, 190);
-            this.emailAddress.Name = "emailAddress";
-            this.emailAddress.Size = new System.Drawing.Size(270, 20);
-            this.emailAddress.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -209,20 +205,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "First Name";
             // 
-            // firstName
-            // 
-            this.firstName.Location = new System.Drawing.Point(123, 143);
-            this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(149, 20);
-            this.firstName.TabIndex = 2;
-            // 
-            // lastName
-            // 
-            this.lastName.Location = new System.Drawing.Point(278, 143);
-            this.lastName.Name = "lastName";
-            this.lastName.Size = new System.Drawing.Size(115, 20);
-            this.lastName.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -233,6 +215,27 @@
             this.label1.Size = new System.Drawing.Size(172, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "PROFILE";
+            // 
+            // emailAddress
+            // 
+            this.emailAddress.Location = new System.Drawing.Point(123, 190);
+            this.emailAddress.Name = "emailAddress";
+            this.emailAddress.Size = new System.Drawing.Size(270, 20);
+            this.emailAddress.TabIndex = 5;
+            // 
+            // lastName
+            // 
+            this.lastName.Location = new System.Drawing.Point(278, 143);
+            this.lastName.Name = "lastName";
+            this.lastName.Size = new System.Drawing.Size(115, 20);
+            this.lastName.TabIndex = 2;
+            // 
+            // firstName
+            // 
+            this.firstName.Location = new System.Drawing.Point(123, 143);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(149, 20);
+            this.firstName.TabIndex = 1;
             // 
             // UserProfileForm
             // 
@@ -254,23 +257,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox lastName;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox householdSize;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox yearlyIncome;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox homeAddress;
-        private System.Windows.Forms.Label label5;
+
         private System.Windows.Forms.TextBox contactNumber;
+        private System.Windows.Forms.TextBox homeAddress;
+        private System.Windows.Forms.TextBox yearlyIncome;
+        private System.Windows.Forms.TextBox householdSize;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6; // Changed label6 to a unique name
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox emailAddress;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox firstName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.TextBox emailAddress;
+        private System.Windows.Forms.TextBox lastName;
+        private System.Windows.Forms.TextBox firstName;
+
     }
 }

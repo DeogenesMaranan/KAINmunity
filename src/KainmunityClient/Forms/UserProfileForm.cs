@@ -15,6 +15,7 @@ namespace KainmunityClient.Forms
         public UserProfileForm()
         {
             InitializeComponent();
+            firstName.Focus();
         }
     }
 }
