@@ -85,5 +85,28 @@ namespace KainmunityServer.DataAccess
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
             return res;
         }
+
+        public static async Task<bool> AddFeedback(FeedbackItem feedbackItem)
+        {
+            string query = "INSERT INTO Feedbacks (RespondentId, Star, Feedback)" +
+                "VALUES (@RespondentId, @Star, @Feedback)";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@RespondentId", feedbackItem.RespondentId },
+                { "@Star", feedbackItem.Star },
+                { "@Feedback", feedbackItem.Feedback }
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+
+            return res == 1;
+        }
+
+        public static async Task<List<Dictionary<string, object>>> GetFeedback()
+        {
+            string query = "SELECT * FROM Feedbacks ORDER BY FeedbackId DESC";
+            var res = await DatabaseConnector.ExecuteQuery(query);
+            return res;
+        }
     }
 }
