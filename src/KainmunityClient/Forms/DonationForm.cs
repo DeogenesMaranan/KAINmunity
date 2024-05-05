@@ -27,13 +27,19 @@ namespace KainmunityClient.Forms
 
             if (isSuccess)
             {
-                this.Hide();
                 MessageBox.Show("Success");
             }
             else
             {
                 MessageBox.Show("Failed");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
         }
     }
 }

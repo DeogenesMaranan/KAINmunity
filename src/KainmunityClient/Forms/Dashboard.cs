@@ -17,41 +17,42 @@ namespace KainmunityClient.Forms
         public Dashboard()
         {
             InitializeComponent();
+            this.Load += Dashboard_Load;
         }
 
-        private async void firstName_Click(object sender, EventArgs e)
+        private async void Dashboard_Load(object sender, EventArgs e)
         {
+            var res = await AccountManager.GetAccountInfo();
+            firstName.Text = res["UserFirstName"] as string;
         }
-
         private void donationBox_Click(object sender, EventArgs e)
         {
             this.Hide();
             DonationForm donation = new DonationForm();
             donation.Show();
         }
-
-        private async void button1_Click(object sender, EventArgs e)
+        private void requestButton_Click(object sender, EventArgs e)
         {
-            var res = await AccountManager.GetAccountInfo();
-
-            if (res.ContainsKey("UserFirstName"))
-            {
-                string userFirstName = res["UserFirstName"] as string;
-                if (userFirstName != null)
-                {
-                    MessageBox.Show($"User First Name: {userFirstName}");
-                }
-                else
-                {
-                    MessageBox.Show("UserFirstName is null");
-                }
-            }
-            else
-            {
-                MessageBox.Show("UserFirstName not found in response");
-            }
+            this.Hide();
+            RequestApproval request = new RequestApproval();
+            request.Show();
         }
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.Show();
+        }
+        private void Dashboard_Load_1(object sender, EventArgs e)
+        {
 
+        }
+        private void firstName_Click(object sender, EventArgs e)
+        {
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
