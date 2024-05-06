@@ -25,7 +25,7 @@ namespace KainmunityClient.ServerAPI
             _api_url = "http://localhost:5000/api/";
         }
 
-        public static async Task<Dictionary<string, object>> SendRequest(RequestMethod method, string endpoint, Dictionary<string, object> body = null)
+        public static async Task<Dictionary<string, object>> SendRequest(RequestMethod method, string endpoint, Dictionary<string, object> dictionaryBody = null, List<object> listBody = null)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -47,14 +47,14 @@ namespace KainmunityClient.ServerAPI
                             }
                         case RequestMethod.POST:
                             {
-                                string json = JsonConvert.SerializeObject(body);
+                                string json = dictionaryBody == null ? JsonConvert.SerializeObject(listBody) : JsonConvert.SerializeObject(dictionaryBody);
                                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                                 response = await client.PostAsync(_api_url + endpoint, content);
                                 break;
                             }
                         case RequestMethod.PUT:
                             {
-                                string json = JsonConvert.SerializeObject(body);
+                                string json = dictionaryBody == null ? JsonConvert.SerializeObject(listBody) : JsonConvert.SerializeObject(dictionaryBody);
                                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                                 response = await client.PutAsync(_api_url + endpoint, content);
                                 break;
