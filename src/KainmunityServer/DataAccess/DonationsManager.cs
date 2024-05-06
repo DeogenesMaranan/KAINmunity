@@ -38,34 +38,47 @@ namespace KainmunityServer.DataAccess
             return res == 1;
         }
 
-        public static async Task<bool> UpdateRequest(DonationRequest donationRequest)
+        public static async Task<bool> UpdateRequests(DonationRequest[] donationRequests)
         {
-            string query = "UPDATE Requests SET RequestStatus = @RequestStatus WHERE RequestId = @RequestId";
-            var parameters = new Dictionary<string, object>()
+            string requestQuery = "UPDATE Requests SET RequestStatus = CASE RequestId ";
+            string donationQuery = "UPDATE Donations SET DonationQuantity = CASE DonationId ";
+
+            var requestIds = new List<int?>();
+            var donationIds = new List<int?>();
+
+            var requestParameters = new Dictionary<string, object>();
+            var donationParameters = new Dictionary<string, object>();
+
+            for (int i = 0; i < donationRequests.Length; i++)
             {
-                { "@RequestStatus", donationRequest.Status },
-                { "@RequestId", donationRequest.RequestId },
-            };
+                requestQuery += $"WHEN @RequestId{i} THEN @RequestStatus{i} ";
+                requestIds.Add(donationRequests[i].RequestId);
+                requestParameters.Add($"@RequestId{i}", donationRequests[i].RequestId);
+                requestParameters.Add($"@RequestStatus{i}", donationRequests[i].Status);
 
-            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+                if (donationRequests[i].Status == "Accepted")
+                {
+                    donationQuery += $"WHEN @DonationId{i} THEN DonationQuantity - @RequestQuantity{i} ";
+                    donationIds.Add(donationRequests[i].DonationId);
+                    donationParameters.Add($"@DonationId{i}", donationRequests[i].DonationId);
+                    donationParameters.Add($"@RequestQuantity{i}", donationRequests[i].Quantity);
+                }
+            }
 
-            if (res != 1)
+            requestQuery += $"END WHERE RequestId IN ({string.Join(", ", requestIds)})";
+            donationQuery += $"END WHERE DonationId IN ({string.Join(", ", donationIds)})";
+
+            var res = await DatabaseConnector.ExecuteNonQuery(requestQuery, requestParameters);
+
+            if (res != requestIds.Count)
             {
                 return false;
             }
 
-            if (donationRequest.Status == "Accepted")
+            if (donationIds.Count > 0)
             {
-                query = "UPDATE Donations SET DonationQuantity = DonationQuantity - @RequestQuantity WHERE DonationId = @DonationId";
-                parameters = new Dictionary<string, object>()
-                {
-                    { "@RequestQuantity", donationRequest.Quantity },
-                    { "@DonationId", donationRequest.DonationId },
-                };
-
-                res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
-
-                if (res != 1)
+                res = await DatabaseConnector.ExecuteNonQuery(donationQuery, donationParameters);
+                if (res != donationIds.Count)
                 {
                     return false;
                 }
@@ -92,7 +105,8 @@ namespace KainmunityServer.DataAccess
                 SELECT RequestId, RequesterId, (CONCAT(UserLastName, ', ', UserFirstName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
                 FROM Requests
                 JOIN UserInformations ON Requests.RequesterId = UserInformations.UserId
-                JOIN Donations ON Requests.DonationId = Donations.DonationId";
+                JOIN Donations ON Requests.DonationId = Donations.DonationId
+                ORDER BY FIELD(RequestStatus, 'Pending', 'Accepted', 'Declined')";
 
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;

@@ -31,9 +31,9 @@ namespace KainmunityServer.Controllers
         }
 
         [HttpPut("request")]
-        public async Task<JsonResult> UpdateRequest(DonationRequest donationRequest)
+        public async Task<JsonResult> UpdateRequests(DonationRequest[] donationRequests)
         {
-            var isSuccess = await DonationsManager.UpdateRequest(donationRequest);
+            var isSuccess = await DonationsManager.UpdateRequests(donationRequests);
             return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 
