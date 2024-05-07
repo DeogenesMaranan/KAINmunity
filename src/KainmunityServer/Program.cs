@@ -7,6 +7,8 @@ await DatabaseConnector.PingDatabase();
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseUrls("http://localhost:5000", Environment.GetEnvironmentVariable("SERVER_URL"));
+
 // Add services to the container.
 
 builder.Services.AddControllers();
