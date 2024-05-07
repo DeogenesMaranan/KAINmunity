@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KainmunityClient", "KainmunityClient.csproj", "{2F1798AE-EE05-4F66-9F5A-76C0EE346E7B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KainmunityServer", "..\KainmunityServer\KainmunityServer.csproj", "{56A62849-5CC7-42FE-BE48-E5FB2D3331E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2F1798AE-EE05-4F66-9F5A-76C0EE346E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F1798AE-EE05-4F66-9F5A-76C0EE346E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F1798AE-EE05-4F66-9F5A-76C0EE346E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A62849-5CC7-42FE-BE48-E5FB2D3331E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A62849-5CC7-42FE-BE48-E5FB2D3331E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A62849-5CC7-42FE-BE48-E5FB2D3331E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A62849-5CC7-42FE-BE48-E5FB2D3331E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

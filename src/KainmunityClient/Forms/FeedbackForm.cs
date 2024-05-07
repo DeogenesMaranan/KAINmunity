@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KainmunityClient.ServerAPI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,29 @@ namespace KainmunityClient.Forms
         public FeedbackForm()
         {
             InitializeComponent();
+        }
+
+        private async void fetchFeedbacks(object sender, EventArgs e)
+        {
+            /*var feedbacks = await DonationManager.GetFeedbacks(); // Not yet implemented
+
+            foreach (var feedback in feedbacks)
+            {
+                int feedbackId = Convert.ToInt32(feedback["FeedbackId"]);
+                int respondentId = Convert.ToInt32(feedback["RespondentId"]);
+                string content = feedback["FeedbackContent"];
+
+                string respondentName = // tk
+
+                showFeedbackEntry(feedbackId, respondentName, content);
+            }*/
+
+            throw new NotImplementedException(); // tk
+        }
+
+        private async void submitFeedback(object sender, EventArgs e)
+        {
+            throw new NotImplementedException(); // tk
         }
 
         private void showFeedbackEntry(int feedbackId, string respondentName, string feedbackContent)
