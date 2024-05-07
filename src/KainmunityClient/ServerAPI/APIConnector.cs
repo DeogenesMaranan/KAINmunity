@@ -16,13 +16,13 @@ namespace KainmunityClient.ServerAPI
 
     internal class APIConnector
     {
-        private static readonly string _api_url;
+        public static string ApiUrl { get; set; }
 
         public static string UserId { get; set; }
 
         static APIConnector()
         {
-            _api_url = "http://localhost:5000/api/";
+            
         }
 
         public static async Task<Dictionary<string, object>> SendRequest(RequestMethod method, string endpoint, Dictionary<string, object> dictionaryBody = null, List<object> listBody = null)
@@ -42,21 +42,21 @@ namespace KainmunityClient.ServerAPI
                     {
                         case RequestMethod.GET:
                             {
-                                response = await client.GetAsync(_api_url + endpoint);
+                                response = await client.GetAsync(ApiUrl + endpoint);
                                 break;
                             }
                         case RequestMethod.POST:
                             {
                                 string json = dictionaryBody == null ? JsonConvert.SerializeObject(listBody) : JsonConvert.SerializeObject(dictionaryBody);
                                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                                response = await client.PostAsync(_api_url + endpoint, content);
+                                response = await client.PostAsync(ApiUrl + endpoint, content);
                                 break;
                             }
                         case RequestMethod.PUT:
                             {
                                 string json = dictionaryBody == null ? JsonConvert.SerializeObject(listBody) : JsonConvert.SerializeObject(dictionaryBody);
                                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                                response = await client.PutAsync(_api_url + endpoint, content);
+                                response = await client.PutAsync(ApiUrl + endpoint, content);
                                 break;
                             }
                     }
