@@ -41,5 +41,10 @@ namespace KainmunityClient.Forms
             DashboardForm dashboard = new DashboardForm();
             dashboard.Show();
         }
+
+        private void DonationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
