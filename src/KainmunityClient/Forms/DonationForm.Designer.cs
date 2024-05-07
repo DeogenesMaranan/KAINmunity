@@ -151,7 +151,7 @@
             this.panel1.Controls.Add(this.donationQuanity);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.donationName);
-            this.panel1.Location = new System.Drawing.Point(24, 45);
+            this.panel1.Location = new System.Drawing.Point(37, 40);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(348, 424);
             this.panel1.TabIndex = 14;
@@ -177,9 +177,9 @@
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(402, 45);
+            this.panel2.Location = new System.Drawing.Point(419, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(376, 424);
+            this.panel2.Size = new System.Drawing.Size(348, 424);
             this.panel2.TabIndex = 15;
             // 
             // DonationForm
@@ -195,6 +195,7 @@
             this.Name = "DonationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DonationForm";
+            this.Load += new System.EventHandler(this.DonationForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
