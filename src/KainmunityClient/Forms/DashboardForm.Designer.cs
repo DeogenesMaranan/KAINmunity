@@ -71,10 +71,9 @@
             this.panel3.Controls.Add(this.donationBox);
             this.panel3.Controls.Add(this.firstName);
             this.panel3.Controls.Add(this.requestButton);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Location = new System.Drawing.Point(-1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(818, 541);
+            this.panel3.Size = new System.Drawing.Size(803, 504);
             this.panel3.TabIndex = 8;
             // 
             // logoutButton
@@ -127,10 +126,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(818, 541);
+            this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DashboardForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load_1);
             this.panel3.ResumeLayout(false);
