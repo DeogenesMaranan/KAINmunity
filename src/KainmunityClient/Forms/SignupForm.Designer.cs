@@ -37,6 +37,7 @@
             this.password = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.TextBox();
             this.lastName = new System.Windows.Forms.TextBox();
@@ -49,7 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             this.address.Multiline = true;
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(172, 20);
-            this.address.TabIndex = 8;
+            this.address.TabIndex = 7;
             // 
             // size
             // 
@@ -86,7 +87,7 @@
             this.size.Multiline = true;
             this.size.Name = "size";
             this.size.Size = new System.Drawing.Size(92, 20);
-            this.size.TabIndex = 12;
+            this.size.TabIndex = 8;
             // 
             // regButton
             // 
@@ -98,7 +99,7 @@
             this.regButton.Location = new System.Drawing.Point(125, 396);
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(144, 44);
-            this.regButton.TabIndex = 14;
+            this.regButton.TabIndex = 9;
             this.regButton.Text = "REGISTER";
             this.regButton.UseVisualStyleBackColor = false;
             this.regButton.Click += new System.EventHandler(this.regButton_Click);
@@ -109,7 +110,8 @@
             this.password.Multiline = true;
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(270, 20);
-            this.password.TabIndex = 15;
+            this.password.TabIndex = 3;
+            this.password.TextChanged += new System.EventHandler(this.showCheckBox);
             // 
             // button1
             // 
@@ -121,7 +123,7 @@
             this.button1.Location = new System.Drawing.Point(154, 446);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 25);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Login now";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -137,6 +139,15 @@
             this.panel1.Size = new System.Drawing.Size(411, 541);
             this.panel1.TabIndex = 18;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel2.Location = new System.Drawing.Point(70, 135);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(271, 271);
+            this.panel2.TabIndex = 1;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -147,35 +158,35 @@
             this.label7.Size = new System.Drawing.Size(166, 60);
             this.label7.TabIndex = 19;
             this.label7.Text = "SIGNUP";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // firstName
             // 
             this.firstName.Location = new System.Drawing.Point(65, 173);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(139, 20);
-            this.firstName.TabIndex = 21;
+            this.firstName.TabIndex = 1;
             // 
             // lastName
             // 
             this.lastName.Location = new System.Drawing.Point(210, 173);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(125, 20);
-            this.lastName.TabIndex = 20;
+            this.lastName.TabIndex = 2;
             // 
             // contactNumber
             // 
             this.contactNumber.Location = new System.Drawing.Point(65, 308);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.Size = new System.Drawing.Size(172, 20);
-            this.contactNumber.TabIndex = 23;
+            this.contactNumber.TabIndex = 5;
             // 
             // income
             // 
             this.income.Location = new System.Drawing.Point(243, 308);
             this.income.Name = "income";
+            this.income.ReadOnly = true;
             this.income.Size = new System.Drawing.Size(92, 20);
-            this.income.TabIndex = 22;
+            this.income.TabIndex = 6;
             // 
             // label1
             // 
@@ -254,14 +265,15 @@
             this.label10.TabIndex = 30;
             this.label10.Text = "Home Address";
             // 
-            // panel2
+            // showPassword
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(70, 135);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(271, 271);
-            this.panel2.TabIndex = 1;
+            this.showPassword.AutoSize = true;
+            this.showPassword.Location = new System.Drawing.Point(317, 220);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(15, 14);
+            this.showPassword.TabIndex = 32;
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.CheckStateChanged += new System.EventHandler(this.showPasswordState);
             // 
             // SignupForm
             // 
@@ -269,6 +281,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(818, 541);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
@@ -321,5 +334,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox showPassword;
     }
 }

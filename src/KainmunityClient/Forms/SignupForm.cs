@@ -52,14 +52,22 @@ namespace KainmunityClient.Forms
             login.Show();
         }
 
-        private void lastName_TextChanged(object sender, EventArgs e)
-        {
 
+        private void showPasswordState(object sender, EventArgs e)
+        {
+            if (showPassword.Checked)
+            {
+                password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                password.UseSystemPasswordChar = true;
+            }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void showCheckBox(object sender, EventArgs e)
         {
-
+            showPassword.Visible = true;
         }
     }
 }
