@@ -63,9 +63,9 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
-        public static async Task<Dictionary<string, object>> GetAccountInfo()
+        public static async Task<Dictionary<string, object>> GetAccountInfo(string userId = null)
         {
-            var res = await APIConnector.SendRequest(RequestMethod.GET, "account/info");
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"account/info/{userId ?? APIConnector.UserId}");
 
             long statusCode = Convert.ToInt64(res["statusCode"]);
             if (statusCode != 200)

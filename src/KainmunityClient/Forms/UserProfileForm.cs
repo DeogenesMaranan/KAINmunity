@@ -14,14 +14,16 @@ namespace KainmunityClient.Forms
 {
     public partial class UserProfileForm : Form
     {
-        public UserProfileForm()
+        private readonly string _userId;
+        public UserProfileForm(string userId)
         {
+            _userId = userId;
             InitializeComponent();
         }
 
         private async void FillUpInformation(object sender, EventArgs e)
         {
-            var info = await AccountManager.GetAccountInfo();
+            var info = await AccountManager.GetAccountInfo(_userId);
 
             firstName.Text = Convert.ToString(info["UserFirstName"]);
             lastName.Text = Convert.ToString(info["UserLastName"]);
@@ -32,11 +34,27 @@ namespace KainmunityClient.Forms
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
             password.Text = Convert.ToString(info["UserPassword"]);
 
-            emailAddress.Enabled = true;
-            homeAddress.Enabled = true;
-            yearlyIncome.Enabled = true;
-            householdSize.Enabled = true;
-            password.Enabled = true;
+            if (_userId == APIConnector.UserId)
+            {
+                emailAddress.ReadOnly = false;
+                homeAddress.ReadOnly = false;
+                yearlyIncome.ReadOnly = false;
+                householdSize.ReadOnly = false;
+                password.ReadOnly = false;
+            }
+            else
+            {
+                this.Controls.Remove(password);
+                this.Controls.Remove(labelPassword);
+                this.Controls.Remove(showPassword);
+                this.Controls.Remove(save);
+                password.Dispose();
+                labelPassword.Dispose();
+                showPassword.Dispose();
+                save.Dispose();
+            }
+
+            this.ActiveControl = null;
         }
 
         private async void UploadInformation(object sender, EventArgs e)

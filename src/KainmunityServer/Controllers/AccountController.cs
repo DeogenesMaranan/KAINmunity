@@ -57,17 +57,10 @@ namespace KainmunityServer.Controllers
             return new JsonResult(isSuccess ? Ok() : NotFound());
         }
 
-        [HttpGet("info")]
-        public async Task<JsonResult> GetAccount()
+        [HttpGet("info/{userId}")]
+        public async Task<JsonResult> GetAccount(string userId)
         {
-            if (!Request.Headers.TryGetValue("User-Id", out var headerValue))
-            {
-                return new JsonResult(NotFound());
-            }
-
-            int userId = Convert.ToInt32(headerValue[0]);
-
-            var res = await AccountManager.GetAccountInfo(userId);
+            var res = await AccountManager.GetAccountInfo(Convert.ToInt32(userId));
             return new JsonResult(Ok(res));
         }
     }

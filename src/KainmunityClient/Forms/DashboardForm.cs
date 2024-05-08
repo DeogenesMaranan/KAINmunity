@@ -59,5 +59,12 @@ namespace KainmunityClient.Forms
         {
 
         }
+
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new UserProfileForm("3").Show();
+            //new UserProfileForm(APIConnector.UserId).Show();
+        }
     }
 }
