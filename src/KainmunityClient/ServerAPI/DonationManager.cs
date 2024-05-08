@@ -69,6 +69,23 @@ namespace KainmunityClient.ServerAPI
             return dictionary;
         }
 
+        public static async Task<bool> UploadRequests(List<DonationRequest> requests)
+        {
+            var parameters = new List<object>();
+
+            foreach (var request in requests)
+            {
+                parameters.Add(new Dictionary<string, object>()
+                {
+                    { "donationId", request.DonationId },
+                    { "quantity", request.Quantity },
+                });
+            }
+
+            var res = await APIConnector.SendRequest(RequestMethod.POST, "donations/request", listBody: parameters);
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
         public static async Task<bool> UpdateRequests(List<DonationRequest> requests)
         {
             var convertedRequests = new List<object>();

@@ -14,6 +14,14 @@ namespace KainmunityClient.Forms
 {
     public partial class RequestForm : Form
     {
+        private class DonationEntry
+        {
+            public int DonationId { get; set; }
+            public TextBox RequestQuantityTextBox { get; set; }
+        }
+
+        private List<DonationEntry> _donationEntries = new List<DonationEntry>();
+
         public RequestForm()
         {
             InitializeComponent();
@@ -89,6 +97,45 @@ namespace KainmunityClient.Forms
             entriesPlace.TabIndex = 10;
 
             flowLayoutPanel.Controls.Add(entriesPlace);
+
+            _donationEntries.Add(new DonationEntry()
+            {
+                DonationId = itemId,
+                RequestQuantityTextBox = requestQuantityPlace,
+            });
+        }
+
+        private async void UploadRequests(object sender, EventArgs e)
+        {
+            var donationRequests = new List<DonationRequest>();
+            foreach (var entry in _donationEntries)
+            {
+                if (entry.RequestQuantityTextBox.Text.Length == 0) continue;
+
+                donationRequests.Add(new DonationRequest()
+                {
+                    DonationId = entry.DonationId,
+                    Quantity = Convert.ToInt32(entry.RequestQuantityTextBox.Text),
+                });
+            }
+
+            var isSuccess = await DonationManager.UploadRequests(donationRequests);
+            
+            if (isSuccess)
+            {
+                MessageBox.Show("Requests uploaded successfully.");
+                ReturnToDashboard();
+            }
+            else
+            {
+                MessageBox.Show("Requests failed to upload.");
+            }
+        }
+
+        private void ReturnToDashboard(object sender = null, EventArgs e = null)
+        {
+            new DashboardForm().Show();
+            Close();
         }
     }
 }
