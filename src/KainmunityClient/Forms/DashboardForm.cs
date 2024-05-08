@@ -72,5 +72,17 @@ namespace KainmunityClient.Forms
             this.Hide();
             new UserProfileForm(APIConnector.UserId).Show();
         }
+
+        private void showFeedbackButton_Click(object sender, EventArgs e)
+        {
+            if (feedbackPanel.Visible)
+            {
+                feedbackPanel.Visible = false;
+            }
+            else
+            {
+                feedbackPanel.Visible = true;
+            }
+        }
     }
 }
