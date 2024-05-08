@@ -73,24 +73,37 @@ namespace KainmunityClient.Forms
             new UserProfileForm(APIConnector.UserId).Show();
         }
 
-<<<<<<< HEAD
-        private void feedbackButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            SendFeedbackForm feed = new SendFeedbackForm();
-            feed.Show();
-=======
         private void showFeedbackButton_Click(object sender, EventArgs e)
         {
-            if (feedbackPanel.Visible)
+            if (APIConnector.AccountType == "Admin")
             {
-                feedbackPanel.Visible = false;
+                this.Hide();
+                new DisplayFeedbackForm().Show();
             }
             else
             {
-                feedbackPanel.Visible = true;
+                if (feedbackPanel.Visible)
+                {
+                    feedbackPanel.Visible = false;
+                }
+                else
+                {
+                    feedbackPanel.Visible = true;
+                }
             }
->>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
+        }
+
+        private async void sendFeedback(object sender, EventArgs e)
+        {
+            bool isSuccess = await FeedbackManager.AddFeedback(feedbackTextBox.Text);
+            if (isSuccess)
+            {
+                MessageBox.Show("Success");
+            }
+            else
+            {
+                MessageBox.Show("Failed");
+            }
         }
     }
 }

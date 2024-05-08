@@ -40,11 +40,12 @@ namespace KainmunityClient.Forms
             // feedbackContainer
             // 
             this.feedbackContainer.AutoScroll = true;
-            this.feedbackContainer.Enabled = false;
+            this.feedbackContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.feedbackContainer.Location = new System.Drawing.Point(115, 96);
             this.feedbackContainer.Name = "feedbackContainer";
-            this.feedbackContainer.Size = new System.Drawing.Size(576, 334);
+            this.feedbackContainer.Size = new System.Drawing.Size(597, 394);
             this.feedbackContainer.TabIndex = 6;
+            this.feedbackContainer.WrapContents = false;
             // 
             // head
             // 
@@ -70,6 +71,7 @@ namespace KainmunityClient.Forms
             this.back.TabIndex = 17;
             this.back.Text = "BACK";
             this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.returnToDashboard);
             // 
             // title
             // 
@@ -94,6 +96,7 @@ namespace KainmunityClient.Forms
             this.Name = "DisplayFeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";
+            this.Load += new System.EventHandler(this.GetFeedbacks);
             this.head.ResumeLayout(false);
             this.head.PerformLayout();
             this.ResumeLayout(false);
