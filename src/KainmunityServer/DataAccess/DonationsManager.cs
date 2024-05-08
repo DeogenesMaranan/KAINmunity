@@ -102,7 +102,7 @@ namespace KainmunityServer.DataAccess
         public static async Task<List<Dictionary<string, object>>> GetRequests()
         {
             string query = @"
-                SELECT RequestId, RequesterId, (CONCAT(UserLastName, ', ', UserFirstName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
+                SELECT RequestId, RequesterId, (CONCAT(UserFirstName, ' ', UserLastName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
                 FROM Requests
                 JOIN UserInformations ON Requests.RequesterId = UserInformations.UserId
                 JOIN Donations ON Requests.DonationId = Donations.DonationId
