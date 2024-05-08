@@ -79,7 +79,7 @@ namespace KainmunityClient.Forms
             this.panel1.Controls.Add(this.firstName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(203, 32);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(687, 553);
             this.panel1.TabIndex = 0;
@@ -88,7 +88,7 @@ namespace KainmunityClient.Forms
             // 
             this.showPassword.AutoSize = true;
             this.showPassword.Location = new System.Drawing.Point(499, 436);
-            this.showPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showPassword.Margin = new System.Windows.Forms.Padding(4);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(18, 17);
             this.showPassword.TabIndex = 19;
@@ -111,7 +111,7 @@ namespace KainmunityClient.Forms
             // password
             // 
             this.password.Location = new System.Drawing.Point(164, 432);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password.Margin = new System.Windows.Forms.Padding(4);
             this.password.Name = "password";
             this.password.ReadOnly = true;
             this.password.Size = new System.Drawing.Size(359, 22);
@@ -165,7 +165,7 @@ namespace KainmunityClient.Forms
             // householdSize
             // 
             this.householdSize.Location = new System.Drawing.Point(371, 371);
-            this.householdSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.householdSize.Margin = new System.Windows.Forms.Padding(4);
             this.householdSize.Name = "householdSize";
             this.householdSize.ReadOnly = true;
             this.householdSize.Size = new System.Drawing.Size(152, 22);
@@ -185,7 +185,7 @@ namespace KainmunityClient.Forms
             // yearlyIncome
             // 
             this.yearlyIncome.Location = new System.Drawing.Point(164, 371);
-            this.yearlyIncome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.yearlyIncome.Margin = new System.Windows.Forms.Padding(4);
             this.yearlyIncome.Name = "yearlyIncome";
             this.yearlyIncome.ReadOnly = true;
             this.yearlyIncome.Size = new System.Drawing.Size(197, 22);
@@ -205,7 +205,7 @@ namespace KainmunityClient.Forms
             // homeAddress
             // 
             this.homeAddress.Location = new System.Drawing.Point(164, 311);
-            this.homeAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.homeAddress.Margin = new System.Windows.Forms.Padding(4);
             this.homeAddress.Name = "homeAddress";
             this.homeAddress.ReadOnly = true;
             this.homeAddress.Size = new System.Drawing.Size(359, 22);
@@ -225,7 +225,7 @@ namespace KainmunityClient.Forms
             // contactNumber
             // 
             this.contactNumber.Location = new System.Drawing.Point(164, 251);
-            this.contactNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contactNumber.Margin = new System.Windows.Forms.Padding(4);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.ReadOnly = true;
             this.contactNumber.Size = new System.Drawing.Size(359, 22);
@@ -245,7 +245,7 @@ namespace KainmunityClient.Forms
             // emailAddress
             // 
             this.emailAddress.Location = new System.Drawing.Point(164, 192);
-            this.emailAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailAddress.Margin = new System.Windows.Forms.Padding(4);
             this.emailAddress.Name = "emailAddress";
             this.emailAddress.ReadOnly = true;
             this.emailAddress.Size = new System.Drawing.Size(359, 22);
@@ -276,7 +276,7 @@ namespace KainmunityClient.Forms
             // lastName
             // 
             this.lastName.Location = new System.Drawing.Point(371, 134);
-            this.lastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastName.Margin = new System.Windows.Forms.Padding(4);
             this.lastName.Name = "lastName";
             this.lastName.ReadOnly = true;
             this.lastName.Size = new System.Drawing.Size(152, 22);
@@ -285,7 +285,7 @@ namespace KainmunityClient.Forms
             // firstName
             // 
             this.firstName.Location = new System.Drawing.Point(164, 134);
-            this.firstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstName.Margin = new System.Windows.Forms.Padding(4);
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
             this.firstName.Size = new System.Drawing.Size(197, 22);
@@ -311,11 +311,11 @@ namespace KainmunityClient.Forms
             this.ClientSize = new System.Drawing.Size(1069, 618);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "UserProfileForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "UserProfileForm";
             this.Load += new System.EventHandler(this.FillUpInformation);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
