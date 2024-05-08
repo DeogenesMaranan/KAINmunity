@@ -2,7 +2,7 @@
 
 namespace KainmunityClient.Forms
 {
-    partial class FeedbackForm
+    partial class DisplayFeedbackForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,6 @@ namespace KainmunityClient.Forms
             this.head = new System.Windows.Forms.Panel();
             this.back = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
-            this.newFeedback = new System.Windows.Forms.TextBox();
-            this.submitButton = new System.Windows.Forms.Button();
             this.head.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,46 +83,20 @@ namespace KainmunityClient.Forms
             this.title.Text = "FEEDBACK";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // newFeedback
-            // 
-            this.newFeedback.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newFeedback.Location = new System.Drawing.Point(115, 436);
-            this.newFeedback.Multiline = true;
-            this.newFeedback.Name = "newFeedback";
-            this.newFeedback.Size = new System.Drawing.Size(477, 54);
-            this.newFeedback.TabIndex = 1;
-            // 
-            // submitButton
-            // 
-            this.submitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.submitButton.FlatAppearance.BorderSize = 0;
-            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitButton.ForeColor = System.Drawing.Color.White;
-            this.submitButton.Location = new System.Drawing.Point(598, 436);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(93, 54);
-            this.submitButton.TabIndex = 16;
-            this.submitButton.Text = "SUBMIT";
-            this.submitButton.UseVisualStyleBackColor = false;
-            // 
-            // FeedbackForm
+            // DisplayFeedbackForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
             this.ClientSize = new System.Drawing.Size(802, 502);
-            this.Controls.Add(this.submitButton);
-            this.Controls.Add(this.newFeedback);
             this.Controls.Add(this.feedbackContainer);
             this.Controls.Add(this.head);
-            this.Name = "FeedbackForm";
+            this.Name = "DisplayFeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";
             this.head.ResumeLayout(false);
             this.head.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -134,7 +106,5 @@ namespace KainmunityClient.Forms
         private System.Windows.Forms.Panel head;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Label title;
-        private System.Windows.Forms.TextBox newFeedback;
-        private System.Windows.Forms.Button submitButton;
     }
 }
