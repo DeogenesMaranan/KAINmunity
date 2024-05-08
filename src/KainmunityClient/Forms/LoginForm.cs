@@ -32,17 +32,13 @@ namespace KainmunityClient.Forms
             {
                 MessageBox.Show("Success");
                 this.Hide();
-                Dashboard dashboard = new Dashboard();
+                DashboardForm dashboard = new DashboardForm();
                 dashboard.Show();
             }
             else
             {
                 MessageBox.Show("Failed");
             }
-        }
-
-        private void inputContactNumber_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,29 +48,21 @@ namespace KainmunityClient.Forms
             signup.Show();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void showPasswordState(object sender, EventArgs e)
         {
-
+            if (showPassword.Checked)
+            {
+                inputPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                inputPassword.UseSystemPasswordChar = true;
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void showCheckBox(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            showPassword.Visible = true;
         }
     }
 }

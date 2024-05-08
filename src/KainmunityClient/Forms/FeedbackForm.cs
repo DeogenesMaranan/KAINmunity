@@ -1,4 +1,3 @@
-﻿using KainmunityClient.ServerAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KainmunityClient.Models;
+using KainmunityClient.ServerAPI;
 
 namespace KainmunityClient.Forms
 {
@@ -22,6 +22,7 @@ namespace KainmunityClient.Forms
         private async void fetchFeedbacks(object sender, EventArgs e)
         {
             /*var feedbacks = await FeedbackManager.FetchFeedbacks();
+            /*var feedbacks = await DonationManager.GetFeedbacks(); // Not yet implemented
 
             foreach (var feedback in feedbacks)
             {

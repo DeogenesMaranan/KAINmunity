@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace KainmunityClient.ServerAPI
 {
@@ -17,7 +18,15 @@ namespace KainmunityClient.ServerAPI
                 { "password", password },
             });
 
-            return Convert.ToInt64(res["statusCode"]) == 200;
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                MessageBox.Show($"Error: {statusCode}");
+                return false;
+            }
+
+            APIConnector.UserId = Convert.ToString(res["userId"]);
+            return true;
         }
 
         public static async Task<bool> CreateAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size)
@@ -37,14 +46,18 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
-        public static async Task<bool> AddDonation(int donorID, string donationItem, int donationQuantity, string donationExpiry)
+        public static async Task<bool> EditAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size)
         {
-            var res = await APIConnector.SendRequest(RequestMethod.POST, "donations/contribute", new Dictionary<string, object>
+            var res = await APIConnector.SendRequest(RequestMethod.PUT, "account/edit", new Dictionary<string, object>
             {
-                { "donorId", donorID },
-                { "name", donationItem },
-                { "quantity", donationQuantity },
-                { "expiry", donationExpiry }
+                { "firstName", firstName },
+                { "lastName", lastName },
+                { "emailAddress", email },
+                { "contactNumber", contactNumber },
+                { "homeAddress", address },
+                { "yearlyIncome", income },
+                { "householdSize", size },
+                { "password", pass }
             });
 
             return Convert.ToInt64(res["statusCode"]) == 200;
@@ -53,7 +66,16 @@ namespace KainmunityClient.ServerAPI
         public static async Task<Dictionary<string, object>> GetAccountInfo()
         {
             var res = await APIConnector.SendRequest(RequestMethod.GET, "account/info");
-            return res;
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            return dictionary;
         }
     }
 }
