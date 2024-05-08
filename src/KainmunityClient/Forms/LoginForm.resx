@@ -3518,6 +3518,17 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAASNJREFUSEvtk6FuAkEURcdRXYKGpAk1eCy6liAqMdD0I7D8BAm+oRaDwKFJCKIE
+        R4JA8QWFeyY7ZsNs2dcVpPQkJ5k3c997YrPu1niQb3Imd4mcueOtEBryS54ibiSZX1GTB8nAoxzKl0TO
+        3PFGhqyZqWTQVla5SMEdb2TImniWDPiWTS4i8EYO61zkpS9pXvoqGzJke77KyUDSPPFVNmTI0nMVZdmW
+        HfkhaV4kdZZkyNJDzQxmRfmUNBQhs6LMJaG9XBullxnMihIWvfvKBr3/i0yYFr1KPvDYV849yvDROQNv
+        1GTBtCjdVJHUyBl+6rlIuulJ8gO2fOVcSYaflDPwRk0WTIss3PmikQzfIq/0Xr2oCDMXdeVKhn/FKjOY
+        9Wdx7gySjblhC5tv+wAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -3529,17 +3540,6 @@
         wZHVJ3qpy+CMipmVuYp9xj51cuhsfI61d+G7mFlZvNs4jndo/BatUFpgF9OKnXEV0yR6gb39drEldfiJ
         65n9lRHoO5fRls+4npk32ur6P9P12oVJxV6Z3jOdGPGiIubs1EbpQtKxV6aDdgiZMPEW0S4MnEacQpPJ
         BabQAf2fmSIDCJ08TOMJpqCRsiJ2CjAKPXitchs9+K9EIt/G5ptDpw5d6wAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAASNJREFUSEvtk6FuAkEURcdRXYKGpAk1eCy6liAqMdD0I7D8BAm+oRaDwKFJCKIE
-        R4JA8QWFeyY7ZsNs2dcVpPQkJ5k3c997YrPu1niQb3Imd4mcueOtEBryS54ibiSZX1GTB8nAoxzKl0TO
-        3PFGhqyZqWTQVla5SMEdb2TImniWDPiWTS4i8EYO61zkpS9pXvoqGzJke77KyUDSPPFVNmTI0nMVZdmW
-        HfkhaV4kdZZkyNJDzQxmRfmUNBQhs6LMJaG9XBullxnMihIWvfvKBr3/i0yYFr1KPvDYV849yvDROQNv
-        1GTBtCjdVJHUyBl+6rlIuulJ8gO2fOVcSYaflDPwRk0WTIss3PmikQzfIq/0Xr2oCDMXdeVKhn/FKjOY
-        9Wdx7gySjblhC5tv+wAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

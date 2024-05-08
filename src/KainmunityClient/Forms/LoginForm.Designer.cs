@@ -37,14 +37,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.showPassword = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.showPassword = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -84,7 +84,7 @@
             this.inputPassword.Size = new System.Drawing.Size(219, 23);
             this.inputPassword.TabIndex = 2;
             this.inputPassword.UseSystemPasswordChar = true;
-            this.inputPassword.TextChanged += new System.EventHandler(this.showCheckBox);
+            this.inputPassword.TextChanged += new System.EventHandler(this.showIcons);
             // 
             // button2
             // 
@@ -144,24 +144,14 @@
             this.panel3.Size = new System.Drawing.Size(402, 502);
             this.panel3.TabIndex = 9;
             // 
-            // pictureBox2
+            // panel1
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(468, 238);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 29);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(468, 302);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(55, 114);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(271, 271);
+            this.panel1.TabIndex = 0;
             // 
             // label4
             // 
@@ -176,23 +166,38 @@
             // 
             // showPassword
             // 
-            this.showPassword.AutoSize = true;
-            this.showPassword.Location = new System.Drawing.Point(703, 308);
+            this.showPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.showPassword.BackgroundImage = global::KainmunityClient.Properties.Resources.show;
+            this.showPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.showPassword.FlatAppearance.BorderSize = 0;
+            this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPassword.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPassword.Location = new System.Drawing.Point(694, 306);
             this.showPassword.Name = "showPassword";
-            this.showPassword.Size = new System.Drawing.Size(15, 14);
+            this.showPassword.Size = new System.Drawing.Size(26, 19);
             this.showPassword.TabIndex = 13;
-            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.UseVisualStyleBackColor = false;
             this.showPassword.Visible = false;
-            this.showPassword.CheckStateChanged += new System.EventHandler(this.showPasswordState);
+            this.showPassword.Click += new System.EventHandler(this.showPassword_Click);
             // 
-            // panel1
+            // pictureBox3
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(55, 114);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(271, 271);
-            this.panel1.TabIndex = 0;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(468, 302);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(468, 238);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
             // 
             // LoginForm
             // 
@@ -218,10 +223,9 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +244,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox showPassword;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button showPassword;
     }
 }

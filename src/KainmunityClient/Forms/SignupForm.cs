@@ -18,16 +18,6 @@ namespace KainmunityClient.Forms
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void firstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private async void regButton_Click(object sender, EventArgs e)
         {
             bool isSuccess = await AccountManager.CreateAccount(firstName.Text, lastName.Text, password.Text, email.Text, contactNumber.Text, address.Text, Convert.ToDouble(income.Text), Convert.ToInt32(size.Text));
@@ -53,19 +43,21 @@ namespace KainmunityClient.Forms
         }
 
 
-        private void showPasswordState(object sender, EventArgs e)
+        private void showPassword_Click(object sender, EventArgs e)
         {
-            if (showPassword.Checked)
+            if (password.UseSystemPasswordChar == true)
             {
+                showPassword.BackgroundImage = Properties.Resources.eye;
                 password.UseSystemPasswordChar = false;
             }
             else
             {
+                showPassword.BackgroundImage = Properties.Resources.show;
                 password.UseSystemPasswordChar = true;
             }
         }
 
-        private void showCheckBox(object sender, EventArgs e)
+        private void showIcons(object sender, EventArgs e)
         {
             showPassword.Visible = true;
         }
