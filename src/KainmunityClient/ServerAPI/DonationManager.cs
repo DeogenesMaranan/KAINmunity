@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KainmunityClient.Models;
+using System.Windows.Forms;
 
 namespace KainmunityClient.ServerAPI
 {
@@ -21,6 +22,36 @@ namespace KainmunityClient.ServerAPI
             });
 
             return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
+        public static async Task<List<DonationItem>> GetDonations()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/available");
+            var donations = new List<DonationItem>();
+
+            int statusCode = Convert.ToInt32(res["statusCode"]);
+
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+
+            foreach (var item in dictionary)
+            {
+                donations.Add(new DonationItem()
+                {
+                    DonationId = Convert.ToInt32(item["DonationId"]),
+                    DonorId = Convert.ToInt32(item["DonorId"]),
+                    Name = Convert.ToString(item["DonationName"]),
+                    Quantity = Convert.ToInt32(item["DonationQuantity"]),
+                    ExpiryDate = Convert.ToString(item["DonationExpiry"]),
+                });
+            }
+
+            return donations;
         }
 
         public static async Task<List<Dictionary<string, object>>> GetRequests()

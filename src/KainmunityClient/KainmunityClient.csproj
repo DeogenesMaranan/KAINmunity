@@ -131,6 +131,7 @@
     <Compile Include="Forms\UserProfileForm.Designer.cs">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonationItem.cs" />
     <Compile Include="Models\DonationRequest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

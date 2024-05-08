@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.profileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
-            this.profileButton = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,58 +76,10 @@
             this.panel3.Controls.Add(this.firstName);
             this.panel3.Controls.Add(this.requestButton);
             this.panel3.Location = new System.Drawing.Point(-1, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1071, 620);
             this.panel3.TabIndex = 8;
-            // 
-            // logoutButton
-            // 
-            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.logoutButton.FlatAppearance.BorderSize = 0;
-            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logoutButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(920, 15);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(155, 53);
-            this.logoutButton.TabIndex = 4;
-            this.logoutButton.Text = "LOGOUT";
-            this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
-            // 
-            // donationBox
-            // 
-            this.donationBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.donationBox.FlatAppearance.BorderSize = 0;
-            this.donationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donationBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donationBox.ForeColor = System.Drawing.Color.White;
-            this.donationBox.Location = new System.Drawing.Point(595, 15);
-            this.donationBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.donationBox.Name = "donationBox";
-            this.donationBox.Size = new System.Drawing.Size(155, 53);
-            this.donationBox.TabIndex = 2;
-            this.donationBox.Text = "DONATE";
-            this.donationBox.UseVisualStyleBackColor = false;
-            this.donationBox.Click += new System.EventHandler(this.donationBox_Click);
-            // 
-            // requestButton
-            // 
-            this.requestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.requestButton.FlatAppearance.BorderSize = 0;
-            this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.requestButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestButton.ForeColor = System.Drawing.Color.White;
-            this.requestButton.Location = new System.Drawing.Point(757, 15);
-            this.requestButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.requestButton.Name = "requestButton";
-            this.requestButton.Size = new System.Drawing.Size(155, 53);
-            this.requestButton.TabIndex = 3;
-            this.requestButton.Text = "REQUEST";
-            this.requestButton.UseVisualStyleBackColor = false;
-            this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
             // profileButton
             // 
@@ -145,6 +97,54 @@
             this.profileButton.UseVisualStyleBackColor = false;
             this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
+            // logoutButton
+            // 
+            this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.logoutButton.FlatAppearance.BorderSize = 0;
+            this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutButton.ForeColor = System.Drawing.Color.White;
+            this.logoutButton.Location = new System.Drawing.Point(920, 15);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(155, 53);
+            this.logoutButton.TabIndex = 4;
+            this.logoutButton.Text = "LOGOUT";
+            this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            // 
+            // donationBox
+            // 
+            this.donationBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.donationBox.FlatAppearance.BorderSize = 0;
+            this.donationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donationBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donationBox.ForeColor = System.Drawing.Color.White;
+            this.donationBox.Location = new System.Drawing.Point(595, 15);
+            this.donationBox.Margin = new System.Windows.Forms.Padding(4);
+            this.donationBox.Name = "donationBox";
+            this.donationBox.Size = new System.Drawing.Size(155, 53);
+            this.donationBox.TabIndex = 2;
+            this.donationBox.Text = "DONATE";
+            this.donationBox.UseVisualStyleBackColor = false;
+            this.donationBox.Click += new System.EventHandler(this.donationBox_Click);
+            // 
+            // requestButton
+            // 
+            this.requestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.requestButton.FlatAppearance.BorderSize = 0;
+            this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.requestButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requestButton.ForeColor = System.Drawing.Color.White;
+            this.requestButton.Location = new System.Drawing.Point(757, 15);
+            this.requestButton.Margin = new System.Windows.Forms.Padding(4);
+            this.requestButton.Name = "requestButton";
+            this.requestButton.Size = new System.Drawing.Size(155, 53);
+            this.requestButton.TabIndex = 3;
+            this.requestButton.Text = "REQUEST";
+            this.requestButton.UseVisualStyleBackColor = false;
+            this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -153,7 +153,7 @@
             this.ClientSize = new System.Drawing.Size(1069, 618);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

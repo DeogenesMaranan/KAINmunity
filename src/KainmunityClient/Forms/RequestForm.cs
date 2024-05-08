@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KainmunityClient.Models;
+using KainmunityClient.ServerAPI;
 
 namespace KainmunityClient.Forms
 {
@@ -17,6 +19,21 @@ namespace KainmunityClient.Forms
             InitializeComponent();
         }
 
+        private async void FetchDonations(object sender, EventArgs e)
+        {
+            var donations = await DonationManager.GetDonations();
+
+            if (donations == null)
+            {
+                MessageBox.Show("Failed to fetch donations.");
+                return;
+            }
+
+            foreach (DonationItem donation in donations)
+            {
+                AddListItem(donation.DonationId, donation.Name, donation.Quantity);
+            }
+        }
 
         private void AddListItem(int itemId, string itemName, int availableQuantity)
         {

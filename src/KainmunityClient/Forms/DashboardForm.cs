@@ -34,8 +34,10 @@ namespace KainmunityClient.Forms
         private void requestButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RequestApprovalForm request = new RequestApprovalForm();
-            request.Show();
+            //RequestApprovalForm request = new RequestApprovalForm();
+            //request.Show();
+
+            new RequestForm().Show();
         }
         private void logoutButton_Click(object sender, EventArgs e)
         {
