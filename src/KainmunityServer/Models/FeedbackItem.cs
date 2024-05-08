@@ -1,6 +1,6 @@
 namespace KainmunityServer.Models
 {
-    public class FeedbackItems
+    public class FeedbackItem
     {
         public int? FeedbackId { get; set; }
         public int RespondentId { get; set; }

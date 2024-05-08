@@ -10,7 +10,7 @@ namespace KainmunityServer.Controllers
     public class FeedbacksController : ControllerBase
     {
         [HttpPost("submit")]
-        public async Task<JsonResult> SubmitFeedback(FeedbackItems feedbackItem)
+        public async Task<JsonResult> SubmitFeedback(FeedbackItem feedbackItem)
         {
             var isSuccess = await FeedbacksManager.AddFeedback(feedbackItem);
             return new JsonResult(isSuccess ? Ok() : Unauthorized());

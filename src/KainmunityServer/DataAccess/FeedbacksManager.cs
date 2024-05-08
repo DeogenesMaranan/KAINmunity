@@ -4,7 +4,7 @@ namespace KainmunityServer.DataAccess
 {
     public class FeedbacksManager
     {
-        public static async Task<bool> AddFeedback(FeedbackItems feedbackItem)
+        public static async Task<bool> AddFeedback(FeedbackItem feedbackItem)
         {
             string query = "INSERT INTO Feedbacks (RespondentId, FeedbackContent)" +
                 "VALUES (@RespondentId, @Content)";
