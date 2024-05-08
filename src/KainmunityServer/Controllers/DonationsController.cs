@@ -36,21 +36,5 @@ namespace KainmunityServer.Controllers
             var donations = await DonationsManager.GetAvailable();
             return new JsonResult(Ok(donations));
         }
-
-        [HttpPost("submit")]
-        public async Task<JsonResult> SubmitFeedback(FeedbackItem feedbackItem)
-        {
-            var isSuccess = await DonationsManager.AddFeedback(feedbackItem);
-            return new JsonResult(isSuccess ? Ok() : Unauthorized());
-        }
-
-        [HttpGet("feedback")]
-        public async Task<JsonResult> GetAllFeedbacks()
-        {
-            var donations = await DonationsManager.GetFeedback();
-            return new JsonResult(Ok(donations));
-        }
-
-
     }
 }
