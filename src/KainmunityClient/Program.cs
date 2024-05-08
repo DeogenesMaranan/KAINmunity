@@ -18,7 +18,6 @@ namespace KainmunityClient
         static void Main(string[] args)
         {
             APIConnector.ApiUrl = $"http://{(args.Length > 0 ? args[0] : "localhost")}:5000/api/";
-            MessageBox.Show(APIConnector.ApiUrl);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
