@@ -4,7 +4,7 @@ namespace KainmunityServer.DataAccess
 {
     public class AccountManager
     {
-        public static async Task<int> VerifyLogin(LoginDetails loginDetails)
+        public static async Task<LoginDetails> VerifyLogin(LoginDetails loginDetails)
         {
             string query = "SELECT * FROM UserCredentials WHERE UserContactNumber = @ContactNumber and UserPassword = @Password";
             var parameters = new Dictionary<string, object>()
@@ -17,10 +17,15 @@ namespace KainmunityServer.DataAccess
             
             if (res.Count == 0)
             {
-                return -1;
+                return new LoginDetails { IsAuthorized = false };
             }
 
-            return Convert.ToInt32(res[0]["UserId"]);
+            return new LoginDetails()
+            {
+                IsAuthorized = true,
+                UserId = Convert.ToInt32(res[0]["UserId"]),
+                AccountType = Convert.ToString(res[0]["UserType"]),
+            };
         }
 
         public static async Task<bool> CreateAccount(UserDetails userDetails)

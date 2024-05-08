@@ -21,21 +21,30 @@ namespace KainmunityServer.DataAccess
             return res == 1;
         }
 
-        public static async Task<bool> MakeRequest(DonationRequest donationRequest)
+        public static async Task<bool> MakeRequest(DonationRequest[] donationRequests)
         {
             string query = "INSERT INTO Requests (RequesterId, DonationId, RequestQuantity, RequestStatus)" +
-                "VALUES (@RequesterId, @DonationId, @Quantity, @Status)";
-            var parameters = new Dictionary<string, object>()
+                "VALUES";
+            var parameters = new Dictionary<string, object>();
+
+            for (int i = 0; i < donationRequests.Length; i++)
             {
-                { "@RequesterId", donationRequest.RequesterId },
-                { "@DonationId", donationRequest.DonationId },
-                { "@Quantity", donationRequest.Quantity },
-                { "@Status", donationRequest.Status }
-            };
+                query += $" (@RequesterId{i}, @DonationId{i}, @Quantity{i}, @Status{i})";
+
+                if (i < donationRequests.Length - 1)
+                {
+                    query += ",";
+                }
+
+                parameters.Add($"@RequesterId{i}", donationRequests[i].RequesterId);
+                parameters.Add($"@DonationId{i}", donationRequests[i].DonationId);
+                parameters.Add($"@Quantity{i}", donationRequests[i].Quantity);
+                parameters.Add($"@Status{i}", donationRequests[i].Status);
+            }
 
             var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
 
-            return res == 1;
+            return res == donationRequests.Length;
         }
 
         public static async Task<bool> UpdateRequests(DonationRequest[] donationRequests)
@@ -102,7 +111,7 @@ namespace KainmunityServer.DataAccess
         public static async Task<List<Dictionary<string, object>>> GetRequests()
         {
             string query = @"
-                SELECT RequestId, RequesterId, (CONCAT(UserLastName, ', ', UserFirstName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
+                SELECT RequestId, RequesterId, (CONCAT(UserFirstName, ' ', UserLastName)) AS RequesterName, Donations.DonationId, DonationName, RequestQuantity, RequestStatus 
                 FROM Requests
                 JOIN UserInformations ON Requests.RequesterId = UserInformations.UserId
                 JOIN Donations ON Requests.DonationId = Donations.DonationId

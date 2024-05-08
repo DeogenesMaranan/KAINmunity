@@ -12,20 +12,19 @@ namespace KainmunityServer.Controllers
         [HttpPost("login")]
         public async Task<JsonResult> LoginAccount(LoginDetails loginDetails)
         {
-            var userId = await AccountManager.VerifyLogin(loginDetails);
+            var loginResult = await AccountManager.VerifyLogin(loginDetails);
 
-            if (userId != -1)
-            {
-                return new JsonResult(new
-                {
-                    StatusCode = StatusCodes.Status200OK,
-                    UserId = userId,
-                });
-            }
-            else
+            if (!loginResult.IsAuthorized ?? false)
             {
                 return new JsonResult(Unauthorized());
             }
+
+            return new JsonResult(new
+            {
+                StatusCode = StatusCodes.Status200OK,
+                UserId = loginResult.UserId,
+                AccountType = loginResult.AccountType,
+            });
         }
 
         [HttpPost("signup")]

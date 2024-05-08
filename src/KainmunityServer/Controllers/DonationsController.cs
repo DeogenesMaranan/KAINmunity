@@ -24,9 +24,22 @@ namespace KainmunityServer.Controllers
         }
 
         [HttpPost("request")]
-        public async Task<JsonResult> RequestDonation(DonationRequest donationRequest)
+        public async Task<JsonResult> RequestDonation(DonationRequest[] donationRequests)
         {
-            var isSuccess = await DonationsManager.MakeRequest(donationRequest);
+            if (!Request.Headers.TryGetValue("User-Id", out var headerValue))
+            {
+                return new JsonResult(BadRequest());
+            }
+
+            int userId = Convert.ToInt32(headerValue[0]);
+
+            for (int i = 0; i < donationRequests.Length; i++)
+            {
+                donationRequests[i].RequesterId = userId;
+                donationRequests[i].Status = "Pending";
+            }
+
+            var isSuccess = await DonationsManager.MakeRequest(donationRequests);
             return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 

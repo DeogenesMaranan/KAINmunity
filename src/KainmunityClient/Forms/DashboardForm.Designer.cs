@@ -1,4 +1,7 @@
-﻿namespace KainmunityClient.Forms
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace KainmunityClient.Forms
 {
     partial class DashboardForm
     {
@@ -32,12 +35,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.feedbackPanel = new System.Windows.Forms.Panel();
+            this.submitFeedback = new System.Windows.Forms.Button();
+            this.feedbackTextBox = new System.Windows.Forms.TextBox();
             this.profileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.feedbackButton = new System.Windows.Forms.Button();
+=======
+            this.button2 = new System.Windows.Forms.Button();
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.panel3.SuspendLayout();
+            this.feedbackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +79,12 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+<<<<<<< HEAD
             this.panel3.Controls.Add(this.feedbackButton);
+=======
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.feedbackPanel);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.panel3.Controls.Add(this.profileButton);
             this.panel3.Controls.Add(this.logoutButton);
             this.panel3.Controls.Add(this.label1);
@@ -80,6 +96,39 @@
             this.panel3.Size = new System.Drawing.Size(803, 504);
             this.panel3.TabIndex = 8;
             // 
+            // feedbackPanel
+            // 
+            this.feedbackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
+            this.feedbackPanel.Controls.Add(this.submitFeedback);
+            this.feedbackPanel.Controls.Add(this.feedbackTextBox);
+            this.feedbackPanel.Location = new System.Drawing.Point(536, 254);
+            this.feedbackPanel.Name = "feedbackPanel";
+            this.feedbackPanel.Size = new System.Drawing.Size(249, 214);
+            this.feedbackPanel.TabIndex = 8;
+            this.feedbackPanel.Visible = false;
+            // 
+            // submitFeedback
+            // 
+            this.submitFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.submitFeedback.FlatAppearance.BorderSize = 0;
+            this.submitFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitFeedback.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitFeedback.ForeColor = System.Drawing.Color.White;
+            this.submitFeedback.Location = new System.Drawing.Point(12, 179);
+            this.submitFeedback.Name = "submitFeedback";
+            this.submitFeedback.Size = new System.Drawing.Size(75, 23);
+            this.submitFeedback.TabIndex = 1;
+            this.submitFeedback.Text = "SUBMIT";
+            this.submitFeedback.UseVisualStyleBackColor = false;
+            // 
+            // feedbackTextBox
+            // 
+            this.feedbackTextBox.Location = new System.Drawing.Point(12, 16);
+            this.feedbackTextBox.Multiline = true;
+            this.feedbackTextBox.Name = "feedbackTextBox";
+            this.feedbackTextBox.Size = new System.Drawing.Size(221, 153);
+            this.feedbackTextBox.TabIndex = 0;
+            // 
             // profileButton
             // 
             this.profileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
@@ -87,9 +136,15 @@
             this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.profileButton.Location = new System.Drawing.Point(202, 12);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(116, 43);
+=======
+            this.profileButton.Location = new System.Drawing.Point(385, 20);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(97, 40);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.profileButton.TabIndex = 6;
             this.profileButton.Text = "PROFILE";
             this.profileButton.UseVisualStyleBackColor = false;
@@ -102,9 +157,15 @@
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.logoutButton.Location = new System.Drawing.Point(690, 12);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(116, 43);
+=======
+            this.logoutButton.Location = new System.Drawing.Point(694, 20);
+            this.logoutButton.Name = "logoutButton";
+            this.logoutButton.Size = new System.Drawing.Size(97, 40);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.logoutButton.TabIndex = 4;
             this.logoutButton.Text = "LOGOUT";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -117,9 +178,15 @@
             this.donationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donationBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donationBox.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.donationBox.Location = new System.Drawing.Point(446, 12);
             this.donationBox.Name = "donationBox";
             this.donationBox.Size = new System.Drawing.Size(116, 43);
+=======
+            this.donationBox.Location = new System.Drawing.Point(488, 20);
+            this.donationBox.Name = "donationBox";
+            this.donationBox.Size = new System.Drawing.Size(97, 40);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.donationBox.TabIndex = 2;
             this.donationBox.Text = "DONATE";
             this.donationBox.UseVisualStyleBackColor = false;
@@ -132,14 +199,21 @@
             this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestButton.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.requestButton.Location = new System.Drawing.Point(568, 12);
             this.requestButton.Name = "requestButton";
             this.requestButton.Size = new System.Drawing.Size(116, 43);
+=======
+            this.requestButton.Location = new System.Drawing.Point(591, 20);
+            this.requestButton.Name = "requestButton";
+            this.requestButton.Size = new System.Drawing.Size(97, 40);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             this.requestButton.TabIndex = 3;
             this.requestButton.Text = "REQUEST";
             this.requestButton.UseVisualStyleBackColor = false;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
+<<<<<<< HEAD
             // feedbackButton
             // 
             this.feedbackButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
@@ -154,6 +228,22 @@
             this.feedbackButton.Text = "FEEDBACK";
             this.feedbackButton.UseVisualStyleBackColor = false;
             this.feedbackButton.Click += new System.EventHandler(this.feedbackButton_Click);
+=======
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(710, 476);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 26);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "FEEDBACK";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.showFeedbackButton_Click);
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
             // 
             // DashboardForm
             // 
@@ -169,6 +259,8 @@
             this.Load += new System.EventHandler(this.Dashboard_Load_1);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.feedbackPanel.ResumeLayout(false);
+            this.feedbackPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,6 +273,13 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button requestButton;
         private System.Windows.Forms.Button profileButton;
+<<<<<<< HEAD
         private System.Windows.Forms.Button feedbackButton;
+=======
+        private Panel feedbackPanel;
+        private Button submitFeedback;
+        private TextBox feedbackTextBox;
+        private Button button2;
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
     }
 }

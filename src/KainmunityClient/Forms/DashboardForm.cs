@@ -34,10 +34,15 @@ namespace KainmunityClient.Forms
         private void requestButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //RequestApprovalForm request = new RequestApprovalForm();
-            //request.Show();
 
-            new RequestForm().Show();
+            if (APIConnector.AccountType == "Admin")
+            {
+                new RequestApprovalForm().Show();
+            }
+            else
+            {
+                new RequestForm().Show();
+            }
         }
         private void logoutButton_Click(object sender, EventArgs e)
         {
@@ -68,11 +73,24 @@ namespace KainmunityClient.Forms
             new UserProfileForm(APIConnector.UserId).Show();
         }
 
+<<<<<<< HEAD
         private void feedbackButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             SendFeedbackForm feed = new SendFeedbackForm();
             feed.Show();
+=======
+        private void showFeedbackButton_Click(object sender, EventArgs e)
+        {
+            if (feedbackPanel.Visible)
+            {
+                feedbackPanel.Visible = false;
+            }
+            else
+            {
+                feedbackPanel.Visible = true;
+            }
+>>>>>>> 82f7b9883dcbb8c250ee0618db5d30d9ae7defa2
         }
     }
 }
