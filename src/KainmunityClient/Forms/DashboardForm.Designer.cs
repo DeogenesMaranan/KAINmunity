@@ -36,8 +36,8 @@ namespace KainmunityClient.Forms
             this.firstName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.feedbackPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.submitFeedback = new System.Windows.Forms.Button();
+            this.feedbackTextBox = new System.Windows.Forms.TextBox();
             this.profileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
@@ -91,35 +91,35 @@ namespace KainmunityClient.Forms
             // feedbackPanel
             // 
             this.feedbackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
-            this.feedbackPanel.Controls.Add(this.button1);
-            this.feedbackPanel.Controls.Add(this.textBox1);
+            this.feedbackPanel.Controls.Add(this.submitFeedback);
+            this.feedbackPanel.Controls.Add(this.feedbackTextBox);
             this.feedbackPanel.Location = new System.Drawing.Point(536, 254);
             this.feedbackPanel.Name = "feedbackPanel";
             this.feedbackPanel.Size = new System.Drawing.Size(249, 214);
             this.feedbackPanel.TabIndex = 8;
             this.feedbackPanel.Visible = false;
             // 
-            // button1
+            // submitFeedback
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 179);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "SUBMIT";
-            this.button1.UseVisualStyleBackColor = false;
+            this.submitFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.submitFeedback.FlatAppearance.BorderSize = 0;
+            this.submitFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitFeedback.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitFeedback.ForeColor = System.Drawing.Color.White;
+            this.submitFeedback.Location = new System.Drawing.Point(12, 179);
+            this.submitFeedback.Name = "submitFeedback";
+            this.submitFeedback.Size = new System.Drawing.Size(75, 23);
+            this.submitFeedback.TabIndex = 1;
+            this.submitFeedback.Text = "SUBMIT";
+            this.submitFeedback.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // feedbackTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 16);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 153);
-            this.textBox1.TabIndex = 0;
+            this.feedbackTextBox.Location = new System.Drawing.Point(12, 16);
+            this.feedbackTextBox.Multiline = true;
+            this.feedbackTextBox.Name = "feedbackTextBox";
+            this.feedbackTextBox.Size = new System.Drawing.Size(221, 153);
+            this.feedbackTextBox.TabIndex = 0;
             // 
             // profileButton
             // 
@@ -225,8 +225,8 @@ namespace KainmunityClient.Forms
         private System.Windows.Forms.Button requestButton;
         private System.Windows.Forms.Button profileButton;
         private Panel feedbackPanel;
-        private Button button1;
-        private TextBox textBox1;
+        private Button submitFeedback;
+        private TextBox feedbackTextBox;
         private Button button2;
     }
 }
