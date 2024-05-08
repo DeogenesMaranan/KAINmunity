@@ -31,41 +31,64 @@ namespace KainmunityClient.Forms
 
             foreach (DonationItem donation in donations)
             {
-                AddListItem(donation.DonationId, donation.Name, donation.Quantity);
+                AddListItem(donation.DonationId, donation.ExpiryDate, donation.Name, donation.Quantity);
             }
         }
 
-        private void AddListItem(int itemId, string itemName, int availableQuantity)
+        private void AddListItem(int itemId, string expiration, string itemName, int availableQuantity)
         {
-            Label nameLabel = new Label();
-            nameLabel.Text = itemName;
-            nameLabel.Dock = DockStyle.Fill;
-            nameLabel.TextAlign = ContentAlignment.MiddleCenter;
-            nameLabel.Name = $"name_{itemId}";
+            TextBox requestQuantityPlace = new TextBox();
+            requestQuantityPlace.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            requestQuantityPlace.Name = $"requestQuantity_{itemId}";
+            requestQuantityPlace.Size = new Size(137, 21);
+            requestQuantityPlace.TextAlign = HorizontalAlignment.Center;
 
-            Label quantityLabel = new Label();
-            quantityLabel.Text = availableQuantity.ToString();
-            quantityLabel.Dock = DockStyle.Fill;
-            quantityLabel.TextAlign = ContentAlignment.MiddleCenter;
-            quantityLabel.Name = $"quantity_{itemId}";
+            TextBox availableQuantityPlace = new TextBox();
+            availableQuantityPlace.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
+            availableQuantityPlace.BorderStyle = BorderStyle.None;
+            availableQuantityPlace.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            availableQuantityPlace.Name = $"quantitySection_{itemId}";
+            availableQuantityPlace.Size = new Size(137, 21);
+            availableQuantityPlace.ReadOnly = true;
+            availableQuantityPlace.Text = availableQuantity.ToString();
+            availableQuantityPlace.TextAlign = HorizontalAlignment.Center;
 
-            TextBox requestQuantityTextBox = new TextBox();
-            requestQuantityTextBox.Dock = DockStyle.Fill;
-            requestQuantityTextBox.Name = $"requestQuantity_{itemId}";
+            TextBox expiryPlace = new TextBox();
+            expiryPlace.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
+            expiryPlace.BorderStyle = BorderStyle.None;
+            expiryPlace.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            expiryPlace.Name = $"expirySection_{itemId}";
+            expiryPlace.Size = new Size(137, 21);
+            expiryPlace.ReadOnly = true;
+            expiryPlace.Text = expiration.Split(' ')[0]; ;
+            expiryPlace.TextAlign = HorizontalAlignment.Center;
 
-            TableLayoutPanel listItems = new TableLayoutPanel();
-            listItems.Size = new Size(575, 27);
+            TextBox namePlace = new TextBox();
+            namePlace.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
+            namePlace.BorderStyle = BorderStyle.None;
+            namePlace.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            namePlace.Name = $"nameSection_{itemId}";
+            namePlace.Size = new Size(137, 21);
+            namePlace.ReadOnly = true;
+            namePlace.Text = itemName;
 
-            listItems.Controls.Add(nameLabel, 0, 0);
-            listItems.Controls.Add(quantityLabel, 1, 0);
-            listItems.Controls.Add(requestQuantityTextBox, 2, 0);
+            TableLayoutPanel entriesPlace = new TableLayoutPanel();
+            entriesPlace.ColumnCount = 4;
+            entriesPlace.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            entriesPlace.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            entriesPlace.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            entriesPlace.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            entriesPlace.Controls.Add(requestQuantityPlace, 3, 0);
+            entriesPlace.Controls.Add(availableQuantityPlace, 2, 0);
+            entriesPlace.Controls.Add(expiryPlace, 1, 0);
+            entriesPlace.Controls.Add(namePlace, 0, 0);
+            entriesPlace.Name = $"requestPlaceholder_{itemId}";
+            entriesPlace.RowCount = 1;
+            entriesPlace.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            entriesPlace.Size = new Size(574, 27);
+            entriesPlace.TabIndex = 10;
 
-            listItems.ColumnStyles[0] = new ColumnStyle(SizeType.Percent, 33F);
-            listItems.ColumnStyles[1] = new ColumnStyle(SizeType.Percent, 33F);
-            listItems.ColumnStyles[2] = new ColumnStyle(SizeType.Percent, 33F);
-            listItems.Name = $"list_{itemId}";
-
-            flowLayoutPanel.Controls.Add(listItems);
+            flowLayoutPanel.Controls.Add(entriesPlace);
         }
     }
 }
