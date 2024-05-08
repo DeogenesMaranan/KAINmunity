@@ -129,6 +129,7 @@ namespace KainmunityClient.Forms
             this.submitFeedback.TabIndex = 1;
             this.submitFeedback.Text = "SUBMIT";
             this.submitFeedback.UseVisualStyleBackColor = false;
+            this.submitFeedback.Click += new System.EventHandler(this.sendFeedback);
             // 
             // feedbackTextBox
             // 
@@ -145,9 +146,9 @@ namespace KainmunityClient.Forms
             this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.Location = new System.Drawing.Point(410, 20);
+            this.profileButton.Location = new System.Drawing.Point(385, 20);
             this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(90, 38);
+            this.profileButton.Size = new System.Drawing.Size(97, 40);
             this.profileButton.TabIndex = 6;
             this.profileButton.Text = "PROFILE";
             this.profileButton.UseVisualStyleBackColor = false;
@@ -160,9 +161,9 @@ namespace KainmunityClient.Forms
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(701, 20);
+            this.logoutButton.Location = new System.Drawing.Point(694, 20);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(90, 38);
+            this.logoutButton.Size = new System.Drawing.Size(97, 40);
             this.logoutButton.TabIndex = 4;
             this.logoutButton.Text = "LOGOUT";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -175,9 +176,9 @@ namespace KainmunityClient.Forms
             this.donationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donationBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donationBox.ForeColor = System.Drawing.Color.White;
-            this.donationBox.Location = new System.Drawing.Point(506, 20);
+            this.donationBox.Location = new System.Drawing.Point(488, 20);
             this.donationBox.Name = "donationBox";
-            this.donationBox.Size = new System.Drawing.Size(90, 38);
+            this.donationBox.Size = new System.Drawing.Size(97, 40);
             this.donationBox.TabIndex = 2;
             this.donationBox.Text = "DONATE";
             this.donationBox.UseVisualStyleBackColor = false;
@@ -190,9 +191,9 @@ namespace KainmunityClient.Forms
             this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestButton.ForeColor = System.Drawing.Color.White;
-            this.requestButton.Location = new System.Drawing.Point(605, 20);
+            this.requestButton.Location = new System.Drawing.Point(591, 20);
             this.requestButton.Name = "requestButton";
-            this.requestButton.Size = new System.Drawing.Size(90, 38);
+            this.requestButton.Size = new System.Drawing.Size(97, 40);
             this.requestButton.TabIndex = 3;
             this.requestButton.Text = "REQUEST";
             this.requestButton.UseVisualStyleBackColor = false;

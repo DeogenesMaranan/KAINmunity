@@ -89,11 +89,11 @@
     <Compile Include="Forms\DonationForm.Designer.cs">
       <DependentUpon>DonationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.cs">
+    <Compile Include="Forms\DisplayFeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <Compile Include="Forms\DisplayFeedbackForm.Designer.cs">
+      <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LeaderboardForm.cs">
       <SubType>Form</SubType>
@@ -125,6 +125,12 @@
     <Compile Include="Forms\RequestHistory.Designer.cs">
       <DependentUpon>RequestHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SendFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SendFeedbackForm.Designer.cs">
+      <DependentUpon>SendFeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SignupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,14 +150,15 @@
     <Compile Include="ServerAPI\AccountManager.cs" />
     <Compile Include="ServerAPI\APIConnector.cs" />
     <Compile Include="ServerAPI\DonationManager.cs" />
+    <Compile Include="ServerAPI\FeedbackManager.cs" />
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DonationForm.resx">
       <DependentUpon>DonationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DisplayFeedbackForm.resx">
+      <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LeaderboardForm.resx">
       <DependentUpon>LeaderboardForm.cs</DependentUpon>
@@ -167,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestHistory.resx">
       <DependentUpon>RequestHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SendFeedbackForm.resx">
+      <DependentUpon>SendFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
