@@ -26,6 +26,7 @@ namespace KainmunityClient.ServerAPI
             }
 
             APIConnector.UserId = Convert.ToString(res["userId"]);
+            APIConnector.AccountType = Convert.ToString(res["accountType"]);
             return true;
         }
 

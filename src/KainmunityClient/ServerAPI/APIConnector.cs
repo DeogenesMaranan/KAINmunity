@@ -19,6 +19,7 @@ namespace KainmunityClient.ServerAPI
         public static string ApiUrl { get; set; }
 
         public static string UserId { get; set; }
+        public static string AccountType { get; set; }
 
         static APIConnector()
         {
