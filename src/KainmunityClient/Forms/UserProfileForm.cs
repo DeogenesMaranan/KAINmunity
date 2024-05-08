@@ -95,18 +95,6 @@ namespace KainmunityClient.Forms
             new DashboardForm().Show();
         }
 
-        private void showPassword_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (showPassword.Checked)
-            {
-                password.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                password.UseSystemPasswordChar = true;
-            }
-        }
-
         private void showPassword_Click(object sender, EventArgs e)
         {
             if (password.UseSystemPasswordChar == true)

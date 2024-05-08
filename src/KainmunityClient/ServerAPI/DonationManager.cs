@@ -104,5 +104,20 @@ namespace KainmunityClient.ServerAPI
             var res = await APIConnector.SendRequest(RequestMethod.PUT, "donations/request", listBody: convertedRequests);
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
+
+        public static async Task<List<Dictionary<string, object>>> GetLeaderboard()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/leaderboard");
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+            return dictionary;
+        }
     }
 }

@@ -84,5 +84,11 @@ namespace KainmunityClient.Forms
                 feedbackPanel.Visible = true;
             }
         }
+
+        private void leaderboard(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Leaderboard().Show();
+        }
     }
 }

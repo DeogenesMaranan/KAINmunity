@@ -54,8 +54,8 @@
             // 
             // panel
             // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.AutoScroll = true;
             this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
@@ -72,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(331, 54);
+            this.label2.Location = new System.Drawing.Point(284, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 24);
             this.label2.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(140, 54);
+            this.label1.Location = new System.Drawing.Point(87, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 24);
             this.label1.TabIndex = 0;
@@ -91,8 +91,8 @@
             // 
             // leaderboardContainer
             // 
-            this.leaderboardContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.leaderboardContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.leaderboardContainer.AutoScroll = true;
             this.leaderboardContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -100,6 +100,7 @@
             this.leaderboardContainer.Name = "leaderboardContainer";
             this.leaderboardContainer.Size = new System.Drawing.Size(430, 277);
             this.leaderboardContainer.TabIndex = 3;
+            this.leaderboardContainer.WrapContents = false;
             // 
             // titlePanel
             // 
@@ -125,7 +126,7 @@
             this.back.Text = "BACK";
             this.back.UseVisualStyleBackColor = false;
             // 
-            // LeaderBoard
+            // Leaderboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,9 +138,10 @@
             this.Controls.Add(this.titlePanel);
             this.Controls.Add(this.panel);
             this.DoubleBuffered = true;
-            this.Name = "LeaderBoard";
+            this.Name = "Leaderboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Leaderboard";
+            this.Load += new System.EventHandler(this.FetchLeaderboard);
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.titlePanel.ResumeLayout(false);

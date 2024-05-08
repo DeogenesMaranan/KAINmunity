@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KainmunityClient.ServerAPI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,20 @@ namespace KainmunityClient.Forms
             InitializeComponent();
         }
 
+        private async void FetchLeaderboard(object sender, EventArgs e)
+        {
+            var donors = await DonationManager.GetLeaderboard();
+
+            foreach (var donor in donors)
+            {
+                int donorId = Convert.ToInt32(donor["DonorId"]);
+                string donorName= Convert.ToString(donor["DonorName"]);
+                int donations = Convert.ToInt32(donor["TotalDonations"]);
+
+                showLeaderboardEntry(donorId, donorName, donations);
+            }
+        }
+
         private void showLeaderboardEntry(int donorId, string donorName, int donations)
         {
             TextBox name = new TextBox();
@@ -24,24 +39,26 @@ namespace KainmunityClient.Forms
             name.BorderStyle = BorderStyle.None;
             name.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             name.Name = $"name_{donorId}";
-            name.Size = new Size(300, 21);
+            name.Size = new Size(206, 21);
             name.Text = donorName;
             name.TextAlign = HorizontalAlignment.Center;
+            name.ReadOnly = true;
 
             TextBox donationCount = new TextBox();
             donationCount.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
             donationCount.BorderStyle = BorderStyle.None;
             donationCount.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             donationCount.Name = $"donations_{donorId}";
-            donationCount.Size = new Size(96, 21);
+            donationCount.Size = new Size(206, 21);
             donationCount.TabIndex = 1;
             donationCount.Text = "1000";
             donationCount.TextAlign = HorizontalAlignment.Center;
+            donationCount.ReadOnly = true;
 
             TableLayoutPanel entryContainer = new TableLayoutPanel();
             entryContainer.ColumnCount = 2;
-            entryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-            entryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            entryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            entryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             entryContainer.Controls.Add(name, 0, 0);
             entryContainer.Controls.Add(donationCount, 1, 0);
             entryContainer.Name = $"entryContainer_{donorId}";
