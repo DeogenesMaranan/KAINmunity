@@ -43,6 +43,7 @@ namespace KainmunityClient.Forms
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.feedbackPanel.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@ namespace KainmunityClient.Forms
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.feedbackPanel);
             this.panel3.Controls.Add(this.profileButton);
@@ -197,6 +199,20 @@ namespace KainmunityClient.Forms
             this.requestButton.UseVisualStyleBackColor = false;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.button1.Location = new System.Drawing.Point(602, 476);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 26);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "LEADERBOARD";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +245,6 @@ namespace KainmunityClient.Forms
         private Button submitFeedback;
         private TextBox feedbackTextBox;
         private Button button2;
+        private Button button1;
     }
 }

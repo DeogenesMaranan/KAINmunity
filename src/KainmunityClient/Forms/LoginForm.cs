@@ -18,11 +18,6 @@ namespace KainmunityClient.Forms
             InitializeComponent();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
 
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -48,19 +43,21 @@ namespace KainmunityClient.Forms
             signup.Show();
         }
 
-        private void showPasswordState(object sender, EventArgs e)
+        private void showPassword_Click(object sender, EventArgs e)
         {
-            if (showPassword.Checked)
+            if (inputPassword.UseSystemPasswordChar == true)
             {
+                showPassword.BackgroundImage = Properties.Resources.eye;
                 inputPassword.UseSystemPasswordChar = false;
             }
             else
             {
+                showPassword.BackgroundImage = Properties.Resources.show;
                 inputPassword.UseSystemPasswordChar = true;
             }
         }
 
-        private void showCheckBox(object sender, EventArgs e)
+        private void showIcons(object sender, EventArgs e)
         {
             showPassword.Visible = true;
         }

@@ -120,5 +120,13 @@ namespace KainmunityServer.DataAccess
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
         }
+
+        public static async Task<List<Dictionary<string, object>>> FetchLeaderboard()
+        {
+            string query = "SELECT * FROM DonorLeaderboard";
+
+            var res = await DatabaseConnector.ExecuteQuery(query);
+            return res;
+        }
     }
 }

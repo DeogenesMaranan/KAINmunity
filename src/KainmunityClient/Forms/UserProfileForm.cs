@@ -95,19 +95,21 @@ namespace KainmunityClient.Forms
             new DashboardForm().Show();
         }
 
-        private void showPassword_CheckStateChanged(object sender, EventArgs e)
+        private void showPassword_Click(object sender, EventArgs e)
         {
-            if (showPassword.Checked)
+            if (password.UseSystemPasswordChar == true)
             {
+                showPassword.BackgroundImage = Properties.Resources.eye;
                 password.UseSystemPasswordChar = false;
             }
             else
             {
+                showPassword.BackgroundImage = Properties.Resources.show;
                 password.UseSystemPasswordChar = true;
             }
         }
 
-        private void showCheckBox(object sender, EventArgs e)
+        private void showIcon(object sender, EventArgs e)
         {
             showPassword.Visible = true;
         }

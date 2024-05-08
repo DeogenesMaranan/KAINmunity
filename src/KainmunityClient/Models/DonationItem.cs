@@ -13,5 +13,6 @@ namespace KainmunityClient.Models
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string ExpiryDate { get; set; }
+        public string Donations { get; set; }
     }
 }
