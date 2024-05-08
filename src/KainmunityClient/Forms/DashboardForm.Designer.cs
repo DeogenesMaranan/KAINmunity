@@ -58,7 +58,6 @@ namespace KainmunityClient.Forms
             this.label1.Size = new System.Drawing.Size(128, 35);
             this.label1.TabIndex = 5;
             this.label1.Text = "WELCOME,";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // firstName
             // 
@@ -70,7 +69,6 @@ namespace KainmunityClient.Forms
             this.firstName.Size = new System.Drawing.Size(97, 35);
             this.firstName.TabIndex = 1;
             this.firstName.Text = "default";
-            this.firstName.Click += new System.EventHandler(this.firstName_Click);
             // 
             // panel3
             // 
@@ -225,7 +223,6 @@ namespace KainmunityClient.Forms
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.Load += new System.EventHandler(this.Dashboard_Load_1);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.feedbackPanel.ResumeLayout(false);

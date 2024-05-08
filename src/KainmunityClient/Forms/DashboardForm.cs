@@ -50,22 +50,6 @@ namespace KainmunityClient.Forms
             LoginForm login = new LoginForm();
             login.Show();
         }
-        private void Dashboard_Load_1(object sender, EventArgs e)
-        {
-
-        }
-        private void firstName_Click(object sender, EventArgs e)
-        {
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
