@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dotenv.net;
 using KainmunityClient.Forms;
 using KainmunityClient.ServerAPI;
 
@@ -18,11 +17,8 @@ namespace KainmunityClient
         [STAThread]
         static void Main(string[] args)
         {
-            DotEnv.Load();
-
-            APIConnector.ApiUrl = (args.Length > 0 && args[0] == "online")
-                ? Environment.GetEnvironmentVariable("SERVER_URL") + "/api/"
-                : "http://localhost:5000/api/";
+            APIConnector.ApiUrl = $"http://{(args.Length > 0 ? args[0] : "localhost")}:5000/api/";
+            MessageBox.Show(APIConnector.ApiUrl);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
