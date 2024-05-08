@@ -58,21 +58,21 @@ namespace KainmunityClient.Forms
             nameTextBox.Text = requesterName;
             nameTextBox.Size = new Size(224, 20);
             nameTextBox.TextAlign = HorizontalAlignment.Center;
-            nameTextBox.Enabled = false;
+            nameTextBox.ReadOnly = true;
             nameTextBox.Name = $"name_{requestId}";
 
             TextBox itemTextBox = new TextBox();
             itemTextBox.Text = itemName;
             itemTextBox.Size = new Size(137, 20);
             itemTextBox.TextAlign = HorizontalAlignment.Center;
-            itemTextBox.Enabled = false;
+            itemTextBox.ReadOnly = true;
             itemTextBox.Name = $"item_{requestId}";
 
             TextBox quantityTextBox = new TextBox();
             quantityTextBox.Text = Convert.ToString(itemQuantity);
             quantityTextBox.Size = new Size(80, 20);
             quantityTextBox.TextAlign = HorizontalAlignment.Center;
-            quantityTextBox.Enabled = false;
+            quantityTextBox.ReadOnly = true;
             quantityTextBox.Name = $"quantity_{requestId}";
 
             ComboBox statusComboBox = new ComboBox();
@@ -120,6 +120,11 @@ namespace KainmunityClient.Forms
             statusComboBox.SelectedIndexChanged += delegate (object sender, EventArgs e)
             {
                 _requestEntries[requestIndex].StatusChanged = true;
+            };
+
+            nameTextBox.Click += delegate (object sender, EventArgs e)
+            {
+                new UserProfileForm(Convert.ToString(requesterId), true).Show();
             };
         }
 

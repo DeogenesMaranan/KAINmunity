@@ -15,9 +15,11 @@ namespace KainmunityClient.Forms
     public partial class UserProfileForm : Form
     {
         private readonly string _userId;
-        public UserProfileForm(string userId)
+        private readonly bool _isViewer;
+        public UserProfileForm(string userId, bool isViewer = false)
         {
             _userId = userId;
+            _isViewer = isViewer;
             InitializeComponent();
         }
 
@@ -34,7 +36,7 @@ namespace KainmunityClient.Forms
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
             password.Text = Convert.ToString(info["UserPassword"]);
 
-            if (_userId == APIConnector.UserId)
+            if (!_isViewer)
             {
                 emailAddress.ReadOnly = false;
                 homeAddress.ReadOnly = false;
@@ -54,6 +56,7 @@ namespace KainmunityClient.Forms
                 save.Dispose();
             }
 
+            this.Text = $"{firstName.Text} {lastName.Text}'s Profile";
             this.ActiveControl = null;
         }
 
@@ -82,6 +85,12 @@ namespace KainmunityClient.Forms
 
         private void ReturnToDashboard(object sender, EventArgs e)
         {
+            if (_isViewer)
+            {
+                this.Close();
+                return;
+            }
+
             this.Hide();
             new DashboardForm().Show();
         }
