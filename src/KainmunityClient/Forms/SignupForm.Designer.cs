@@ -135,9 +135,9 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(407, 0);
+            this.panel1.Location = new System.Drawing.Point(391, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 541);
+            this.panel1.Size = new System.Drawing.Size(411, 502);
             this.panel1.TabIndex = 18;
             // 
             // panel2
@@ -286,7 +286,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(818, 541);
+            this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);

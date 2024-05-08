@@ -64,7 +64,7 @@
             this.panel.Controls.Add(this.leaderboardContainer);
             this.panel.Location = new System.Drawing.Point(184, 48);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(443, 373);
+            this.panel.Size = new System.Drawing.Size(445, 425);
             this.panel.TabIndex = 14;
             // 
             // label2
@@ -98,7 +98,7 @@
             this.leaderboardContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.leaderboardContainer.Location = new System.Drawing.Point(13, 81);
             this.leaderboardContainer.Name = "leaderboardContainer";
-            this.leaderboardContainer.Size = new System.Drawing.Size(430, 277);
+            this.leaderboardContainer.Size = new System.Drawing.Size(432, 329);
             this.leaderboardContainer.TabIndex = 3;
             this.leaderboardContainer.WrapContents = false;
             // 
@@ -125,6 +125,7 @@
             this.back.TabIndex = 18;
             this.back.Text = "BACK";
             this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.returnToDashboard);
             // 
             // Leaderboard
             // 
@@ -132,8 +133,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.back);
             this.Controls.Add(this.titlePanel);
             this.Controls.Add(this.panel);

@@ -69,5 +69,12 @@ namespace KainmunityClient.Forms
             leaderboardContainer.SetFlowBreak(entryContainer, true);
             leaderboardContainer.Controls.Add(entryContainer);
         }
+
+        private void returnToDashboard(object sender, EventArgs e)
+        {
+            this.Hide();
+            DashboardForm dash = new DashboardForm();
+            dash.Show();
+        }
     }
 }

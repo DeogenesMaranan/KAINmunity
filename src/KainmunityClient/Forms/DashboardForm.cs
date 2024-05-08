@@ -106,5 +106,12 @@ namespace KainmunityClient.Forms
             }
 
         }
+
+        private void toLeaderboard(object sender, EventArgs e)
+        {
+            this.Hide();
+            Leaderboard lead = new Leaderboard();
+            lead.Show();
+        }
     }
 }
