@@ -60,7 +60,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label2.Location = new System.Drawing.Point(207, 144);
+            this.label2.Location = new System.Drawing.Point(207, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 3;
@@ -68,7 +68,7 @@
             // 
             // email
             // 
-            this.email.Location = new System.Drawing.Point(65, 255);
+            this.email.Location = new System.Drawing.Point(65, 239);
             this.email.Multiline = true;
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(267, 20);
@@ -76,7 +76,7 @@
             // 
             // address
             // 
-            this.address.Location = new System.Drawing.Point(65, 345);
+            this.address.Location = new System.Drawing.Point(65, 329);
             this.address.Multiline = true;
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(172, 20);
@@ -84,7 +84,7 @@
             // 
             // size
             // 
-            this.size.Location = new System.Drawing.Point(243, 345);
+            this.size.Location = new System.Drawing.Point(243, 329);
             this.size.Multiline = true;
             this.size.Name = "size";
             this.size.Size = new System.Drawing.Size(92, 20);
@@ -97,7 +97,7 @@
             this.regButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.regButton.ForeColor = System.Drawing.Color.White;
-            this.regButton.Location = new System.Drawing.Point(125, 393);
+            this.regButton.Location = new System.Drawing.Point(125, 377);
             this.regButton.Name = "regButton";
             this.regButton.Size = new System.Drawing.Size(144, 44);
             this.regButton.TabIndex = 9;
@@ -107,7 +107,7 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(65, 208);
+            this.password.Location = new System.Drawing.Point(65, 192);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(270, 20);
             this.password.TabIndex = 3;
@@ -121,7 +121,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tw Cen MT", 9.75F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.button1.Location = new System.Drawing.Point(154, 443);
+            this.button1.Location = new System.Drawing.Point(154, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 25);
             this.button1.TabIndex = 10;
@@ -154,7 +154,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label7.Location = new System.Drawing.Point(114, 76);
+            this.label7.Location = new System.Drawing.Point(114, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 60);
             this.label7.TabIndex = 19;
@@ -162,28 +162,28 @@
             // 
             // firstName
             // 
-            this.firstName.Location = new System.Drawing.Point(65, 164);
+            this.firstName.Location = new System.Drawing.Point(65, 148);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(139, 20);
             this.firstName.TabIndex = 1;
             // 
             // lastName
             // 
-            this.lastName.Location = new System.Drawing.Point(210, 164);
+            this.lastName.Location = new System.Drawing.Point(210, 148);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(125, 20);
             this.lastName.TabIndex = 2;
             // 
             // contactNumber
             // 
-            this.contactNumber.Location = new System.Drawing.Point(65, 299);
+            this.contactNumber.Location = new System.Drawing.Point(65, 283);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.Size = new System.Drawing.Size(172, 20);
             this.contactNumber.TabIndex = 5;
             // 
             // income
             // 
-            this.income.Location = new System.Drawing.Point(243, 299);
+            this.income.Location = new System.Drawing.Point(243, 283);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(92, 20);
             this.income.TabIndex = 6;
@@ -193,7 +193,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(62, 144);
+            this.label1.Location = new System.Drawing.Point(62, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 17);
             this.label1.TabIndex = 24;
@@ -204,7 +204,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label8.Location = new System.Drawing.Point(62, 188);
+            this.label8.Location = new System.Drawing.Point(62, 172);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 25;
@@ -215,7 +215,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label6.Location = new System.Drawing.Point(62, 235);
+            this.label6.Location = new System.Drawing.Point(62, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 26;
@@ -226,7 +226,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(62, 280);
+            this.label3.Location = new System.Drawing.Point(62, 264);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 27;
@@ -237,7 +237,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label4.Location = new System.Drawing.Point(240, 279);
+            this.label4.Location = new System.Drawing.Point(240, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 17);
             this.label4.TabIndex = 28;
@@ -248,7 +248,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label9.Location = new System.Drawing.Point(240, 325);
+            this.label9.Location = new System.Drawing.Point(240, 309);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 17);
             this.label9.TabIndex = 29;
@@ -259,7 +259,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label10.Location = new System.Drawing.Point(62, 326);
+            this.label10.Location = new System.Drawing.Point(62, 310);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 17);
             this.label10.TabIndex = 30;
@@ -273,7 +273,7 @@
             this.showPassword.FlatAppearance.BorderSize = 0;
             this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPassword.Location = new System.Drawing.Point(307, 210);
+            this.showPassword.Location = new System.Drawing.Point(307, 194);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(26, 17);
             this.showPassword.TabIndex = 31;
@@ -286,7 +286,7 @@
             this.statusText.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.statusText.AutoSize = true;
             this.statusText.ForeColor = System.Drawing.Color.Red;
-            this.statusText.Location = new System.Drawing.Point(62, 372);
+            this.statusText.Location = new System.Drawing.Point(62, 356);
             this.statusText.Name = "statusText";
             this.statusText.Size = new System.Drawing.Size(0, 13);
             this.statusText.TabIndex = 32;
