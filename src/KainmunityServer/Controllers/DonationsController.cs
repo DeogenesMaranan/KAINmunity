@@ -23,6 +23,13 @@ namespace KainmunityServer.Controllers
             return new JsonResult(Ok(res)); 
         }
 
+        [HttpGet("request/{donationId}")]
+        public async Task<JsonResult> GetAssociatedRequests(int donationId)
+        {
+            var res = await DonationsManager.GetAssociatedRequests(donationId);
+            return new JsonResult(Ok(res));
+        }
+
         [HttpPost("request")]
         public async Task<JsonResult> RequestDonation(DonationRequest[] donationRequests)
         {

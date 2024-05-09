@@ -121,6 +121,24 @@ namespace KainmunityServer.DataAccess
             return res;
         }
 
+        public static async Task<List<Dictionary<string, object>>> GetAssociatedRequests(int donationId)
+        {
+            string query = @"
+                SELECT RequestId, RequestDate, (CONCAT(UserFirstName, ' ', UserLastName)) AS RequesterName, RequestQuantity, RequestStatus FROM Requests
+                JOIN UserInformations ON RequesterId = UserId
+                WHERE DonationId = @DonationId
+                ORDER BY RequestDate;
+            ";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonationId", donationId }
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            return res;
+        }
+
         public static async Task<List<Dictionary<string, object>>> FetchLeaderboard()
         {
             string query = "SELECT * FROM DonorLeaderboard";
