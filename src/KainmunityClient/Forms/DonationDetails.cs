@@ -125,7 +125,7 @@ namespace KainmunityClient.Forms
             entryPlaceholder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             entryPlaceholder.Size = new System.Drawing.Size(574, 34);
 
-            assReqContainer.Controls.Add(entryPlaceHolder);
+            assReqContainer.Controls.Add(entryPlaceholder);
 
         }
 
