@@ -6,11 +6,10 @@ namespace KainmunityServer.DataAccess
     {
         public static async Task<bool> AddFeedback(FeedbackItem feedbackItem)
         {
-            string query = "INSERT INTO Feedbacks (RespondentId, FeedbackContent)" +
-                "VALUES (@RespondentId, @Content)";
+            string query = "INSERT INTO Feedbacks (FeedbackContent, FeedbackStatus)" +
+                "VALUES (@Content, 'Pending')";
             var parameters = new Dictionary<string, object>()
             {
-                { "@RespondentId", feedbackItem.RespondentId },
                 { "@Content", feedbackItem.Content }
             };
 
@@ -21,27 +20,26 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<List<Dictionary<string, object>>> FetchFeedbacks()
         {
-            string query = "SELECT * FROM Feedbacks ORDER BY FeedbackId DESC";
+            string query = "SELECT * FROM Feedbacks WHERE FeedbackStatus = 'Pending' ORDER BY FeedbackId DESC";
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
         }
 
-        public static async Task<Dictionary<string, object>> GetFirstName(int userId)
+        public static async Task<bool> ResolveFeedback(int feedbackId)
         {
-            string query = "SELECT UserFirstName FROM UserInformations NATURAL JOIN Feedbacks WHERE RespondentId = @UserId";
+            string query = @"
+                UPDATE Feedbacks
+                SET FeedbackStatus = 'Resolved'
+                WHERE FeedbackId = @FeedbackId
+            ";
+
             var parameters = new Dictionary<string, object>()
             {
-                { "@UserId", userId },
+                { "@FeedbackId", feedbackId },
             };
 
-            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
-
-            if (res.Count == 0)
-            {
-                return null;
-            }
-
-            return res[0];
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+            return res == 1;
         }
     }
 

@@ -15,10 +15,15 @@ namespace KainmunityClient.ServerAPI
         {
             var res = await APIConnector.SendRequest(RequestMethod.POST, "feedback/submit", new Dictionary<string, object>
             {
-                { "respondentId", APIConnector.UserId },
                 { "content", feedbackContent }
             });
 
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
+        public static async Task<bool> ResolveFeedback(int feedbackId)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"feedback/resolve/{feedbackId}");
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 

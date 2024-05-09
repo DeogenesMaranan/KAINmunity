@@ -22,6 +22,13 @@ namespace KainmunityServer.Controllers
             var feedbacks = await FeedbacksManager.FetchFeedbacks();
             return new JsonResult(Ok(feedbacks));
         }
+
+        [HttpGet("resolve/{feedbackId}")]
+        public async Task<JsonResult> ResolveFeedback(int feedbackId)
+        {
+            var isSuccess = await FeedbacksManager.ResolveFeedback(feedbackId);
+            return new JsonResult(isSuccess ? Ok() : NotFound());
+        }
     }
 
 }

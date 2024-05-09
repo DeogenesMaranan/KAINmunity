@@ -60,7 +60,7 @@ namespace KainmunityClient.Forms
             resolveBtn.ForeColor = SystemColors.Window;
             resolveBtn.Name = $"resolveBtn_{feedbackId}";
             resolveBtn.Size = new Size(109, 39);
-            resolveBtn.Text = "RESOLVED";
+            resolveBtn.Text = "RESOLVE";
             resolveBtn.UseVisualStyleBackColor = false;
 
             TableLayoutPanel tableContainer = new TableLayoutPanel();
@@ -78,6 +78,22 @@ namespace KainmunityClient.Forms
             tableContainer.Location = new Point(3, 3);
 
             feedbackContainer.Controls.Add(tableContainer);
+
+            resolveBtn.Click += async delegate (object sender, EventArgs e)
+            {
+                var res = await FeedbackManager.ResolveFeedback(feedbackId);
+
+                if (res)
+                {
+                    new DisplayFeedbackForm().Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed");
+                }
+                
+            };
         }
 
             
