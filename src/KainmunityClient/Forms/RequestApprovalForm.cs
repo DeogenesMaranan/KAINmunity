@@ -54,53 +54,117 @@ namespace KainmunityClient.Forms
 
         private void AddRequestEntry(int requestId, int requesterId, string requesterName, int donationId, string itemName, int itemQuantity, string requestStatus)
         {
-            TextBox nameTextBox = new TextBox();
-            nameTextBox.Text = requesterName;
-            nameTextBox.Size = new Size(224, 20);
-            nameTextBox.TextAlign = HorizontalAlignment.Center;
-            nameTextBox.ReadOnly = true;
-            nameTextBox.Name = $"name_{requestId}";
+            TextBox nameTb = new TextBox();
+            nameTb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            nameTb.BorderStyle = BorderStyle.None;
+            nameTb.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            nameTb.Location = new Point(3, 6);
+            nameTb.Name = $"name_{requestId}";
+            nameTb.ReadOnly = true;
+            nameTb.Size = new Size(223, 18);
+            nameTb.TabIndex = 0;
+            nameTb.TextAlign = HorizontalAlignment.Center;
+            nameTb.Text = requesterName;
 
-            TextBox itemTextBox = new TextBox();
-            itemTextBox.Text = itemName;
-            itemTextBox.Size = new Size(137, 20);
-            itemTextBox.TextAlign = HorizontalAlignment.Center;
-            itemTextBox.ReadOnly = true;
-            itemTextBox.Name = $"item_{requestId}";
+            TextBox itemtb = new TextBox();
+            itemtb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            itemtb.BorderStyle = BorderStyle.None;
+            itemtb.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            itemtb.Location = new Point(3, 6);
+            itemtb.Name = $"item_{requestId}";
+            itemtb.ReadOnly = true;
+            itemtb.Size = new Size(136, 18);
+            itemtb.TabIndex = 0;
+            itemtb.TextAlign = HorizontalAlignment.Center;
+            itemtb.Text = itemName;
 
-            TextBox quantityTextBox = new TextBox();
-            quantityTextBox.Text = Convert.ToString(itemQuantity);
-            quantityTextBox.Size = new Size(80, 20);
-            quantityTextBox.TextAlign = HorizontalAlignment.Center;
-            quantityTextBox.ReadOnly = true;
-            quantityTextBox.Name = $"quantity_{requestId}";
+            TextBox quantityTb = new TextBox();
+            quantityTb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            quantityTb.BorderStyle = BorderStyle.None;
+            quantityTb.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            quantityTb.Location = new Point(3, 6);
+            quantityTb.Name = $"quantity_{requestId}";
+            quantityTb.ReadOnly = true;
+            quantityTb.Size = new Size(77, 18);
+            quantityTb.TabIndex = 0;
+            quantityTb.TextAlign = HorizontalAlignment.Center;
+            quantityTb.Text = Convert.ToString(itemQuantity);
 
-            ComboBox statusComboBox = new ComboBox();
-            statusComboBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-            statusComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            statusComboBox.Items.AddRange(new object[] { "Pending", "Accepted", "Declined" });
-            statusComboBox.Text = requestStatus;
-            statusComboBox.Size = new Size(110, 20);
-            statusComboBox.Name = $"status_{requestId}";
+            ComboBox statusOption = new ComboBox();
+            statusOption.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            statusOption.FlatStyle = FlatStyle.Flat;
+            statusOption.FormattingEnabled = true;
+            statusOption.Location = new Point(3, 5);
+            statusOption.Name = "statusOption";
+            statusOption.RightToLeft = RightToLeft.No;
+            statusOption.Size = new Size(106, 21);
+            statusOption.Name = $"status_{requestId}";
+            statusOption.Text = requestStatus;
+            statusOption.AutoCompleteMode = AutoCompleteMode.Suggest;
+            statusOption.AutoCompleteSource = AutoCompleteSource.ListItems;
+            statusOption.Items.AddRange(new object[] { "Pending", "Accepted", "Declined" });
 
-            if (requestStatus != "Pending")
+            Panel itemPanel = new Panel();
+            itemPanel.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            itemPanel.Controls.Add(itemtb);
+            itemPanel.Dock = DockStyle.Fill;
+            itemPanel.Location = new Point(235, 3);
+            itemPanel.Name = $"itemPanel_{requestId}";
+            itemPanel.Size = new Size(139, 29);
+            itemPanel.TabIndex = 0;
+
+            Panel namePanel = new Panel();
+            namePanel.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            namePanel.Controls.Add(nameTb);
+            namePanel.Dock = DockStyle.Fill;
+            namePanel.Location = new Point(3, 3);
+            namePanel.Name = $"namePanel_{requestId}";
+            namePanel.Size = new Size(226, 29);
+            namePanel.TabIndex = 1;
+
+            Panel statusPanel = new Panel();
+            statusPanel.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            statusPanel.Controls.Add(statusOption);
+            statusPanel.Dock = DockStyle.Fill;
+            statusPanel.Location = new Point(467, 3);
+            statusPanel.Name = $"statusPanel_{requestId}";
+            statusPanel.Size = new Size(112, 29);
+            statusPanel.TabIndex = 2;
+
+            Panel quantityPanel = new Panel();
+            quantityPanel.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            quantityPanel.Controls.Add(quantityTb);
+            quantityPanel.Dock = DockStyle.Fill;
+            quantityPanel.Location = new Point(380, 3);
+            quantityPanel.Name = "quantityPanel_{requestId}";
+            quantityPanel.Size = new Size(81, 29);
+            quantityPanel.TabIndex = 3;
+
+            if (requestStatus != $"Pending")
             {
-                statusComboBox.Enabled = false;
+                statusOption.Enabled = false;
             }
 
-            TableLayoutPanel requestEntryLayout = new TableLayoutPanel();
-            requestEntryLayout.Size = new Size(575, 27);
-            requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            requestEntryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            TableLayoutPanel requestEntryContainer = new TableLayoutPanel();
+            requestEntryContainer.ColumnCount = 4;
+            requestEntryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            requestEntryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            requestEntryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            requestEntryContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            requestEntryContainer.Controls.Add(quantityPanel, 0, 0);
+            requestEntryContainer.Controls.Add(statusPanel, 0, 0);
+            requestEntryContainer.Controls.Add(namePanel, 0, 0);
+            requestEntryContainer.Controls.Add(itemPanel, 0, 0);
+            requestEntryContainer.Location = new Point(0, 0);
+            requestEntryContainer.Margin = new Padding(0);
+            requestEntryContainer.Name = $"requestEntryContainer_{requestId}";
+            requestEntryContainer.RowCount = 1;
+            requestEntryContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            requestEntryContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 41F));
+            requestEntryContainer.Size = new Size(582, 35);
+            requestEntryContainer.TabIndex = 3;
 
-            requestEntryLayout.Controls.Add(nameTextBox, 0, 0);
-            requestEntryLayout.Controls.Add(itemTextBox, 1, 0);
-            requestEntryLayout.Controls.Add(quantityTextBox, 2, 0);
-            requestEntryLayout.Controls.Add(statusComboBox, 3, 0);
-
-            flowLayoutPanel1.Controls.Add(requestEntryLayout);
+            flowLayoutPanel1.Controls.Add(requestEntryContainer);
 
             var requestEntry = new RequestEntry
             {
@@ -109,27 +173,27 @@ namespace KainmunityClient.Forms
                 RequesterId = requesterId,
                 DonationId = donationId,
                 RequestQuantity = itemQuantity,
-                NameTextBox = nameTextBox,
-                DonationTextBox = itemTextBox,
-                StatusComboBox = statusComboBox
+                NameTextBox = nameTb,
+                DonationTextBox = itemtb,
+                StatusComboBox = statusOption
             };
 
             int requestIndex = _requestEntries.Count;
             _requestEntries.Add(requestEntry);
 
-            statusComboBox.SelectedIndexChanged += delegate (object sender, EventArgs e)
+            statusOption.SelectedIndexChanged += delegate (object sender, EventArgs e)
             {
                 _requestEntries[requestIndex].StatusChanged = true;
             };
 
-            nameTextBox.Click += delegate (object sender, EventArgs e)
+            nameTb.Click += delegate (object sender, EventArgs e)
             {
                 new UserProfileForm(Convert.ToString(requesterId), true).Show();
             };
 
-            itemTextBox.Click += delegate (object sender, EventArgs e)
+            itemtb.Click += delegate (object sender, EventArgs e)
             {
-                this.Hide();
+                Hide();
                 new DonationDetails(this, donationId).Show();
             };
         }
@@ -159,13 +223,13 @@ namespace KainmunityClient.Forms
 
             MessageBox.Show(res ? "Success" : "Failed");
 
-            this.Hide();
+            Hide();
             new RequestApprovalForm().Show();
         }
 
         private void ReturnToDashboard(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             new DashboardForm().Show();
         }
     }
