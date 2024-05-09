@@ -82,6 +82,11 @@ namespace KainmunityClient.Forms
                 MessageBox.Show("Account failed to edit.");
             }
         }
+        private void ShowDonationHistory(object sender, EventArgs e)
+        {
+            this.Hide();
+            new DonationHistoryForm().Show();
+        }
 
         private void ShowRequestHistory(object sender, EventArgs e)
         {
@@ -119,5 +124,6 @@ namespace KainmunityClient.Forms
         {
             showPassword.Visible = true;
         }
+
     }
 }
