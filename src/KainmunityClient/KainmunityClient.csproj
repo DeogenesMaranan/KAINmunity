@@ -101,6 +101,12 @@
     <Compile Include="Forms\DisplayFeedbackForm.Designer.cs">
       <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DonationHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DonationHistoryForm.Designer.cs">
+      <DependentUpon>DonationHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LeaderboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DisplayFeedbackForm.resx">
       <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DonationHistoryForm.resx">
+      <DependentUpon>DonationHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LeaderboardForm.resx">
       <DependentUpon>LeaderboardForm.cs</DependentUpon>

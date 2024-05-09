@@ -35,7 +35,7 @@ namespace KainmunityClient.Forms
             statusTb.Location = new System.Drawing.Point(3, 5);
             statusTb.Name = $"statusTb_{requestId}";
             statusTb.ReadOnly = true;
-            statusTb.Size = new System.Drawing.Size(164, 18);
+            statusTb.Size = new System.Drawing.Size(108, 18);
             statusTb.TabIndex = 2;
             statusTb.Text = requestStatus;
             statusTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -47,7 +47,7 @@ namespace KainmunityClient.Forms
             reqQuanTb.Location = new System.Drawing.Point(3, 5);
             reqQuanTb.Name = $"reqQuanTb_{requestId}";
             reqQuanTb.ReadOnly = true;
-            reqQuanTb.Size = new System.Drawing.Size(163, 18);
+            reqQuanTb.Size = new System.Drawing.Size(108, 18);
             reqQuanTb.TabIndex = 1;
             reqQuanTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             reqQuanTb.Text = requestQuantity;
