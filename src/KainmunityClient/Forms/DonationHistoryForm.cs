@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KainmunityClient.ServerAPI;
+using static System.Windows.Forms.AxHost;
 
 namespace KainmunityClient.Forms
 {
@@ -45,6 +46,7 @@ namespace KainmunityClient.Forms
             edatetb.Size = new Size(147, 18);
             edatetb.TextAlign = HorizontalAlignment.Center;
             edatetb.Text = itemExpiration;
+            edatetb.Location = new Point(0, 5);
 
             TextBox inametb = new TextBox();
             inametb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -55,6 +57,7 @@ namespace KainmunityClient.Forms
             inametb.Size = new Size(188, 18);
             inametb.TextAlign = HorizontalAlignment.Center;
             inametb.Text = itemName;
+            inametb.Location = new Point(0, 5);
 
             TextBox ddatetb = new TextBox();
             ddatetb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -65,6 +68,7 @@ namespace KainmunityClient.Forms
             ddatetb.Size = new Size(146, 18);
             ddatetb.TextAlign = HorizontalAlignment.Center;
             ddatetb.Text = donationDate;
+            ddatetb.Location = new Point(0, 5);
 
             TextBox stocktb = new TextBox();
             stocktb.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -75,6 +79,7 @@ namespace KainmunityClient.Forms
             stocktb.Size = new Size(68, 18);
             stocktb.TextAlign = HorizontalAlignment.Center;
             stocktb.Text = itemStock.ToString();
+            stocktb.Location = new Point(0, 5);
 
             Panel edatepanel = new Panel();
             edatepanel.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
