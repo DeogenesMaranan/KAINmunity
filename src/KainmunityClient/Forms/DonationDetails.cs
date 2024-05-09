@@ -26,7 +26,7 @@ namespace KainmunityClient.Forms
             edatetb.Text = expirationDate;
         }
         
-        public void AddAssociatedRequestEntry(int requestId, string requesterName, string requestQuantity, string requestStatus)
+        public void AddAssociatedRequestEntry(int requestId, string requestedDate, string requesterName, string requestQuantity, string requestStatus)
         {
             TextBox statusTb = new TextBox();
             statusTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -37,6 +37,7 @@ namespace KainmunityClient.Forms
             statusTb.ReadOnly = true;
             statusTb.Size = new System.Drawing.Size(164, 18);
             statusTb.TabIndex = 2;
+            statusTb.Text = requestStatus;
             statusTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
             TextBox reqQuanTb = new TextBox();
@@ -49,6 +50,7 @@ namespace KainmunityClient.Forms
             reqQuanTb.Size = new System.Drawing.Size(163, 18);
             reqQuanTb.TabIndex = 1;
             reqQuanTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            reqQuanTb.Text = requestQuantity;
 
             TextBox reqNameTb = new TextBox();
             reqNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -60,6 +62,7 @@ namespace KainmunityClient.Forms
             reqNameTb.Size = new System.Drawing.Size(220, 18);
             reqNameTb.TabIndex = 0;
             reqNameTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            reqNameTb.Text = requesterName;
 
             TextBox reqDateTb = new TextBox();
             reqDateTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -71,6 +74,7 @@ namespace KainmunityClient.Forms
             reqDateTb.Size = new System.Drawing.Size(108, 18);
             reqDateTb.TabIndex = 0;
             reqDateTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            reqDateTb.Text = requestedDate;
 
 
             Panel statusPanel = new Panel();
