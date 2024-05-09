@@ -130,5 +130,22 @@ namespace KainmunityServer.DataAccess
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
             return res;
         }
+
+        public static async Task<List<Dictionary<string, object>>> GetDonationHistory(int userId)
+        {
+            string query = @"
+                SELECT * FROM Donations
+                WHERE DonorId = @DonorId
+                ORDER BY DonationDate DESC, DonationId DESC
+            ";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonorId", userId },
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            return res;
+        }
     }
 }
