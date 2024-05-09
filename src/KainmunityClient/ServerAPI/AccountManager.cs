@@ -21,7 +21,6 @@ namespace KainmunityClient.ServerAPI
             long statusCode = Convert.ToInt64(res["statusCode"]);
             if (statusCode != 200)
             {
-                MessageBox.Show($"Error: {statusCode}");
                 return false;
             }
 
