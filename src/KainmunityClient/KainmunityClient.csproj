@@ -83,6 +83,12 @@
     <Compile Include="Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DonationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DonationDetails.Designer.cs">
+      <DependentUpon>DonationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DonationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <Compile Include="ServerAPI\FeedbackManager.cs" />
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DonationDetails.resx">
+      <DependentUpon>DonationDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DonationForm.resx">
       <DependentUpon>DonationForm.cs</DependentUpon>
