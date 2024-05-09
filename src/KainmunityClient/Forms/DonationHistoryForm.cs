@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KainmunityClient.ServerAPI;
 
 namespace KainmunityClient.Forms
 {
@@ -15,6 +16,22 @@ namespace KainmunityClient.Forms
         public DonationHistoryForm()
         {
             InitializeComponent();
+        }
+
+        private async void FetchDonationHistory(object sender, EventArgs e)
+        {
+            var donations = await AccountManager.GetDonationHistory();
+
+            foreach (var donation in donations)
+            {
+                int donationId = Convert.ToInt32(donation["DonationId"]);
+                string donationDate = Convert.ToString(donation["DonationDate"]).Remove(10);
+                string itemName = Convert.ToString(donation["DonationName"]);
+                int itemStock = Convert.ToInt32(donation["DonationQuantity"]);
+                string itemExpiration = Convert.ToString(donation["DonationExpiry"]).Remove(10);
+
+                AddHistoryEntry(donationId, donationDate, itemName, itemStock, itemExpiration);
+            }
         }
 
         public void AddHistoryEntry(int donationId, string donationDate, string itemName, int itemStock, string itemExpiration)
@@ -107,6 +124,12 @@ namespace KainmunityClient.Forms
             historyPlaceholder.TabIndex = 22;
 
             historyContainer.Controls.Add(historyPlaceholder);
+        }
+
+        private void ReturnToProfile(object sender, EventArgs e)
+        {
+            new UserProfileForm(APIConnector.UserId).Show();
+            this.Close();
         }
     }
 }
