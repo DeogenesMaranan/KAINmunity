@@ -97,7 +97,12 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<Dictionary<string, object>> GetAccountInfo(int userId)
         {
-            string query = "SELECT * FROM UserInformations NATURAL JOIN UserCredentials WHERE UserId = @UserId";
+            string query = @"
+                SELECT * FROM UserInformations
+                JOIN UserCredentials ON UserCredentials.UserId = UserInformations.UserId
+                WHERE UserInformations.UserId = @UserId
+            ";
+
             var parameters = new Dictionary<string, object>()
             {
                 { "@UserId", userId },
@@ -107,6 +112,7 @@ namespace KainmunityServer.DataAccess
 
             if (res.Count == 0)
             {
+                Console.WriteLine("hehe");
                 return null;
             }
 
