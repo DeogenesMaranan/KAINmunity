@@ -23,13 +23,13 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<bool> MakeRequest(DonationRequest[] donationRequests)
         {
-            string query = "INSERT INTO Requests (RequesterId, DonationId, RequestQuantity, RequestStatus)" +
+            string query = "INSERT INTO Requests (RequesterId, DonationId, RequestQuantity, RequestStatus, RequestDate)" +
                 "VALUES";
             var parameters = new Dictionary<string, object>();
 
             for (int i = 0; i < donationRequests.Length; i++)
             {
-                query += $" (@RequesterId{i}, @DonationId{i}, @Quantity{i}, @Status{i})";
+                query += $" (@RequesterId{i}, @DonationId{i}, @Quantity{i}, @Status{i}, CURRENT_DATE)";
 
                 if (i < donationRequests.Length - 1)
                 {
