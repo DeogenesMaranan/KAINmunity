@@ -50,22 +50,6 @@ namespace KainmunityClient.Forms
             LoginForm login = new LoginForm();
             login.Show();
         }
-        private void Dashboard_Load_1(object sender, EventArgs e)
-        {
-
-        }
-        private void firstName_Click(object sender, EventArgs e)
-        {
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
@@ -75,20 +59,43 @@ namespace KainmunityClient.Forms
 
         private void showFeedbackButton_Click(object sender, EventArgs e)
         {
-            if (feedbackPanel.Visible)
+            if (APIConnector.AccountType == "Admin")
             {
-                feedbackPanel.Visible = false;
+                this.Hide();
+                new DisplayFeedbackForm().Show();
             }
             else
             {
-                feedbackPanel.Visible = true;
+                if (feedbackPanel.Visible)
+                {
+                    feedbackPanel.Visible = false;
+                }
+                else
+                {
+                    feedbackPanel.Visible = true;
+                }
             }
         }
 
-        private void leaderboard(object sender, EventArgs e)
+        private async void sendFeedback(object sender, EventArgs e)
+        {
+            bool isSuccess = await FeedbackManager.AddFeedback(feedbackTextBox.Text);
+            if (isSuccess)
+            {
+                MessageBox.Show("Success");
+            }
+            else
+            {
+                MessageBox.Show("Failed");
+            }
+
+        }
+
+        private void toLeaderboard(object sender, EventArgs e)
         {
             this.Hide();
-            new Leaderboard().Show();
+            Leaderboard lead = new Leaderboard();
+            lead.Show();
         }
     }
 }
