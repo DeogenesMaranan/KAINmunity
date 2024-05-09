@@ -23,13 +23,13 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<bool> MakeRequest(DonationRequest[] donationRequests)
         {
-            string query = "INSERT INTO Requests (RequesterId, DonationId, RequestQuantity, RequestStatus)" +
+            string query = "INSERT INTO Requests (RequesterId, DonationId, RequestQuantity, RequestStatus, RequestDate)" +
                 "VALUES";
             var parameters = new Dictionary<string, object>();
 
             for (int i = 0; i < donationRequests.Length; i++)
             {
-                query += $" (@RequesterId{i}, @DonationId{i}, @Quantity{i}, @Status{i})";
+                query += $" (@RequesterId{i}, @DonationId{i}, @Quantity{i}, @Status{i}, CURRENT_DATE)";
 
                 if (i < donationRequests.Length - 1)
                 {
@@ -118,6 +118,24 @@ namespace KainmunityServer.DataAccess
                 ORDER BY FIELD(RequestStatus, 'Pending', 'Accepted', 'Declined')";
 
             var res = await DatabaseConnector.ExecuteQuery(query);
+            return res;
+        }
+
+        public static async Task<List<Dictionary<string, object>>> GetAssociatedRequests(int donationId)
+        {
+            string query = @"
+                SELECT RequestId, RequestDate, (CONCAT(UserFirstName, ' ', UserLastName)) AS RequesterName, RequestQuantity, RequestStatus FROM Requests
+                JOIN UserInformations ON RequesterId = UserId
+                WHERE DonationId = @DonationId
+                ORDER BY RequestDate;
+            ";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonationId", donationId }
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
             return res;
         }
 

@@ -35,6 +35,7 @@ namespace KainmunityClient.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.feedbackPanel = new System.Windows.Forms.Panel();
             this.submitFeedback = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@ namespace KainmunityClient.Forms
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.feedbackPanel.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,6 @@ namespace KainmunityClient.Forms
             this.label1.Size = new System.Drawing.Size(128, 35);
             this.label1.TabIndex = 5;
             this.label1.Text = "WELCOME,";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // firstName
             // 
@@ -70,7 +69,6 @@ namespace KainmunityClient.Forms
             this.firstName.Size = new System.Drawing.Size(97, 35);
             this.firstName.TabIndex = 1;
             this.firstName.Text = "default";
-            this.firstName.Click += new System.EventHandler(this.firstName_Click);
             // 
             // panel3
             // 
@@ -89,6 +87,21 @@ namespace KainmunityClient.Forms
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(803, 504);
             this.panel3.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.button1.Location = new System.Drawing.Point(602, 476);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 26);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "LEADERBOARD";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.toLeaderboard);
             // 
             // button2
             // 
@@ -129,6 +142,7 @@ namespace KainmunityClient.Forms
             this.submitFeedback.TabIndex = 1;
             this.submitFeedback.Text = "SUBMIT";
             this.submitFeedback.UseVisualStyleBackColor = false;
+            this.submitFeedback.Click += new System.EventHandler(this.sendFeedback);
             // 
             // feedbackTextBox
             // 
@@ -145,9 +159,9 @@ namespace KainmunityClient.Forms
             this.profileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton.ForeColor = System.Drawing.Color.White;
-            this.profileButton.Location = new System.Drawing.Point(410, 20);
+            this.profileButton.Location = new System.Drawing.Point(385, 20);
             this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(90, 38);
+            this.profileButton.Size = new System.Drawing.Size(97, 40);
             this.profileButton.TabIndex = 6;
             this.profileButton.Text = "PROFILE";
             this.profileButton.UseVisualStyleBackColor = false;
@@ -160,9 +174,9 @@ namespace KainmunityClient.Forms
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(701, 20);
+            this.logoutButton.Location = new System.Drawing.Point(694, 20);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(90, 38);
+            this.logoutButton.Size = new System.Drawing.Size(97, 40);
             this.logoutButton.TabIndex = 4;
             this.logoutButton.Text = "LOGOUT";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -175,9 +189,9 @@ namespace KainmunityClient.Forms
             this.donationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donationBox.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donationBox.ForeColor = System.Drawing.Color.White;
-            this.donationBox.Location = new System.Drawing.Point(506, 20);
+            this.donationBox.Location = new System.Drawing.Point(488, 20);
             this.donationBox.Name = "donationBox";
-            this.donationBox.Size = new System.Drawing.Size(90, 38);
+            this.donationBox.Size = new System.Drawing.Size(97, 40);
             this.donationBox.TabIndex = 2;
             this.donationBox.Text = "DONATE";
             this.donationBox.UseVisualStyleBackColor = false;
@@ -190,27 +204,13 @@ namespace KainmunityClient.Forms
             this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestButton.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestButton.ForeColor = System.Drawing.Color.White;
-            this.requestButton.Location = new System.Drawing.Point(605, 20);
+            this.requestButton.Location = new System.Drawing.Point(591, 20);
             this.requestButton.Name = "requestButton";
-            this.requestButton.Size = new System.Drawing.Size(90, 38);
+            this.requestButton.Size = new System.Drawing.Size(97, 40);
             this.requestButton.TabIndex = 3;
             this.requestButton.Text = "REQUEST";
             this.requestButton.UseVisualStyleBackColor = false;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.button1.Location = new System.Drawing.Point(602, 476);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 26);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "LEADERBOARD";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // DashboardForm
             // 
@@ -223,7 +223,6 @@ namespace KainmunityClient.Forms
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
-            this.Load += new System.EventHandler(this.Dashboard_Load_1);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.feedbackPanel.ResumeLayout(false);

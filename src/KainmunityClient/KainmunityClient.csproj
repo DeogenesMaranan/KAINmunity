@@ -95,11 +95,11 @@
     <Compile Include="Forms\DonationForm.Designer.cs">
       <DependentUpon>DonationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.cs">
+    <Compile Include="Forms\DisplayFeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FeedbackForm.Designer.cs">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <Compile Include="Forms\DisplayFeedbackForm.Designer.cs">
+      <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LeaderboardForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +150,7 @@
     <Compile Include="ServerAPI\AccountManager.cs" />
     <Compile Include="ServerAPI\APIConnector.cs" />
     <Compile Include="ServerAPI\DonationManager.cs" />
+    <Compile Include="ServerAPI\FeedbackManager.cs" />
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,8 +160,8 @@
     <EmbeddedResource Include="Forms\DonationForm.resx">
       <DependentUpon>DonationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FeedbackForm.resx">
-      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DisplayFeedbackForm.resx">
+      <DependentUpon>DisplayFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LeaderboardForm.resx">
       <DependentUpon>LeaderboardForm.cs</DependentUpon>

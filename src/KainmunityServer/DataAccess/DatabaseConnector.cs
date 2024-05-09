@@ -37,6 +37,10 @@ namespace KainmunityServer.DataAccess
             {
                 Console.WriteLine("Successfully connected to database.");
             }
+
+            Console.WriteLine("Setting time zone to GMT+08:00");
+            await ExecuteNonQuery("SET time_zone = '+08:00'");
+            Console.WriteLine("Successfully set the time zone");
         }
 
         public static async Task<List<Dictionary<string, object>>> ExecuteQuery(string query, Dictionary<string, object>? parameters = null)
