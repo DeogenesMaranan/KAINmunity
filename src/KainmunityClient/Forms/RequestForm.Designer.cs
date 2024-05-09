@@ -251,6 +251,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "RequestForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Request";
             this.Load += new System.EventHandler(this.FetchDonations);
             this.panel1.ResumeLayout(false);
