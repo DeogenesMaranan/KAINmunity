@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KainmunityClient.ServerAPI;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KainmunityClient.Forms
 {
@@ -17,22 +18,54 @@ namespace KainmunityClient.Forms
         {
             InitializeComponent();
         }
+        private static bool IsContactNumber(string text)
+        {
+            int count = 0;
+            foreach (char c in text)
+            {
+                count++;
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
 
+                if (count == 1 && c != '0' || count == 2 && c != '9')
+                {
+                    return false;
+                }
+            }
+
+            if (count == 11)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            bool isSuccess = await AccountManager.VerifyLogin(inputContactNumber.Text, inputPassword.Text);
-
-            if (isSuccess)
+            if (IsContactNumber(inputContactNumber.Text))
             {
-                MessageBox.Show("Success");
-                this.Hide();
-                DashboardForm dashboard = new DashboardForm();
-                dashboard.Show();
+                invalidContact.Text = "";
+                bool isSuccess = await AccountManager.VerifyLogin(inputContactNumber.Text, inputPassword.Text);
+
+                if (isSuccess)
+                {
+                    invalidPass.Text = "";
+                    this.Hide();
+                    DashboardForm dashboard = new DashboardForm();
+                    dashboard.Show();
+                }
+                else
+                {
+                    invalidPass.Text = "Wrong password";
+                }
             }
             else
             {
-                MessageBox.Show("Failed");
+                invalidContact.Text = "Invalid Format";
             }
         }
 
@@ -60,6 +93,11 @@ namespace KainmunityClient.Forms
         private void showIcons(object sender, EventArgs e)
         {
             showPassword.Visible = true;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
