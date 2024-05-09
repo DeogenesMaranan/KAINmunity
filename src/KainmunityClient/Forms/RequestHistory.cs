@@ -44,6 +44,7 @@ namespace KainmunityClient.Forms
             dateSection.Size = new Size(126, 21);
             dateSection.ReadOnly = true;
             dateSection.Text = date;
+            dateSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
             TextBox nameSection = new TextBox();
             nameSection.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
@@ -53,6 +54,7 @@ namespace KainmunityClient.Forms
             nameSection.Size = new Size(169, 21);
             nameSection.ReadOnly = true;
             nameSection.Text = itemName;
+            nameSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
             TextBox quantitySection = new TextBox();
             quantitySection.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
@@ -62,6 +64,7 @@ namespace KainmunityClient.Forms
             quantitySection.Size = new Size(128, 21);
             quantitySection.ReadOnly = true;
             quantitySection.Text = Convert.ToString(quantity);
+            quantitySection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
             TextBox statusSection = new TextBox();
             statusSection.BackColor = Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
@@ -71,6 +74,7 @@ namespace KainmunityClient.Forms
             statusSection.Size = new Size(130, 21);
             statusSection.ReadOnly = true;
             statusSection.Text = status;
+            statusSection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 
             TableLayoutPanel requestEntryPlaceholder = new TableLayoutPanel();
             requestEntryPlaceholder.ColumnCount = 4;
