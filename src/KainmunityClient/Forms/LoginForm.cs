@@ -18,30 +18,10 @@ namespace KainmunityClient.Forms
         {
             InitializeComponent();
         }
+
         private static bool IsContactNumber(string text)
         {
-            int count = 0;
-            foreach (char c in text)
-            {
-                count++;
-                if (!char.IsDigit(c))
-                {
-                    return false;
-                }
-
-                if (count == 1 && c != '0' || count == 2 && c != '9')
-                {
-                    return false;
-                }
-            }
-
-            if (count == 11)
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
+            return ErrorHandling.IsContactNumber(text);
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -60,11 +40,13 @@ namespace KainmunityClient.Forms
                 }
                 else
                 {
+                    invalidPass.ForeColor = Color.Red;
                     invalidPass.Text = "Wrong password";
                 }
             }
             else
             {
+                invalidContact.ForeColor = Color.Red;
                 invalidContact.Text = "Invalid Format";
             }
         }

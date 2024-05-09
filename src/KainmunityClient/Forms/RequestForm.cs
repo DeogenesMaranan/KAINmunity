@@ -110,14 +110,23 @@ namespace KainmunityClient.Forms
                 new DonationDetails(this, itemId).Show();
             };
         }
+        private static bool IsNumber(string text)
+        {
+            return ErrorHandling.IsNumber(text);
+        }
 
         private async void UploadRequests(object sender, EventArgs e)
         {
             var donationRequests = new List<DonationRequest>();
+            bool isFormatted = true;
             foreach (var entry in _donationEntries)
             {
                 if (entry.RequestQuantityTextBox.Text.Length == 0) continue;
-
+                if(!(IsNumber(entry.RequestQuantityTextBox.Text)))
+                {
+                    isFormatted = false;
+                    break;
+                }
                 donationRequests.Add(new DonationRequest()
                 {
                     DonationId = entry.DonationId,
@@ -126,15 +135,24 @@ namespace KainmunityClient.Forms
             }
 
             var isSuccess = await DonationManager.UploadRequests(donationRequests);
-            
-            if (isSuccess)
+
+            if (isFormatted)
             {
-                MessageBox.Show("Requests uploaded successfully.");
-                ReturnToDashboard();
+                if (isSuccess)
+                {
+                    statusText.ForeColor = Color.Green;
+                    statusText.Text = "You may now wait for the approval.";
+                }
+                else
+                {
+                    statusText.ForeColor = Color.Red;
+                    statusText.Text = "Failed to process your request.";
+                }
             }
             else
             {
-                MessageBox.Show("Requests failed to upload.");
+                statusText.ForeColor = Color.Red;
+                statusText.Text = "Please follow a proper format for each input box.";
             }
         }
 

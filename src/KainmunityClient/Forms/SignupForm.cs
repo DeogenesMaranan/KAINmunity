@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KainmunityClient.ServerAPI;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KainmunityClient.Forms
 {
@@ -20,65 +21,29 @@ namespace KainmunityClient.Forms
 
         private static bool IsContactNumber(string text)
         {
-            int count = 0;
-            foreach (char c in text)
-            {
-                count++;
-                if (!char.IsDigit(c))
-                {
-                    return false;
-                }
-
-                if (count == 1 && c != '0' || count == 2 && c != '9')
-                {
-                    return false;
-                }
-            }
-
-            if (count == 11)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ErrorHandling.IsContactNumber(text);
         }
 
         private static bool IsNumber(string text)
         {
-            foreach (char c in text)
-            {
-                if (!char.IsDigit(c))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return ErrorHandling.IsNumber(text);
         }
 
-        private static bool IsNotBlank(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8)
+        private static bool IsNotBlank(string text)
         {
-            if (string.IsNullOrWhiteSpace(text1) ||
-                string.IsNullOrWhiteSpace(text2) ||
-                string.IsNullOrWhiteSpace(text3) ||
-                string.IsNullOrWhiteSpace(text4) ||
-                string.IsNullOrWhiteSpace(text5) ||
-                string.IsNullOrWhiteSpace(text6) ||
-                string.IsNullOrWhiteSpace(text7) ||
-                string.IsNullOrWhiteSpace(text8))
-            {
-                return false;
-            }
-
-            return true;
+            return ErrorHandling.IsNotBlank(text);
         }
-
 
         private async void regButton_Click(object sender, EventArgs e)
         {
-            if (IsNotBlank(firstName.Text, lastName.Text, password.Text, email.Text, contactNumber.Text, address.Text, income.Text, size.Text))
+            if (IsNotBlank(firstName.Text) ||
+                IsNotBlank(lastName.Text) ||
+                IsNotBlank(password.Text) ||
+                IsNotBlank(email.Text) ||
+                IsNotBlank(contactNumber.Text) ||
+                IsNotBlank(address.Text) ||
+                IsNotBlank(income.Text) ||
+                IsNotBlank(size.Text))
             {
                 if (IsContactNumber(contactNumber.Text) && IsNumber(income.Text) && IsNumber(size.Text))
                 {
@@ -91,16 +56,19 @@ namespace KainmunityClient.Forms
                     }
                     else
                     {
+                        statusText.ForeColor = Color.Red;
                         statusText.Text = "Failed to register your account. Please Try again.";
                     }
                 }
                 else
                 {
+                    statusText.ForeColor = Color.Red;
                     statusText.Text = "Please follow a proper format for each input box.";
                 }
             }
             else
             {
+                statusText.ForeColor = Color.Red;
                 statusText.Text = "Please complete all fields.";
             }
         }
@@ -111,7 +79,6 @@ namespace KainmunityClient.Forms
             LoginForm login = new LoginForm();
             login.Show();
         }
-
 
         private void showPassword_Click(object sender, EventArgs e)
         {
@@ -126,7 +93,6 @@ namespace KainmunityClient.Forms
                 password.UseSystemPasswordChar = true;
             }
         }
-
         private void showIcons(object sender, EventArgs e)
         {
             showPassword.Visible = true;

@@ -56,7 +56,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(549, 333);
+            this.button1.Location = new System.Drawing.Point(549, 329);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 40);
@@ -80,7 +80,7 @@
             // 
             this.inputPassword.BackColor = System.Drawing.Color.White;
             this.inputPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputPassword.Location = new System.Drawing.Point(502, 293);
+            this.inputPassword.Location = new System.Drawing.Point(502, 289);
             this.inputPassword.Margin = new System.Windows.Forms.Padding(2);
             this.inputPassword.Name = "inputPassword";
             this.inputPassword.Size = new System.Drawing.Size(219, 23);
@@ -94,7 +94,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.button2.Location = new System.Drawing.Point(575, 378);
+            this.button2.Location = new System.Drawing.Point(575, 372);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 24);
             this.button2.TabIndex = 3;
@@ -107,7 +107,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label1.Location = new System.Drawing.Point(539, 114);
+            this.label1.Location = new System.Drawing.Point(539, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 60);
             this.label1.TabIndex = 6;
@@ -118,7 +118,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label2.Location = new System.Drawing.Point(499, 222);
+            this.label2.Location = new System.Drawing.Point(499, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 17);
             this.label2.TabIndex = 7;
@@ -129,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(499, 274);
+            this.label3.Location = new System.Drawing.Point(498, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 8;
@@ -160,7 +160,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label4.Location = new System.Drawing.Point(491, 174);
+            this.label4.Location = new System.Drawing.Point(491, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(235, 19);
             this.label4.TabIndex = 12;
@@ -174,7 +174,7 @@
             this.showPassword.FlatAppearance.BorderSize = 0;
             this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPassword.Location = new System.Drawing.Point(694, 296);
+            this.showPassword.Location = new System.Drawing.Point(694, 292);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(26, 19);
             this.showPassword.TabIndex = 13;
@@ -185,7 +185,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(468, 292);
+            this.pictureBox3.Location = new System.Drawing.Point(468, 288);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(26, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -205,7 +205,7 @@
             // 
             this.invalidPass.AutoSize = true;
             this.invalidPass.ForeColor = System.Drawing.Color.Red;
-            this.invalidPass.Location = new System.Drawing.Point(563, 277);
+            this.invalidPass.Location = new System.Drawing.Point(561, 273);
             this.invalidPass.Name = "invalidPass";
             this.invalidPass.Size = new System.Drawing.Size(0, 13);
             this.invalidPass.TabIndex = 14;
@@ -214,7 +214,7 @@
             // 
             this.invalidContact.AutoSize = true;
             this.invalidContact.ForeColor = System.Drawing.Color.Red;
-            this.invalidContact.Location = new System.Drawing.Point(602, 225);
+            this.invalidContact.Location = new System.Drawing.Point(604, 223);
             this.invalidContact.Name = "invalidContact";
             this.invalidContact.Size = new System.Drawing.Size(0, 13);
             this.invalidContact.TabIndex = 15;

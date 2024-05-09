@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.statusText = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -87,7 +88,7 @@
             this.donationExpiry.AutoSize = true;
             this.donationExpiry.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donationExpiry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.donationExpiry.Location = new System.Drawing.Point(68, 256);
+            this.donationExpiry.Location = new System.Drawing.Point(68, 254);
             this.donationExpiry.Name = "donationExpiry";
             this.donationExpiry.Size = new System.Drawing.Size(105, 17);
             this.donationExpiry.TabIndex = 7;
@@ -100,7 +101,7 @@
             this.donateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donateButton.ForeColor = System.Drawing.Color.White;
-            this.donateButton.Location = new System.Drawing.Point(122, 317);
+            this.donateButton.Location = new System.Drawing.Point(122, 320);
             this.donateButton.Name = "donateButton";
             this.donateButton.Size = new System.Drawing.Size(102, 35);
             this.donateButton.TabIndex = 8;
@@ -142,6 +143,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.statusText);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.dateTimePicker1);
@@ -155,6 +157,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(348, 424);
             this.panel1.TabIndex = 14;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // statusText
+            // 
+            this.statusText.AutoSize = true;
+            this.statusText.ForeColor = System.Drawing.Color.Red;
+            this.statusText.Location = new System.Drawing.Point(63, 299);
+            this.statusText.Name = "statusText";
+            this.statusText.Size = new System.Drawing.Size(0, 13);
+            this.statusText.TabIndex = 14;
             // 
             // button1
             // 
@@ -218,5 +230,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label statusText;
     }
 }

@@ -107,6 +107,7 @@
     <Compile Include="Forms\DonationHistoryForm.Designer.cs">
       <DependentUpon>DonationHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ErrorHandling.cs" />
     <Compile Include="Forms\LeaderboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
