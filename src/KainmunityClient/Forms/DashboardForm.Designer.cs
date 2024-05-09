@@ -44,6 +44,7 @@ namespace KainmunityClient.Forms
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
+            this.statusText = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.feedbackPanel.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +67,8 @@ namespace KainmunityClient.Forms
             this.firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
             this.firstName.Location = new System.Drawing.Point(177, 66);
             this.firstName.Name = "firstName";
-            this.firstName.Size = new System.Drawing.Size(97, 35);
+            this.firstName.Size = new System.Drawing.Size(0, 35);
             this.firstName.TabIndex = 1;
-            this.firstName.Text = "default";
             // 
             // panel3
             // 
@@ -121,6 +121,7 @@ namespace KainmunityClient.Forms
             // feedbackPanel
             // 
             this.feedbackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
+            this.feedbackPanel.Controls.Add(this.statusText);
             this.feedbackPanel.Controls.Add(this.submitFeedback);
             this.feedbackPanel.Controls.Add(this.feedbackTextBox);
             this.feedbackPanel.Location = new System.Drawing.Point(536, 254);
@@ -212,6 +213,15 @@ namespace KainmunityClient.Forms
             this.requestButton.UseVisualStyleBackColor = false;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
+            // statusText
+            // 
+            this.statusText.AutoSize = true;
+            this.statusText.Location = new System.Drawing.Point(93, 179);
+            this.statusText.Name = "statusText";
+            this.statusText.Size = new System.Drawing.Size(48, 13);
+            this.statusText.TabIndex = 2;
+            this.statusText.Text = "Success";
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +254,6 @@ namespace KainmunityClient.Forms
         private TextBox feedbackTextBox;
         private Button button2;
         private Button button1;
+        private Label statusText;
     }
 }

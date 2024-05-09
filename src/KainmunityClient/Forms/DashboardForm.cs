@@ -82,11 +82,13 @@ namespace KainmunityClient.Forms
             bool isSuccess = await FeedbackManager.AddFeedback(feedbackTextBox.Text);
             if (isSuccess)
             {
-                MessageBox.Show("Success");
+                statusText.ForeColor = Color.Green;
+                statusText.Text = "Feedback sent";
             }
             else
             {
-                MessageBox.Show("Failed");
+                statusText.ForeColor = Color.Red;
+                statusText.Text = "Failed to send feedback";
             }
 
         }
