@@ -110,7 +110,7 @@ namespace KainmunityClient.Forms
             reqDatePanel.Name = $"reqDatePanel_{requestId}";
             reqDatePanel.TabIndex = 3;
 
-            TableLayoutPanel entryPlaceHolder = new TableLayoutPanel();
+            TableLayoutPanel entryPlaceholder = new TableLayoutPanel();
             entryPlaceholder.ColumnCount = 4;
             entryPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             entryPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
