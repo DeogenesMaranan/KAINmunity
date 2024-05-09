@@ -112,5 +112,23 @@ namespace KainmunityServer.DataAccess
 
             return res[0];
         }
+
+        public static async Task<List<Dictionary<string, object>>> GetRequestHistory(int userId)
+        {
+            string query = @"
+                SELECT Requests.RequestId, Requests.DonationId, RequestDate, DonationName, RequestQuantity, RequestStatus FROM Requests
+                JOIN Donations ON Requests.DonationId = Donations.DonationId
+                WHERE RequesterId = @RequesterId
+                ORDER BY RequestDate DESC
+            ";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@RequesterId", userId }
+            };
+
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            return res;
+        }
     }
 }

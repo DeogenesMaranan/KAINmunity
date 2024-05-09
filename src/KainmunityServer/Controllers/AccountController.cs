@@ -62,5 +62,12 @@ namespace KainmunityServer.Controllers
             var res = await AccountManager.GetAccountInfo(Convert.ToInt32(userId));
             return new JsonResult(Ok(res));
         }
+
+        [HttpGet("requests/{userId}")]
+        public async Task<JsonResult> GetRequestHistory(string userId)
+        {
+            var res = await AccountManager.GetRequestHistory(Convert.ToInt32(userId));
+            return new JsonResult(Ok(res));
+        }
     }
 }
