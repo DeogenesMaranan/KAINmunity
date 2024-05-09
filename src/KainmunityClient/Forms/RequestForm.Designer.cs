@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.requestPlaceholder = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.requestQuantity = new System.Windows.Forms.TextBox();
-            this.quantitySection = new System.Windows.Forms.TextBox();
-            this.nameSection = new System.Windows.Forms.TextBox();
             this.statusText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.back = new System.Windows.Forms.Button();
@@ -49,8 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel.SuspendLayout();
-            this.requestPlaceholder.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -63,72 +56,12 @@
             // 
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.CausesValidation = false;
-            this.flowLayoutPanel.Controls.Add(this.requestPlaceholder);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(110, 143);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(602, 284);
             this.flowLayoutPanel.TabIndex = 4;
             this.flowLayoutPanel.WrapContents = false;
-            // 
-            // requestPlaceholder
-            // 
-            this.requestPlaceholder.ColumnCount = 4;
-            this.requestPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.requestPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.requestPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.requestPlaceholder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.requestPlaceholder.Controls.Add(this.textBox1, 3, 0);
-            this.requestPlaceholder.Controls.Add(this.requestQuantity, 2, 0);
-            this.requestPlaceholder.Controls.Add(this.quantitySection, 1, 0);
-            this.requestPlaceholder.Controls.Add(this.nameSection, 0, 0);
-            this.requestPlaceholder.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.requestPlaceholder.Location = new System.Drawing.Point(3, 3);
-            this.requestPlaceholder.Name = "requestPlaceholder";
-            this.requestPlaceholder.RowCount = 1;
-            this.requestPlaceholder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.requestPlaceholder.Size = new System.Drawing.Size(574, 27);
-            this.requestPlaceholder.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(432, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 21);
-            this.textBox1.TabIndex = 4;
-            // 
-            // requestQuantity
-            // 
-            this.requestQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
-            this.requestQuantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.requestQuantity.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.requestQuantity.Location = new System.Drawing.Point(289, 3);
-            this.requestQuantity.Name = "requestQuantity";
-            this.requestQuantity.Size = new System.Drawing.Size(137, 21);
-            this.requestQuantity.TabIndex = 3;
-            // 
-            // quantitySection
-            // 
-            this.quantitySection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
-            this.quantitySection.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.quantitySection.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantitySection.Location = new System.Drawing.Point(146, 3);
-            this.quantitySection.Name = "quantitySection";
-            this.quantitySection.Size = new System.Drawing.Size(137, 21);
-            this.quantitySection.TabIndex = 2;
-            // 
-            // nameSection
-            // 
-            this.nameSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
-            this.nameSection.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameSection.Font = new System.Drawing.Font("Tw Cen MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameSection.Location = new System.Drawing.Point(3, 3);
-            this.nameSection.Name = "nameSection";
-            this.nameSection.Size = new System.Drawing.Size(137, 21);
-            this.nameSection.TabIndex = 1;
             // 
             // statusText
             // 
@@ -320,9 +253,6 @@
             this.Name = "RequestForm";
             this.Text = "Request";
             this.Load += new System.EventHandler(this.FetchDonations);
-            this.flowLayoutPanel.ResumeLayout(false);
-            this.requestPlaceholder.ResumeLayout(false);
-            this.requestPlaceholder.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -346,10 +276,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button requestButton;
-        private System.Windows.Forms.TableLayoutPanel requestPlaceholder;
-        private System.Windows.Forms.TextBox requestQuantity;
-        private System.Windows.Forms.TextBox quantitySection;
-        private System.Windows.Forms.TextBox nameSection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
@@ -359,7 +285,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label statusText;
     }
 }
