@@ -6,8 +6,11 @@ namespace KainmunityServer.DataAccess
     {
         public static async Task<bool> AddDonation(DonationItem donationItem)
         {
-            string query = "INSERT INTO Donations (DonorId, DonationName, DonationQuantity, DonationExpiry)" +
-                "Values (@DonorId, @Name, @Quantity, @Expiry);";
+            string query = @"
+                INSERT INTO Donations (DonorId, DonationName, DonationQuantity, DonationExpiry, DonationDate)
+                Values (@DonorId, @Name, @Quantity, @Expiry, CURRENT_DATE)
+            ";
+
             var parameters = new Dictionary<string, object>()
             {
                 { "@DonorId", donationItem.DonorId },
@@ -17,7 +20,6 @@ namespace KainmunityServer.DataAccess
             };
 
             var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
-
             return res == 1;
         }
 
