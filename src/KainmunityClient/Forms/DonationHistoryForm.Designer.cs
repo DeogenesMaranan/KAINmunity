@@ -184,7 +184,7 @@
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.back.Location = new System.Drawing.Point(10, 9);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(52, 23);
             this.back.TabIndex = 17;
@@ -226,6 +226,7 @@
             this.Controls.Add(this.historyContainer);
             this.Controls.Add(this.panel1);
             this.Name = "DonationHistoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Donation History";
             this.Load += new System.EventHandler(this.FetchDonationHistory);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -221,6 +221,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "RequestApprovalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RequestApproval";
             this.Load += new System.EventHandler(this.FetchRequests);
             this.tableLayoutPanel1.ResumeLayout(false);
