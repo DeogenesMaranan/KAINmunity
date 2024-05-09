@@ -126,6 +126,12 @@ namespace KainmunityClient.Forms
             {
                 new UserProfileForm(Convert.ToString(requesterId), true).Show();
             };
+
+            itemTextBox.Click += delegate (object sender, EventArgs e)
+            {
+                this.Hide();
+                new DonationDetails(this, donationId).Show();
+            };
         }
 
         private async void UploadStatusChanges(object sender, EventArgs e)

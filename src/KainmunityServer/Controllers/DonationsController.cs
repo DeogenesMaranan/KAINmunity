@@ -26,8 +26,15 @@ namespace KainmunityServer.Controllers
         [HttpGet("request/{donationId}")]
         public async Task<JsonResult> GetAssociatedRequests(int donationId)
         {
-            var res = await DonationsManager.GetAssociatedRequests(donationId);
-            return new JsonResult(Ok(res));
+            var donationDetails = await DonationsManager.GetDonationDetails(donationId);
+            var requests = await DonationsManager.GetAssociatedRequests(donationId);
+
+            return new JsonResult(new
+            {
+                statusCode = StatusCodes.Status200OK,
+                details = donationDetails,
+                requests = requests,
+            });
         }
 
         [HttpPost("request")]

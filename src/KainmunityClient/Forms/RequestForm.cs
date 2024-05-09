@@ -103,6 +103,12 @@ namespace KainmunityClient.Forms
                 DonationId = itemId,
                 RequestQuantityTextBox = requestQuantityPlace,
             });
+
+            namePlace.Click += delegate (object sender, EventArgs e)
+            {
+                this.Hide();
+                new DonationDetails(this, itemId).Show();
+            };
         }
 
         private async void UploadRequests(object sender, EventArgs e)

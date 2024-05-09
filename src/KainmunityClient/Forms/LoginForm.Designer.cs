@@ -42,6 +42,8 @@
             this.showPassword = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.invalidPass = new System.Windows.Forms.Label();
+            this.invalidContact = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,7 +56,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(548, 364);
+            this.button1.Location = new System.Drawing.Point(549, 333);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 40);
@@ -78,7 +80,7 @@
             // 
             this.inputPassword.BackColor = System.Drawing.Color.White;
             this.inputPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputPassword.Location = new System.Drawing.Point(502, 303);
+            this.inputPassword.Location = new System.Drawing.Point(502, 293);
             this.inputPassword.Margin = new System.Windows.Forms.Padding(2);
             this.inputPassword.Name = "inputPassword";
             this.inputPassword.Size = new System.Drawing.Size(219, 23);
@@ -92,7 +94,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Tw Cen MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.button2.Location = new System.Drawing.Point(574, 409);
+            this.button2.Location = new System.Drawing.Point(575, 378);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 24);
             this.button2.TabIndex = 3;
@@ -127,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label3.Location = new System.Drawing.Point(499, 284);
+            this.label3.Location = new System.Drawing.Point(499, 274);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 8;
@@ -172,7 +174,7 @@
             this.showPassword.FlatAppearance.BorderSize = 0;
             this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPassword.Location = new System.Drawing.Point(694, 306);
+            this.showPassword.Location = new System.Drawing.Point(694, 296);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(26, 19);
             this.showPassword.TabIndex = 13;
@@ -183,7 +185,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(468, 302);
+            this.pictureBox3.Location = new System.Drawing.Point(468, 292);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(26, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -199,12 +201,32 @@
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
             // 
+            // invalidPass
+            // 
+            this.invalidPass.AutoSize = true;
+            this.invalidPass.ForeColor = System.Drawing.Color.Red;
+            this.invalidPass.Location = new System.Drawing.Point(563, 277);
+            this.invalidPass.Name = "invalidPass";
+            this.invalidPass.Size = new System.Drawing.Size(0, 13);
+            this.invalidPass.TabIndex = 14;
+            // 
+            // invalidContact
+            // 
+            this.invalidContact.AutoSize = true;
+            this.invalidContact.ForeColor = System.Drawing.Color.Red;
+            this.invalidContact.Location = new System.Drawing.Point(602, 225);
+            this.invalidContact.Name = "invalidContact";
+            this.invalidContact.Size = new System.Drawing.Size(0, 13);
+            this.invalidContact.TabIndex = 15;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(802, 502);
+            this.Controls.Add(this.invalidContact);
+            this.Controls.Add(this.invalidPass);
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox3);
@@ -223,6 +245,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -246,5 +269,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button showPassword;
+        private System.Windows.Forms.Label invalidPass;
+        private System.Windows.Forms.Label invalidContact;
     }
 }
