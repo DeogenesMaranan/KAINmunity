@@ -7,14 +7,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KainmunityClient.Models;
+using KainmunityClient.ServerAPI;
+using Newtonsoft.Json;
 
 namespace KainmunityClient.Forms
 {
     public partial class DonationDetails : Form
     {
-        public DonationDetails()
+        private readonly Form _returnForm;
+        private readonly int _donationId;
+
+        public DonationDetails(Form returnForm, int donationId)
         {
+            _returnForm = returnForm;
+            _donationId = donationId;
+
             InitializeComponent();
+        }
+
+        private async void FetchAssociatedRequests(object sender, EventArgs e)
+        {
+            var res = await DonationManager.GetAssociatedRequests(_donationId);
+
+            var temp = JsonConvert.SerializeObject(res["details"]);
+            var donationDetails = JsonConvert.DeserializeObject<Dictionary<string, object>>(temp);
+
+            temp = JsonConvert.SerializeObject(res["requests"]);
+            var requests = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(temp);
+
+            string donationDate = Convert.ToString(donationDetails["DonationDate"]).Remove(10);
+            string donorName = Convert.ToString(donationDetails["DonorName"]);
+            string itemName = Convert.ToString(donationDetails["DonationName"]);
+            int availableQuantity = Convert.ToInt32(donationDetails["DonationQuantity"]);
+            string expirationDate = Convert.ToString(donationDetails["DonationExpiry"]).Remove(10);
+
+            FillDetails(donationDate, donorName, itemName, availableQuantity, expirationDate);
+
+            foreach (var request in requests)
+            {
+                int requestId = Convert.ToInt32(request["RequestId"]);
+                string requestedDate = Convert.ToString(request["RequestDate"]).Remove(10);
+                string requesterName = Convert.ToString(request["RequesterName"]);
+                int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
+                string requestStatus = Convert.ToString(request["RequestStatus"]);
+
+                AddAssociatedRequestEntry(requestId, requestedDate, requesterName, requestQuantity, requestStatus);
+            }
+        }
+
+        private void ReturnOnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            _returnForm.Show();
         }
 
         public void FillDetails(string donationDate, string donorName, string itemName, int availableQuantity, string expirationDate)
@@ -26,7 +70,7 @@ namespace KainmunityClient.Forms
             edatetb.Text = expirationDate;
         }
         
-        public void AddAssociatedRequestEntry(int requestId, string requestedDate, string requesterName, string requestQuantity, string requestStatus)
+        public void AddAssociatedRequestEntry(int requestId, string requestedDate, string requesterName, int requestQuantity, string requestStatus)
         {
             TextBox statusTb = new TextBox();
             statusTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -50,7 +94,7 @@ namespace KainmunityClient.Forms
             reqQuanTb.Size = new System.Drawing.Size(163, 18);
             reqQuanTb.TabIndex = 1;
             reqQuanTb.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            reqQuanTb.Text = requestQuantity;
+            reqQuanTb.Text = Convert.ToString(requestQuantity);
 
             TextBox reqNameTb = new TextBox();
             reqNameTb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
@@ -129,49 +173,9 @@ namespace KainmunityClient.Forms
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }
