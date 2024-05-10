@@ -60,7 +60,7 @@ namespace KainmunityClient.Forms
             resolveBtn.ForeColor = SystemColors.Window;
             resolveBtn.Name = $"resolveBtn_{feedbackId}";
             resolveBtn.Size = new Size(109, 39);
-            resolveBtn.Text = "RESOLVED";
+            resolveBtn.Text = "RESOLVE";
             resolveBtn.UseVisualStyleBackColor = false;
 
             TableLayoutPanel tableContainer = new TableLayoutPanel();
