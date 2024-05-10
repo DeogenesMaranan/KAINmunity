@@ -7,8 +7,8 @@ namespace KainmunityServer.DataAccess
         public static async Task<bool> AddDonation(DonationItem donationItem)
         {
             string query = @"
-                INSERT INTO Donations (DonorId, DonationName, DonationQuantity, DonationExpiry, DonationDate)
-                Values (@DonorId, @Name, @Quantity, @Expiry, CURRENT_DATE)
+                INSERT INTO Donations (DonorId, DonationName, DonationQuantity, DonationExpiry, DonationDate, DonationOriginalQuantity)
+                Values (@DonorId, @Name, @Quantity, @Expiry, CURRENT_DATE, @Quantity)
             ";
 
             var parameters = new Dictionary<string, object>()
