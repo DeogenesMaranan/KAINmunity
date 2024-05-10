@@ -48,6 +48,7 @@ namespace KainmunityClient.ServerAPI
                     Name = Convert.ToString(item["DonationName"]),
                     Quantity = Convert.ToInt32(item["DonationQuantity"]),
                     ExpiryDate = Convert.ToString(item["DonationExpiry"]),
+                    Status = Convert.ToString(item["DonationStatus"])
                 });
             }
 

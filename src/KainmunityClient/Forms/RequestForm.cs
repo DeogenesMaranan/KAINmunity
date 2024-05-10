@@ -39,6 +39,10 @@ namespace KainmunityClient.Forms
 
             foreach (DonationItem donation in donations)
             {
+                if(donation.Status != "Recieved")
+                {
+                    continue;
+                }
                 AddListItem(donation.DonationId, donation.ExpiryDate, donation.Name, donation.Quantity);
             }
         }
