@@ -78,6 +78,22 @@ namespace KainmunityClient.Forms
             tableContainer.Location = new Point(3, 3);
 
             feedbackContainer.Controls.Add(tableContainer);
+
+            resolveBtn.Click += async delegate (object sender, EventArgs e)
+            {
+                var res = await FeedbackManager.ResolveFeedback(feedbackId);
+
+                if (res)
+                {
+                    new DisplayFeedbackForm().Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed");
+                }
+                
+            };
         }
 
             
