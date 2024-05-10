@@ -16,6 +16,13 @@ namespace KainmunityClient.Forms
         public LogisticDashboardForm()
         {
             InitializeComponent();
+            this.Load += Dashboard_Load;
+        }
+
+        private async void Dashboard_Load(object sender, EventArgs e)
+        {
+            var res = await AccountManager.GetAccountInfo();
+            firstName.Text = res["UserFirstName"] as string;
         }
 
         private async void GetAccepted(object sender, EventArgs e)
