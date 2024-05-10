@@ -216,11 +216,10 @@ namespace KainmunityClient.Forms
             // statusText
             // 
             this.statusText.AutoSize = true;
-            this.statusText.Location = new System.Drawing.Point(93, 179);
+            this.statusText.Location = new System.Drawing.Point(93, 180);
             this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(48, 13);
+            this.statusText.Size = new System.Drawing.Size(0, 13);
             this.statusText.TabIndex = 2;
-            this.statusText.Text = "Success";
             // 
             // DashboardForm
             // 
