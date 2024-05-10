@@ -51,7 +51,7 @@ namespace KainmunityClient.Forms
             donationCount.Name = $"donations_{donorId}";
             donationCount.Size = new Size(206, 21);
             donationCount.TabIndex = 1;
-            donationCount.Text = "1000";
+            donationCount.Text = Convert.ToString(donations);
             donationCount.TextAlign = HorizontalAlignment.Center;
             donationCount.ReadOnly = true;
 
