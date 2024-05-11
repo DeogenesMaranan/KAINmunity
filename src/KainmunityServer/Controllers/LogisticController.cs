@@ -9,26 +9,33 @@ namespace KainmunityServer.Controllers
     [ApiController]
     public class LogisticsController : ControllerBase
     {
-        [HttpGet("all")]
-        public async Task<JsonResult> GetAllAccepted()
+        [HttpGet("request")]
+        public async Task<JsonResult> GetAcceptedRequest()
         {
-            var accepted = await LogisticManager.FetchAccepted();
+            var accepted = await LogisticManager.FetchAcceptedRequest();
             return new JsonResult(Ok(accepted));
         }
 
-        [HttpGet("update/{requestId}")]
-        public async Task<JsonResult> UpdateDelivery(int requestId)
+        [HttpGet("donate")]
+        public async Task<JsonResult> GetAcceptedDonation()
         {
-            var isSuccess = await LogisticManager.UpdateDeliveryStatus(requestId);
+            var accepted = await LogisticManager.FetchAcceptedDonation();
+            return new JsonResult(Ok(accepted));
+        }
+
+        [HttpGet("update/request/{requestId}")]
+        public async Task<JsonResult> UpdateRequestDelivery(int requestId)
+        {
+            var isSuccess = await LogisticManager.UpdateRequestStatus(requestId);
             return new JsonResult(isSuccess ? Ok() : NotFound());
         }
 
-        // [HttpGet("resolve/{feedbackId}")]
-        // public async Task<JsonResult> ResolveFeedback(int feedbackId)
-        // {
-        //     var isSuccess = await FeedbacksManager.ResolveFeedback(feedbackId);
-        //     return new JsonResult(isSuccess ? Ok() : NotFound());
-        // }
+        [HttpGet("update/donate/{donationId}")]
+        public async Task<JsonResult> UpdateDonationDelivery(int donationId)
+        {
+            var isSuccess = await LogisticManager.UpdateDonationStatus(donationId);
+            return new JsonResult(isSuccess ? Ok() : NotFound());
+        }
     }
 
 }
