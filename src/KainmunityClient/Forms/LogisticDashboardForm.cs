@@ -37,7 +37,8 @@ namespace KainmunityClient.Forms
                 string requesterName = Convert.ToString(request["RequesterName"]);
                 string itemName = Convert.ToString(request["DonationName"]);
                 int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
-                ShowRequest(requestId, requesterName, itemName, requestQuantity);
+                int userId = Convert.ToInt32(request["RequesterId"]);
+                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId);
             }
 
             foreach (var donation in donated)
@@ -46,7 +47,8 @@ namespace KainmunityClient.Forms
                 string donorName = Convert.ToString(donation["DonorName"]);
                 string donationItemName = Convert.ToString(donation["DonationName"]);
                 int donationQuantity = Convert.ToInt32(donation["DonationOriginalQuantity"]);
-                ShowDonation(donationId, donorName, donationItemName, donationQuantity);
+                int userId = Convert.ToInt32(donation["DonorId"]);
+                ShowDonation(donationId, donorName, donationItemName, donationQuantity, userId);
             }
         }
 
@@ -147,13 +149,15 @@ namespace KainmunityClient.Forms
             return donationContainer;
         }
 
-        private void ShowDonation(int donationId, string donorName, string donationItemName, int donationQuantity)
+        private void ShowDonation(int donationId, string donorName, string donationItemName, int donationQuantity, int userId)
         {
             TableLayoutPanel entry = CreateEntry(donationId, donorName, donationItemName, donationQuantity);
             donationsContainer.Controls.Add(entry);
             Button acceptBtn = entry.GetControlFromPosition(3, 0) as Button;
             Panel namePanel = entry.GetControlFromPosition(0, 0) as Panel;
             TextBox nametb = namePanel.Controls[0] as TextBox;
+            Panel itemPanel = entry.GetControlFromPosition(1, 0) as Panel;
+            TextBox itemtb = itemPanel.Controls[0] as TextBox;
 
             acceptBtn.Click += async (sender, e) =>
             {
@@ -174,16 +178,23 @@ namespace KainmunityClient.Forms
 
             nametb.Click += delegate (object sender, EventArgs e)
             {
+                ShowDetails(userId);
+            };
+
+            itemtb.Click += delegate (object sender, EventArgs e)
+            {
                 this.Hide();
                 new DonationDetails(this, donationId).Show();
             };
         }
 
-        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity)
+        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId)
         {
             TableLayoutPanel entry = CreateEntry(requestId, requesterName, itemName, requestQuantity);
             requestsContainer.Controls.Add(entry);
             Button acceptBtn = entry.GetControlFromPosition(3, 0) as Button;
+            Panel namePanel = entry.GetControlFromPosition(0, 0) as Panel;
+            TextBox nametb = namePanel.Controls[0] as TextBox;
 
             acceptBtn.Click += async (sender, e) =>
             {
@@ -201,12 +212,31 @@ namespace KainmunityClient.Forms
                     MessageBox.Show("Failed");
                 }
             };
+
+            nametb.Click += delegate (object sender, EventArgs e)
+            {
+                ShowDetails(userId);
+            };
         }
 
-
-        private void firstName_TextChanged(object sender, EventArgs e)
+        private async void ShowDetails(int userId)
         {
+            mainPanel.Location = new System.Drawing.Point(196, 83);
+            detailsPanel.Visible = true;
 
+            var info = await AccountManager.GetAccountInfo(userId.ToString());
+
+            fname.Text = Convert.ToString(info["UserFirstName"]);
+            lname.Text = Convert.ToString(info["UserLastName"]);
+            eadd.Text = Convert.ToString(info["UserEmailAddress"]);
+            cnum.Text = Convert.ToString(info["UserContactNumber"]);
+            hadd.Text = Convert.ToString(info["UserHomeAddress"]);
+        }
+
+        private void hideDetails_Click(object sender, EventArgs e)
+        {
+            mainPanel.Location = new System.Drawing.Point(111, 83);
+            detailsPanel.Visible = false;
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -215,5 +245,17 @@ namespace KainmunityClient.Forms
             LoginForm login = new LoginForm();
             login.Show();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
