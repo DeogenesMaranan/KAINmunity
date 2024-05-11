@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.donationsContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.detailsPanel = new System.Windows.Forms.Panel();
+            this.hideDetails = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -59,7 +60,6 @@
             this.firstName = new System.Windows.Forms.Label();
             this.logoutButton = new System.Windows.Forms.Button();
             this.profileButton = new System.Windows.Forms.Button();
-            this.hideDetails = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -176,6 +176,23 @@
             this.detailsPanel.Size = new System.Drawing.Size(185, 416);
             this.detailsPanel.TabIndex = 20;
             this.detailsPanel.Visible = false;
+            // 
+            // hideDetails
+            // 
+            this.hideDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.hideDetails.FlatAppearance.BorderSize = 0;
+            this.hideDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hideDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hideDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.hideDetails.Location = new System.Drawing.Point(158, 1);
+            this.hideDetails.Margin = new System.Windows.Forms.Padding(0);
+            this.hideDetails.Name = "hideDetails";
+            this.hideDetails.Size = new System.Drawing.Size(27, 27);
+            this.hideDetails.TabIndex = 17;
+            this.hideDetails.Text = "×";
+            this.hideDetails.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.hideDetails.UseVisualStyleBackColor = false;
+            this.hideDetails.Click += new System.EventHandler(this.hideDetails_Click);
             // 
             // panel9
             // 
@@ -312,7 +329,6 @@
             this.label8.Size = new System.Drawing.Size(95, 17);
             this.label8.TabIndex = 8;
             this.label8.Text = "Home Address";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -353,7 +369,6 @@
             this.label4.Size = new System.Drawing.Size(72, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "First Name";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel1
             // 
@@ -406,23 +421,7 @@
             this.profileButton.TabIndex = 10;
             this.profileButton.Text = "DELIVERIES";
             this.profileButton.UseVisualStyleBackColor = false;
-            // 
-            // hideDetails
-            // 
-            this.hideDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
-            this.hideDetails.FlatAppearance.BorderSize = 0;
-            this.hideDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hideDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.hideDetails.Location = new System.Drawing.Point(158, 1);
-            this.hideDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.hideDetails.Name = "hideDetails";
-            this.hideDetails.Size = new System.Drawing.Size(27, 27);
-            this.hideDetails.TabIndex = 17;
-            this.hideDetails.Text = "×";
-            this.hideDetails.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.hideDetails.UseVisualStyleBackColor = false;
-            this.hideDetails.Click += new System.EventHandler(this.hideDetails_Click);
+            this.profileButton.Click += new System.EventHandler(this.openDelivery_Click);
             // 
             // LogisticDashboardForm
             // 

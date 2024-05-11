@@ -1,5 +1,4 @@
-﻿using KainmunityClient.ServerAPI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KainmunityClient.ServerAPI;
 
 namespace KainmunityClient.Forms
 {
@@ -161,14 +161,13 @@ namespace KainmunityClient.Forms
 
             acceptBtn.Click += async (sender, e) =>
             {
-                var res = await LogisticManager.UpdateDonationStatus(donationId);
-
-                if (res)
+                var updateDonate = await LogisticManager.UpdateDonationStatus(donationId);
+                bool isSuccess = await LogisticManager.AddDeliveryDonation(donationId);
+                if (isSuccess && updateDonate)
                 {
-                    MessageBox.Show("Success");
-                    new LogisticDashboardForm().Show();
-                    this.Close();
-                    // Not restarting
+                    this.Hide();
+                    LogisticDashboardForm form = new LogisticDashboardForm();
+                    form.Show();
                 }
                 else
                 {
@@ -198,14 +197,13 @@ namespace KainmunityClient.Forms
 
             acceptBtn.Click += async (sender, e) =>
             {
-                var res = await LogisticManager.UpdateRequestStatus(requestId);
-
-                if (res)
+                var updateRequest = await LogisticManager.UpdateRequestStatus(requestId);
+                bool isSuccess = await LogisticManager.AddDeliveryRequest(requestId);
+                if (isSuccess && updateRequest)
                 {
-                    MessageBox.Show("Success");
-                    new LogisticDashboardForm().Show();
-                    this.Close();
-                    // Not restarting
+                    this.Hide();
+                    LogisticDashboardForm form = new LogisticDashboardForm();
+                    form.Show();
                 }
                 else
                 {
@@ -246,16 +244,11 @@ namespace KainmunityClient.Forms
             login.Show();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void openDelivery_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            AcceptedDeliveryForm acceptedForm = new AcceptedDeliveryForm();
+            acceptedForm.Show();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
