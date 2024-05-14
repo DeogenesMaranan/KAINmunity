@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.statusText = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.back = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,22 +58,13 @@
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(110, 143);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(602, 284);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(602, 297);
             this.flowLayoutPanel.TabIndex = 4;
             this.flowLayoutPanel.WrapContents = false;
             // 
-            // statusText
-            // 
-            this.statusText.AutoSize = true;
-            this.statusText.ForeColor = System.Drawing.Color.Red;
-            this.statusText.Location = new System.Drawing.Point(322, 434);
-            this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(0, 13);
-            this.statusText.TabIndex = 17;
-            // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.back);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -85,7 +75,7 @@
             // 
             // back
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.BackColor = System.Drawing.Color.White;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,7 +121,7 @@
             this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestButton.ForeColor = System.Drawing.Color.White;
-            this.requestButton.Location = new System.Drawing.Point(324, 453);
+            this.requestButton.Location = new System.Drawing.Point(321, 446);
             this.requestButton.Name = "requestButton";
             this.requestButton.Size = new System.Drawing.Size(144, 44);
             this.requestButton.TabIndex = 15;
@@ -154,12 +144,13 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(582, 41);
             this.tableLayoutPanel1.TabIndex = 16;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(438, 3);
             this.panel5.Name = "panel5";
@@ -179,7 +170,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(293, 3);
             this.panel4.Name = "panel4";
@@ -199,7 +190,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(148, 3);
             this.panel3.Name = "panel3";
@@ -219,7 +210,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -244,7 +235,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
             this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.statusText);
             this.Controls.Add(this.requestButton);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.panel1);
@@ -266,7 +256,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -286,6 +275,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label statusText;
     }
 }

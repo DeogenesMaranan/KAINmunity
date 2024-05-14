@@ -49,7 +49,7 @@ namespace KainmunityClient.Forms
             // 
             // head
             // 
-            this.head.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.head.BackColor = System.Drawing.Color.White;
             this.head.Controls.Add(this.back);
             this.head.Controls.Add(this.title);
             this.head.Location = new System.Drawing.Point(115, 12);
@@ -59,7 +59,7 @@ namespace KainmunityClient.Forms
             // 
             // back
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.BackColor = System.Drawing.Color.White;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

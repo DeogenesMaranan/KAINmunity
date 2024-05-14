@@ -51,7 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.showPassword = new System.Windows.Forms.Button();
-            this.statusText = new System.Windows.Forms.Label();
+            this.error = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             // 
             // email
             // 
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.email.Location = new System.Drawing.Point(65, 239);
             this.email.Multiline = true;
             this.email.Name = "email";
@@ -76,6 +77,7 @@
             // 
             // address
             // 
+            this.address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address.Location = new System.Drawing.Point(65, 329);
             this.address.Multiline = true;
             this.address.Name = "address";
@@ -84,6 +86,7 @@
             // 
             // size
             // 
+            this.size.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.size.Location = new System.Drawing.Point(243, 329);
             this.size.Multiline = true;
             this.size.Name = "size";
@@ -107,6 +110,7 @@
             // 
             // password
             // 
+            this.password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.password.Location = new System.Drawing.Point(65, 192);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(270, 20);
@@ -116,7 +120,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Tw Cen MT", 9.75F);
@@ -162,6 +166,7 @@
             // 
             // firstName
             // 
+            this.firstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.firstName.Location = new System.Drawing.Point(65, 148);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(139, 20);
@@ -169,6 +174,7 @@
             // 
             // lastName
             // 
+            this.lastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lastName.Location = new System.Drawing.Point(210, 148);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(125, 20);
@@ -176,6 +182,7 @@
             // 
             // contactNumber
             // 
+            this.contactNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.contactNumber.Location = new System.Drawing.Point(65, 283);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.Size = new System.Drawing.Size(172, 20);
@@ -183,6 +190,7 @@
             // 
             // income
             // 
+            this.income.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.income.Location = new System.Drawing.Point(243, 283);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(92, 20);
@@ -281,24 +289,27 @@
             this.showPassword.Visible = false;
             this.showPassword.Click += new System.EventHandler(this.showPassword_Click);
             // 
-            // statusText
+            // error
             // 
-            this.statusText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.statusText.AutoSize = true;
-            this.statusText.ForeColor = System.Drawing.Color.Red;
-            this.statusText.Location = new System.Drawing.Point(62, 356);
-            this.statusText.Name = "statusText";
-            this.statusText.Size = new System.Drawing.Size(0, 13);
-            this.statusText.TabIndex = 32;
-            this.statusText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.error.BackColor = System.Drawing.Color.White;
+            this.error.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.error.Enabled = false;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(124, 362);
+            this.error.Name = "error";
+            this.error.ReadOnly = true;
+            this.error.Size = new System.Drawing.Size(145, 13);
+            this.error.TabIndex = 32;
+            this.error.TabStop = false;
+            this.error.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SignupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(802, 502);
-            this.Controls.Add(this.statusText);
+            this.Controls.Add(this.error);
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -353,6 +364,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button showPassword;
-        private System.Windows.Forms.Label statusText;
+        private System.Windows.Forms.TextBox error;
     }
 }

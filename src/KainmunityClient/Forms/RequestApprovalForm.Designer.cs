@@ -79,7 +79,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.label6);
             this.panel5.Location = new System.Drawing.Point(467, 3);
             this.panel5.Name = "panel5";
@@ -99,7 +99,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel4.BackColor = System.Drawing.Color.White;
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(380, 3);
             this.panel4.Name = "panel4";
@@ -119,7 +119,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label4);
             this.panel3.Location = new System.Drawing.Point(235, 3);
             this.panel3.Name = "panel3";
@@ -139,7 +139,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -164,7 +164,7 @@
             this.requestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.requestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.requestButton.ForeColor = System.Drawing.Color.White;
-            this.requestButton.Location = new System.Drawing.Point(326, 446);
+            this.requestButton.Location = new System.Drawing.Point(327, 448);
             this.requestButton.Name = "requestButton";
             this.requestButton.Size = new System.Drawing.Size(144, 44);
             this.requestButton.TabIndex = 16;
@@ -186,7 +186,7 @@
             // 
             // back
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.BackColor = System.Drawing.Color.White;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,7 +202,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.back);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(110, 12);

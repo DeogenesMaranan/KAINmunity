@@ -32,6 +32,8 @@ namespace KainmunityClient.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.error = new System.Windows.Forms.TextBox();
+            this.donationHistory = new System.Windows.Forms.Button();
             this.viewRequestsButton = new System.Windows.Forms.Button();
             this.showPassword = new System.Windows.Forms.Button();
             this.labelPassword = new System.Windows.Forms.Label();
@@ -53,13 +55,13 @@ namespace KainmunityClient.Forms
             this.lastName = new System.Windows.Forms.TextBox();
             this.firstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.donationHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.error);
             this.panel1.Controls.Add(this.donationHistory);
             this.panel1.Controls.Add(this.viewRequestsButton);
             this.panel1.Controls.Add(this.showPassword);
@@ -82,10 +84,40 @@ namespace KainmunityClient.Forms
             this.panel1.Controls.Add(this.lastName);
             this.panel1.Controls.Add(this.firstName);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(152, 26);
+            this.panel1.Location = new System.Drawing.Point(152, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(515, 449);
             this.panel1.TabIndex = 0;
+            // 
+            // error
+            // 
+            this.error.BackColor = System.Drawing.Color.White;
+            this.error.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.error.Enabled = false;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(180, 368);
+            this.error.Name = "error";
+            this.error.ReadOnly = true;
+            this.error.Size = new System.Drawing.Size(145, 13);
+            this.error.TabIndex = 33;
+            this.error.TabStop = false;
+            this.error.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // donationHistory
+            // 
+            this.donationHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
+            this.donationHistory.FlatAppearance.BorderSize = 0;
+            this.donationHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donationHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donationHistory.ForeColor = System.Drawing.Color.White;
+            this.donationHistory.Location = new System.Drawing.Point(37, 383);
+            this.donationHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.donationHistory.Name = "donationHistory";
+            this.donationHistory.Size = new System.Drawing.Size(120, 40);
+            this.donationHistory.TabIndex = 21;
+            this.donationHistory.Text = "DONATIONS";
+            this.donationHistory.UseVisualStyleBackColor = false;
+            this.donationHistory.Click += new System.EventHandler(this.ShowDonationHistory);
             // 
             // viewRequestsButton
             // 
@@ -95,7 +127,7 @@ namespace KainmunityClient.Forms
             this.viewRequestsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewRequestsButton.ForeColor = System.Drawing.Color.White;
             this.viewRequestsButton.Location = new System.Drawing.Point(357, 383);
-            this.viewRequestsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewRequestsButton.Margin = new System.Windows.Forms.Padding(2);
             this.viewRequestsButton.Name = "viewRequestsButton";
             this.viewRequestsButton.Size = new System.Drawing.Size(120, 40);
             this.viewRequestsButton.TabIndex = 20;
@@ -111,7 +143,7 @@ namespace KainmunityClient.Forms
             this.showPassword.FlatAppearance.BorderSize = 0;
             this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showPassword.Font = new System.Drawing.Font("Tw Cen MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPassword.Location = new System.Drawing.Point(366, 353);
+            this.showPassword.Location = new System.Drawing.Point(366, 338);
             this.showPassword.Name = "showPassword";
             this.showPassword.Size = new System.Drawing.Size(26, 17);
             this.showPassword.TabIndex = 19;
@@ -123,7 +155,7 @@ namespace KainmunityClient.Forms
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(120, 331);
+            this.labelPassword.Location = new System.Drawing.Point(120, 317);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(65, 17);
             this.labelPassword.TabIndex = 18;
@@ -132,7 +164,7 @@ namespace KainmunityClient.Forms
             // password
             // 
             this.password.BackColor = System.Drawing.SystemColors.Window;
-            this.password.Location = new System.Drawing.Point(123, 351);
+            this.password.Location = new System.Drawing.Point(123, 336);
             this.password.Name = "password";
             this.password.ReadOnly = true;
             this.password.Size = new System.Drawing.Size(270, 20);
@@ -142,13 +174,13 @@ namespace KainmunityClient.Forms
             // 
             // back
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.BackColor = System.Drawing.Color.White;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.back.Location = new System.Drawing.Point(14, 14);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(52, 23);
             this.back.TabIndex = 16;
@@ -163,8 +195,8 @@ namespace KainmunityClient.Forms
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.save.ForeColor = System.Drawing.Color.White;
-            this.save.Location = new System.Drawing.Point(195, 383);
-            this.save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.save.Location = new System.Drawing.Point(197, 383);
+            this.save.Margin = new System.Windows.Forms.Padding(2);
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(120, 40);
             this.save.TabIndex = 15;
@@ -176,7 +208,7 @@ namespace KainmunityClient.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(284, 282);
+            this.label8.Location = new System.Drawing.Point(284, 270);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 17);
             this.label8.TabIndex = 14;
@@ -185,7 +217,7 @@ namespace KainmunityClient.Forms
             // householdSize
             // 
             this.householdSize.BackColor = System.Drawing.SystemColors.Window;
-            this.householdSize.Location = new System.Drawing.Point(278, 301);
+            this.householdSize.Location = new System.Drawing.Point(278, 289);
             this.householdSize.Name = "householdSize";
             this.householdSize.ReadOnly = true;
             this.householdSize.Size = new System.Drawing.Size(115, 20);
@@ -195,7 +227,7 @@ namespace KainmunityClient.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(120, 282);
+            this.label7.Location = new System.Drawing.Point(120, 270);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 17);
             this.label7.TabIndex = 12;
@@ -204,7 +236,7 @@ namespace KainmunityClient.Forms
             // yearlyIncome
             // 
             this.yearlyIncome.BackColor = System.Drawing.SystemColors.Window;
-            this.yearlyIncome.Location = new System.Drawing.Point(123, 301);
+            this.yearlyIncome.Location = new System.Drawing.Point(123, 289);
             this.yearlyIncome.Name = "yearlyIncome";
             this.yearlyIncome.ReadOnly = true;
             this.yearlyIncome.Size = new System.Drawing.Size(149, 20);
@@ -214,7 +246,7 @@ namespace KainmunityClient.Forms
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(120, 232);
+            this.label6.Location = new System.Drawing.Point(120, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 17);
             this.label6.TabIndex = 10;
@@ -223,7 +255,7 @@ namespace KainmunityClient.Forms
             // homeAddress
             // 
             this.homeAddress.BackColor = System.Drawing.SystemColors.Window;
-            this.homeAddress.Location = new System.Drawing.Point(123, 253);
+            this.homeAddress.Location = new System.Drawing.Point(123, 242);
             this.homeAddress.Name = "homeAddress";
             this.homeAddress.ReadOnly = true;
             this.homeAddress.Size = new System.Drawing.Size(270, 20);
@@ -233,7 +265,7 @@ namespace KainmunityClient.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(120, 184);
+            this.label5.Location = new System.Drawing.Point(120, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 17);
             this.label5.TabIndex = 8;
@@ -242,7 +274,7 @@ namespace KainmunityClient.Forms
             // contactNumber
             // 
             this.contactNumber.BackColor = System.Drawing.SystemColors.Window;
-            this.contactNumber.Location = new System.Drawing.Point(123, 204);
+            this.contactNumber.Location = new System.Drawing.Point(123, 195);
             this.contactNumber.Name = "contactNumber";
             this.contactNumber.ReadOnly = true;
             this.contactNumber.Size = new System.Drawing.Size(270, 20);
@@ -252,7 +284,7 @@ namespace KainmunityClient.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(120, 136);
+            this.label4.Location = new System.Drawing.Point(120, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 17);
             this.label4.TabIndex = 6;
@@ -261,7 +293,7 @@ namespace KainmunityClient.Forms
             // emailAddress
             // 
             this.emailAddress.BackColor = System.Drawing.SystemColors.Window;
-            this.emailAddress.Location = new System.Drawing.Point(123, 156);
+            this.emailAddress.Location = new System.Drawing.Point(123, 148);
             this.emailAddress.Name = "emailAddress";
             this.emailAddress.ReadOnly = true;
             this.emailAddress.Size = new System.Drawing.Size(270, 20);
@@ -271,7 +303,7 @@ namespace KainmunityClient.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(275, 89);
+            this.label3.Location = new System.Drawing.Point(275, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 17);
             this.label3.TabIndex = 4;
@@ -281,7 +313,7 @@ namespace KainmunityClient.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(120, 89);
+            this.label2.Location = new System.Drawing.Point(120, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 3;
@@ -290,7 +322,7 @@ namespace KainmunityClient.Forms
             // lastName
             // 
             this.lastName.BackColor = System.Drawing.SystemColors.Window;
-            this.lastName.Location = new System.Drawing.Point(278, 109);
+            this.lastName.Location = new System.Drawing.Point(278, 101);
             this.lastName.Name = "lastName";
             this.lastName.ReadOnly = true;
             this.lastName.Size = new System.Drawing.Size(115, 20);
@@ -299,7 +331,7 @@ namespace KainmunityClient.Forms
             // firstName
             // 
             this.firstName.BackColor = System.Drawing.SystemColors.Window;
-            this.firstName.Location = new System.Drawing.Point(123, 109);
+            this.firstName.Location = new System.Drawing.Point(123, 101);
             this.firstName.Name = "firstName";
             this.firstName.ReadOnly = true;
             this.firstName.Size = new System.Drawing.Size(149, 20);
@@ -315,22 +347,6 @@ namespace KainmunityClient.Forms
             this.label1.Size = new System.Drawing.Size(172, 60);
             this.label1.TabIndex = 0;
             this.label1.Text = "PROFILE";
-            // 
-            // donationHistory
-            // 
-            this.donationHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
-            this.donationHistory.FlatAppearance.BorderSize = 0;
-            this.donationHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donationHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donationHistory.ForeColor = System.Drawing.Color.White;
-            this.donationHistory.Location = new System.Drawing.Point(36, 383);
-            this.donationHistory.Margin = new System.Windows.Forms.Padding(2);
-            this.donationHistory.Name = "donationHistory";
-            this.donationHistory.Size = new System.Drawing.Size(120, 40);
-            this.donationHistory.TabIndex = 21;
-            this.donationHistory.Text = "DONATIONS";
-            this.donationHistory.UseVisualStyleBackColor = false;
-            this.donationHistory.Click += new System.EventHandler(this.ShowDonationHistory);
             // 
             // UserProfileForm
             // 
@@ -377,5 +393,6 @@ namespace KainmunityClient.Forms
         private System.Windows.Forms.Button showPassword;
         private System.Windows.Forms.Button viewRequestsButton;
         private System.Windows.Forms.Button donationHistory;
+        private System.Windows.Forms.TextBox error;
     }
 }

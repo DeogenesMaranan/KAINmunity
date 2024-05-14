@@ -179,8 +179,7 @@ namespace KainmunityClient.Forms
 
             if (!isFormatted)
             {
-                statusText.ForeColor = Color.Red;
-                statusText.Text = "Please enter a valid number for each input box.";
+                MessageBox.Show("Please enter a valid number for each input box.");
             }
             else
             {
@@ -188,13 +187,11 @@ namespace KainmunityClient.Forms
 
                 if (isSuccess)
                 {
-                    statusText.ForeColor = Color.Green;
-                    statusText.Text = "You may now wait for the approval.";
+                    MessageBox.Show("You may now wait for the approval.");
                 }
                 else
                 {
-                    statusText.ForeColor = Color.Red;
-                    statusText.Text = "Failed to process your request.";
+                    MessageBox.Show("Failed to process your request.");
                 }
             }
         }

@@ -58,6 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -72,7 +73,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.backButton);
             this.panel1.Location = new System.Drawing.Point(97, 14);
             this.panel1.Name = "panel1";
@@ -108,7 +110,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(3, 212);
             this.panel3.Name = "panel3";
@@ -128,7 +130,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -179,7 +181,7 @@
             // 
             // detailsPanel
             // 
-            this.detailsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.detailsPanel.BackColor = System.Drawing.Color.White;
             this.detailsPanel.Controls.Add(this.hideDetails);
             this.detailsPanel.Controls.Add(this.panel9);
             this.detailsPanel.Controls.Add(this.label9);
@@ -201,15 +203,15 @@
             // 
             // hideDetails
             // 
-            this.hideDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.hideDetails.BackColor = System.Drawing.Color.Transparent;
             this.hideDetails.FlatAppearance.BorderSize = 0;
             this.hideDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hideDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.hideDetails.Location = new System.Drawing.Point(158, 1);
+            this.hideDetails.Location = new System.Drawing.Point(153, 1);
             this.hideDetails.Margin = new System.Windows.Forms.Padding(0);
             this.hideDetails.Name = "hideDetails";
-            this.hideDetails.Size = new System.Drawing.Size(27, 27);
+            this.hideDetails.Size = new System.Drawing.Size(34, 34);
             this.hideDetails.TabIndex = 17;
             this.hideDetails.Text = "×";
             this.hideDetails.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -228,7 +230,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
             this.label9.Location = new System.Drawing.Point(34, 31);
@@ -392,6 +394,18 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "First Name";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(396, 60);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "ACCEPTED DELIVERY";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AcceptedDeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +420,7 @@
             this.Text = "AcceptedDeliveryForm";
             this.Load += new System.EventHandler(this.GetDelivery);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -459,5 +474,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label10;
     }
 }

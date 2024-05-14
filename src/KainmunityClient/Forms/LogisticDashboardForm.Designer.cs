@@ -86,7 +86,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(3, 212);
             this.panel3.Name = "panel3";
@@ -106,7 +106,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -157,7 +157,7 @@
             // 
             // detailsPanel
             // 
-            this.detailsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.detailsPanel.BackColor = System.Drawing.Color.White;
             this.detailsPanel.Controls.Add(this.hideDetails);
             this.detailsPanel.Controls.Add(this.panel9);
             this.detailsPanel.Controls.Add(this.label9);
@@ -179,15 +179,15 @@
             // 
             // hideDetails
             // 
-            this.hideDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.hideDetails.BackColor = System.Drawing.Color.White;
             this.hideDetails.FlatAppearance.BorderSize = 0;
             this.hideDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hideDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hideDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.hideDetails.Location = new System.Drawing.Point(158, 1);
+            this.hideDetails.Location = new System.Drawing.Point(151, 1);
             this.hideDetails.Margin = new System.Windows.Forms.Padding(0);
             this.hideDetails.Name = "hideDetails";
-            this.hideDetails.Size = new System.Drawing.Size(27, 27);
+            this.hideDetails.Size = new System.Drawing.Size(34, 34);
             this.hideDetails.TabIndex = 17;
             this.hideDetails.Text = "×";
             this.hideDetails.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -206,7 +206,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
             this.label9.Location = new System.Drawing.Point(34, 31);
@@ -372,7 +372,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.firstName);
             this.panel1.Controls.Add(this.logoutButton);
             this.panel1.Controls.Add(this.profileButton);
@@ -384,7 +384,7 @@
             // firstName
             // 
             this.firstName.AutoSize = true;
-            this.firstName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.firstName.BackColor = System.Drawing.Color.White;
             this.firstName.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
             this.firstName.Location = new System.Drawing.Point(9, 15);

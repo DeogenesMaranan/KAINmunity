@@ -75,11 +75,13 @@ namespace KainmunityClient.Forms
 
             if (isSuccess)
             {
-                MessageBox.Show("Account edited successfully.");
+                error.ForeColor = Color.Green;
+                error.Text = "Account edited successfully.";
             }
             else
             {
-                MessageBox.Show("Account failed to edit.");
+                error.ForeColor = Color.Red;
+                error.Text = "Account failed to edit.";
             }
         }
         private void ShowDonationHistory(object sender, EventArgs e)
