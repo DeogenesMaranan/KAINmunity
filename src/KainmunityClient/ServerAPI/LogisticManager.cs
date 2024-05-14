@@ -51,6 +51,17 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
+        public static async Task<bool> FinishRequestStatus(int requestId)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"logistics/finish/request/{requestId}");
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+        public static async Task<bool> FinishDonationStatus(int donationId)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"logistics/finish/donate/{donationId}");
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
         public static async Task<bool> AddDeliveryRequest(int requestId)
         {
             var res = await APIConnector.SendRequest(RequestMethod.POST, "logistics/add/request", new Dictionary<string, object>

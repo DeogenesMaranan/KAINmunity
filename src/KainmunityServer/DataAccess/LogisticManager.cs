@@ -93,7 +93,7 @@ namespace KainmunityServer.DataAccess
             string query = @"
                 SELECT 
                     CONCAT(UserInformations.UserFirstName, ' ', UserInformations.UserLastName) AS DonorName, 
-                    Donations.DonationId, Donations.DonationName, Donations.DonationOriginalQuantity, Donations.DonationStatus
+                    Donations.DonationId, Donations.DonationName, Donations.DonationOriginalQuantity, Donations.DonationStatus, Donations.DonorId
                 FROM Logistics
                 JOIN Donations ON Logistics.DonationId = Donations.DonationId
                 JOIN UserInformations ON Donations.DonorId = UserInformations.UserId
@@ -145,6 +145,39 @@ namespace KainmunityServer.DataAccess
             return res == 1;
         }
 
-        // Show Accepted Delivery For Request
+        public static async Task<bool> FinishRequestStatus(int requestId)
+    {
+        string query = @"
+                        UPDATE Requests
+                        SET RequestStatus = 'Recieved'
+                        WHERE RequestId = @RequestId
+                    ";
+
+        var parameters = new Dictionary<string, object>()
+                    {
+                        { "@RequestId", requestId },
+                    };
+
+        var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+        return res == 1;
+    }
+
+    public static async Task<bool> FinishDonationStatus(int donationId)
+    {
+        string query = @"
+                        UPDATE Donations
+                        SET DonationStatus = 'Delivered'
+                        WHERE DonationId = @DonationId
+                    ";
+
+        var parameters = new Dictionary<string, object>()
+                    {
+                        { "@DonationId", donationId },
+                    };
+
+        var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+        return res == 1;
+    }
+
     }
 }

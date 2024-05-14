@@ -51,6 +51,20 @@ namespace KainmunityServer.Controllers
             return new JsonResult(isSuccess ? Ok() : NotFound());
         }
 
+        [HttpGet("finish/request/{requestId}")]
+        public async Task<JsonResult> FinishRequestDelivery(int requestId)
+        {
+            var isSuccess = await LogisticManager.FinishRequestStatus(requestId);
+            return new JsonResult(isSuccess ? Ok() : NotFound());
+        }
+
+        [HttpGet("finish/donate/{donationId}")]
+        public async Task<JsonResult> FinishDonationDelivery(int donationId)
+        {
+            var isSuccess = await LogisticManager.FinishDonationStatus(donationId);
+            return new JsonResult(isSuccess ? Ok() : NotFound());
+        }
+
         [HttpGet("delivery/request/{courierId}")]
         public async Task<JsonResult> GetDeliveryRequest(int courierId)
         {

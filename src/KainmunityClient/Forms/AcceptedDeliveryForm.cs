@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using KainmunityClient.ServerAPI;
 
 namespace KainmunityClient.Forms
@@ -31,7 +32,9 @@ namespace KainmunityClient.Forms
                 string itemName = Convert.ToString(request["DonationName"]);
                 int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
                 string requestStatus = Convert.ToString(request["RequestStatus"]);
-                ShowRequest(requestId, requesterName, itemName, requestQuantity, requestStatus);
+                int userId = Convert.ToInt32(request["RequesterId"]);
+                if (requestStatus != "Delivery") continue;
+                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId);
             }
 
             foreach (var donate in donated)
@@ -41,11 +44,12 @@ namespace KainmunityClient.Forms
                 string itemName = Convert.ToString(donate["DonationName"]);
                 int donationQuantity = Convert.ToInt32(donate["DonationOriginalQuantity"]);
                 string donationStatus = Convert.ToString(donate["DonationStatus"]);
-                ShowDonation(donationId, donorName, itemName, donationQuantity, donationStatus);
+                if (donationStatus != "Delivery") continue;
+                ShowDonation(donationId, donorName, itemName, donationQuantity);
             }
         }
 
-        private TableLayoutPanel CreateEntry(int rowId, string name, string itemName, int quantity, string status)
+        private TableLayoutPanel CreateEntry(int rowId, string name, string itemName, int quantity, int transactiontType)
         {
             TextBox nameTb = new TextBox();
             nameTb.BackColor = Color.FromArgb(255, 246, 207);
@@ -83,17 +87,15 @@ namespace KainmunityClient.Forms
             quantityTb.TextAlign = HorizontalAlignment.Center;
             quantityTb.Text = quantity.ToString();
 
-            TextBox statusTb = new TextBox();
-            statusTb.BackColor = Color.FromArgb(255, 246, 207);
-            statusTb.BorderStyle = BorderStyle.None;
-            statusTb.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusTb.Location = new Point(3, 6);
-            statusTb.Name = $"quantity_{rowId}";
-            statusTb.ReadOnly = true;
-            statusTb.Size = new Size(93, 18);
-            statusTb.TabIndex = 0;
-            statusTb.TextAlign = HorizontalAlignment.Center;
-            statusTb.Text = status;
+            Button acceptBtn = new Button();
+            acceptBtn.BackColor = Color.FromArgb(0, 60, 67);
+            acceptBtn.FlatAppearance.BorderSize = 0;
+            acceptBtn.FlatStyle = FlatStyle.Flat;
+            acceptBtn.ForeColor = SystemColors.Window;
+            acceptBtn.Name = $"resolveBtn_{rowId}";
+            acceptBtn.Size = new Size(109, 39);
+            acceptBtn.Text = (transactiontType == 1) ? "RECIEVED" : "DELIVERED";
+            acceptBtn.UseVisualStyleBackColor = false;
 
             Panel namePanel = new Panel();
             namePanel.BackColor = Color.FromArgb(255, 246, 207);
@@ -122,22 +124,13 @@ namespace KainmunityClient.Forms
             quantityPanel.Size = new Size(81, 29);
             quantityPanel.TabIndex = 3;
 
-            Panel statusPanel = new Panel();
-            statusPanel.BackColor = Color.FromArgb(255, 246, 207);
-            statusPanel.Controls.Add(statusTb);
-            statusPanel.Dock = DockStyle.Fill;
-            statusPanel.Location = new Point(380, 3);
-            statusPanel.Name = $"quantityPanel_{rowId}";
-            statusPanel.Size = new Size(81, 29);
-            statusPanel.TabIndex = 3;
-
             TableLayoutPanel container = new TableLayoutPanel();
             container.ColumnCount = 4;
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             container.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            container.Controls.Add(statusPanel, 3, 0);
+            container.Controls.Add(acceptBtn, 3, 0);
             container.Controls.Add(quantityPanel, 2, 0);
             container.Controls.Add(itemPanel, 1, 0);
             container.Controls.Add(namePanel, 0, 0);
@@ -152,21 +145,92 @@ namespace KainmunityClient.Forms
 
             return container;
         }
-        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, string requestStatus)
+        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId)
         {
-            TableLayoutPanel entry = CreateEntry(requestId, requesterName, itemName, requestQuantity, requestStatus);
+            TableLayoutPanel entry = CreateEntry(requestId, requesterName, itemName, requestQuantity, 1);
             requestsContainer.Controls.Add(entry);
+            Button acceptBtn = entry.GetControlFromPosition(3, 0) as Button;
+            Panel namePanel = entry.GetControlFromPosition(0, 0) as Panel;
+            TextBox ntb = namePanel.Controls[0] as TextBox;
+            Panel itemPanel = entry.GetControlFromPosition(1, 0) as Panel;
+            TextBox itb = itemPanel.Controls[0] as TextBox;
+
+            acceptBtn.Click += async (sender, e) =>
+            {
+                var updateRequest = await LogisticManager.FinishRequestStatus(requestId);
+                if (updateRequest)
+                {
+                    this.Hide();
+                    AcceptedDeliveryForm form = new AcceptedDeliveryForm();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Failed");
+                }
+            };
+
+            ntb.Click += delegate (object sender, EventArgs e)
+            {
+                ShowDetails(userId);
+            };
+
+            itb.Click += delegate (object sender, EventArgs e)
+            {
+                this.Hide();
+                new DonationDetails(this, requestId).Show();
+            };
         }
-        private void ShowDonation(int donationId, string donorName, string itemName, int donationQuantity, string donationStatus)
+        private void ShowDonation(int donationId, string donorName, string itemName, int donationQuantity)
         {
-            TableLayoutPanel entry = CreateEntry(donationId, donorName, itemName, donationQuantity, donationStatus);
+            TableLayoutPanel entry = CreateEntry(donationId, donorName, itemName, donationQuantity, 2);
             donationsContainer.Controls.Add(entry);
+            Button acceptBtn = entry.GetControlFromPosition(3, 0) as Button;
+            Panel namePanel = entry.GetControlFromPosition(0, 0) as Panel;
+            TextBox ntb = namePanel.Controls[0] as TextBox;
+            Panel itemPanel = entry.GetControlFromPosition(1, 0) as Panel;
+            TextBox itb = itemPanel.Controls[0] as TextBox;
+
+            acceptBtn.Click += async (sender, e) =>
+            {
+                var updateDonate = await LogisticManager.FinishDonationStatus(donationId);
+                if (updateDonate)
+                {
+                    this.Hide();
+                    AcceptedDeliveryForm form = new AcceptedDeliveryForm();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Failed");
+                }
+            };
+
+            itb.Click += delegate (object sender, EventArgs e)
+            {
+                this.Hide();
+                new DonationDetails(this, donationId).Show();
+            };
+        }
+
+        private async void ShowDetails(int userId)
+        {
+            mainPanel.Location = new System.Drawing.Point(196, 83);
+            detailsPanel.Visible = true;
+
+            var info = await AccountManager.GetAccountInfo(userId.ToString());
+
+            fname.Text = Convert.ToString(info["UserFirstName"]);
+            lname.Text = Convert.ToString(info["UserLastName"]);
+            eadd.Text = Convert.ToString(info["UserEmailAddress"]);
+            cnum.Text = Convert.ToString(info["UserContactNumber"]);
+            hadd.Text = Convert.ToString(info["UserHomeAddress"]);
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LogisticDashboardForm form = new LogisticDashboardForm();
+            AcceptedDeliveryForm form = new AcceptedDeliveryForm();
             form.Show();
         }
     }
