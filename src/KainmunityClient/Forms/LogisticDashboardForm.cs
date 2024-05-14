@@ -38,7 +38,8 @@ namespace KainmunityClient.Forms
                 string itemName = Convert.ToString(request["DonationName"]);
                 int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
                 int userId = Convert.ToInt32(request["RequesterId"]);
-                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId);
+                int donationId = Convert.ToInt32(request["DonationId"]);
+                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId, donationId);
             }
 
             foreach (var donation in donated)
@@ -187,13 +188,15 @@ namespace KainmunityClient.Forms
             };
         }
 
-        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId)
+        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId, int donationId)
         {
             TableLayoutPanel entry = CreateEntry(requestId, requesterName, itemName, requestQuantity);
             requestsContainer.Controls.Add(entry);
             Button acceptBtn = entry.GetControlFromPosition(3, 0) as Button;
             Panel namePanel = entry.GetControlFromPosition(0, 0) as Panel;
             TextBox nametb = namePanel.Controls[0] as TextBox;
+            Panel itemPanel = entry.GetControlFromPosition(1, 0) as Panel;
+            TextBox itemtb = itemPanel.Controls[0] as TextBox;
 
             acceptBtn.Click += async (sender, e) =>
             {
@@ -214,6 +217,12 @@ namespace KainmunityClient.Forms
             nametb.Click += delegate (object sender, EventArgs e)
             {
                 ShowDetails(userId);
+            };
+
+            itemtb.Click += delegate (object sender, EventArgs e)
+            {
+                this.Hide();
+                new DonationDetails(this, donationId).Show();
             };
         }
 

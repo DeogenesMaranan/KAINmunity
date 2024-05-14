@@ -33,19 +33,21 @@ namespace KainmunityClient.Forms
                 int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
                 string requestStatus = Convert.ToString(request["RequestStatus"]);
                 int userId = Convert.ToInt32(request["RequesterId"]);
+                int donationId = Convert.ToInt32(request["DonationId"]);
                 if (requestStatus != "Delivery") continue;
-                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId);
+                ShowRequest(requestId, requesterName, itemName, requestQuantity, userId, donationId);
             }
 
             foreach (var donate in donated)
             {
                 int donationId = Convert.ToInt32(donate["DonationId"]);
+                int userId = Convert.ToInt32(donate["DonorId"]);
                 string donorName = Convert.ToString(donate["DonorName"]);
                 string itemName = Convert.ToString(donate["DonationName"]);
                 int donationQuantity = Convert.ToInt32(donate["DonationOriginalQuantity"]);
                 string donationStatus = Convert.ToString(donate["DonationStatus"]);
                 if (donationStatus != "Delivery") continue;
-                ShowDonation(donationId, donorName, itemName, donationQuantity);
+                ShowDonation(donationId, donorName, itemName, donationQuantity, userId);
             }
         }
 
@@ -145,7 +147,7 @@ namespace KainmunityClient.Forms
 
             return container;
         }
-        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId)
+        private void ShowRequest(int requestId, string requesterName, string itemName, int requestQuantity, int userId, int donationId)
         {
             TableLayoutPanel entry = CreateEntry(requestId, requesterName, itemName, requestQuantity, 1);
             requestsContainer.Controls.Add(entry);
@@ -178,10 +180,10 @@ namespace KainmunityClient.Forms
             itb.Click += delegate (object sender, EventArgs e)
             {
                 this.Hide();
-                new DonationDetails(this, requestId).Show();
+                new DonationDetails(this, donationId).Show();
             };
         }
-        private void ShowDonation(int donationId, string donorName, string itemName, int donationQuantity)
+        private void ShowDonation(int donationId, string donorName, string itemName, int donationQuantity, int userId)
         {
             TableLayoutPanel entry = CreateEntry(donationId, donorName, itemName, donationQuantity, 2);
             donationsContainer.Controls.Add(entry);
@@ -204,6 +206,11 @@ namespace KainmunityClient.Forms
                 {
                     MessageBox.Show("Failed");
                 }
+            };
+
+            ntb.Click += delegate (object sender, EventArgs e)
+            {
+                ShowDetails(userId);
             };
 
             itb.Click += delegate (object sender, EventArgs e)
@@ -230,8 +237,14 @@ namespace KainmunityClient.Forms
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AcceptedDeliveryForm form = new AcceptedDeliveryForm();
+            LogisticDashboardForm form = new LogisticDashboardForm();
             form.Show();
+        }
+
+        private void hideDescription(object sender, EventArgs e)
+        {
+            mainPanel.Location = new System.Drawing.Point(111, 83);
+            detailsPanel.Visible = false;
         }
     }
 }

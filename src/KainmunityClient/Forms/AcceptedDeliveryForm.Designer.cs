@@ -90,7 +90,7 @@
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(97, 36);
             this.backButton.TabIndex = 11;
-            this.backButton.Text = "Back";
+            this.backButton.Text = "BACK";
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
@@ -193,9 +193,9 @@
             this.detailsPanel.Controls.Add(this.label6);
             this.detailsPanel.Controls.Add(this.label5);
             this.detailsPanel.Controls.Add(this.label4);
-            this.detailsPanel.Location = new System.Drawing.Point(0, 97);
+            this.detailsPanel.Location = new System.Drawing.Point(0, 89);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(185, 416);
+            this.detailsPanel.Size = new System.Drawing.Size(185, 425);
             this.detailsPanel.TabIndex = 25;
             this.detailsPanel.Visible = false;
             // 
@@ -214,7 +214,7 @@
             this.hideDetails.Text = "×";
             this.hideDetails.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.hideDetails.UseVisualStyleBackColor = false;
-            this.hideDetails.Click += new System.EventHandler(this.backButton_Click);
+            this.hideDetails.Click += new System.EventHandler(this.hideDescription);
             // 
             // panel9
             // 
@@ -396,6 +396,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(176)))), ((int)(((byte)(170)))));
             this.ClientSize = new System.Drawing.Size(800, 513);
             this.Controls.Add(this.detailsPanel);
             this.Controls.Add(this.panel1);
