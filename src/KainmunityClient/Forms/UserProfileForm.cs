@@ -16,8 +16,6 @@ namespace KainmunityClient.Forms
     {
         private readonly string _userId;
         private readonly bool _isViewer;
-        private string _hashedpassword;
-        private bool isPasswordModified = false;
         public UserProfileForm(string userId, bool isViewer = false)
         {
             _userId = userId;
@@ -36,7 +34,7 @@ namespace KainmunityClient.Forms
             homeAddress.Text = Convert.ToString(info["UserHomeAddress"]);
             yearlyIncome.Text = Convert.ToString(info["UserYearlyIncome"]);
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
-            _hashedpassword = Convert.ToString(info["UserHouseholdSize"]);
+            password.Text = Convert.ToString(info["UserPassword"]);
 
             if (!_isViewer)
             {
@@ -64,11 +62,10 @@ namespace KainmunityClient.Forms
 
         private async void UploadInformation(object sender, EventArgs e)
         {
-            string newPassword = (isPasswordModified) ? password.Text : _hashedpassword;
             var isSuccess = await AccountManager.EditAccount(
                 firstName.Text,
                 lastName.Text,
-                newPassword,
+                password.Text,
                 emailAddress.Text,
                 contactNumber.Text,
                 homeAddress.Text,
@@ -128,7 +125,6 @@ namespace KainmunityClient.Forms
         private void showIcon(object sender, EventArgs e)
         {
             showPassword.Visible = true;
-            isPasswordModified = true;
         }
 
     }

@@ -1,5 +1,4 @@
 ﻿using KainmunityServer.Models;
-using BCrypt.Net;
 
 namespace KainmunityServer.DataAccess
 {
@@ -7,24 +6,16 @@ namespace KainmunityServer.DataAccess
     {
         public static async Task<LoginDetails> VerifyLogin(LoginDetails loginDetails)
         {
-            string query = "SELECT UserId, UserPassword, UserType FROM UserCredentials WHERE UserContactNumber = @ContactNumber";
+            string query = "SELECT * FROM UserCredentials WHERE UserContactNumber = @ContactNumber and UserPassword = @Password";
             var parameters = new Dictionary<string, object>()
-                {
-                    { "@ContactNumber", loginDetails.ContactNumber }
-                };
-
-            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
-
-            if (res.Count == 0)
             {
-                return new LoginDetails { IsAuthorized = false };
-            }
-
-            string hashedPasswordFromDb = Convert.ToString(res[0]["UserPassword"]);
-
-            bool passwordMatch = BCrypt.Net.BCrypt.Verify(loginDetails.Password, hashedPasswordFromDb);
-
-            if (!passwordMatch)
+                { "@ContactNumber", loginDetails.ContactNumber },
+                { "@Password", loginDetails.Password }
+            };
+            
+            var res = await DatabaseConnector.ExecuteQuery(query, parameters);
+            
+            if (res.Count == 0)
             {
                 return new LoginDetails { IsAuthorized = false };
             }
@@ -39,13 +30,11 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<bool> CreateAccount(UserDetails userDetails)
         {
-            string salt = BCrypt.Net.BCrypt.GenerateSalt();
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userDetails.Password, salt);
             string query = "INSERT INTO UserCredentials (UserContactNumber, UserPassword) VALUES (@ContactNumber, @Password)";
             var parameters = new Dictionary<string, object>()
             {
                 { "@ContactNumber", userDetails.ContactNumber },
-                { "@Password", hashedPassword }
+                { "@Password", userDetails.Password }
             };
 
             var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
@@ -76,13 +65,11 @@ namespace KainmunityServer.DataAccess
 
         public static async Task<bool> EditAccount(int userId, UserDetails userDetails)
         {
-            string salt = BCrypt.Net.BCrypt.GenerateSalt();
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(userDetails.Password, salt);
             string query = "UPDATE UserCredentials SET UserPassword = @Password WHERE UserId = @UserId";
             var parameters = new Dictionary<string, object>()
             {
-                { "@Password", hashedPassword },
-                { "@UserId", userId }
+                { "@Password", userDetails.Password },
+                { "@UserId", userId },
             };
 
             var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
