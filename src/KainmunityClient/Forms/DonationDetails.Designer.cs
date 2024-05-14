@@ -104,7 +104,7 @@
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.back.Location = new System.Drawing.Point(10, 9);
-            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.back.Margin = new System.Windows.Forms.Padding(2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(52, 23);
             this.back.TabIndex = 17;
@@ -128,7 +128,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Location = new System.Drawing.Point(107, 177);
+            this.panel6.Location = new System.Drawing.Point(107, 174);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(576, 47);
             this.panel6.TabIndex = 18;
@@ -405,9 +405,9 @@
             // assReqContainer
             // 
             this.assReqContainer.AutoScroll = true;
-            this.assReqContainer.Location = new System.Drawing.Point(107, 263);
+            this.assReqContainer.Location = new System.Drawing.Point(107, 266);
             this.assReqContainer.Name = "assReqContainer";
-            this.assReqContainer.Size = new System.Drawing.Size(603, 238);
+            this.assReqContainer.Size = new System.Drawing.Size(603, 227);
             this.assReqContainer.TabIndex = 21;
             // 
             // tableLayoutPanel2
@@ -421,7 +421,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel9, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel10, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel11, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(105, 223);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(105, 226);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
