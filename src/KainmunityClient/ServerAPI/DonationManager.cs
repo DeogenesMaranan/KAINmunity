@@ -26,7 +26,7 @@ namespace KainmunityClient.ServerAPI
 
         public static async Task<List<DonationItem>> GetDonations()
         {
-            var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/available");
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"donations/available/{APIConnector.UserId}");
             var donations = new List<DonationItem>();
 
             int statusCode = Convert.ToInt32(res["statusCode"]);

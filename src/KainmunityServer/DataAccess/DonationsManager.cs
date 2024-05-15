@@ -100,12 +100,24 @@ namespace KainmunityServer.DataAccess
             return true;
         }
 
-        public static async Task<List<Dictionary<string, object>>> GetAvailable()
+        public static async Task<List<Dictionary<string, object>>> GetAvailable(int userId)
         {
-            string query = "SELECT * FROM Donations WHERE DonationQuantity > 0 AND DonationExpiry > @CurrentDate ORDER BY DonationExpiry";
+            string query = @"SELECT *
+                    FROM Donations d
+                    WHERE d.DonationQuantity > 0
+                      AND d.DonationExpiry > @CurrentDate
+                      AND NOT EXISTS(
+                          SELECT 1
+                          FROM Requests r
+                          WHERE r.DonationId = d.DonationId
+                            AND r.RequesterId = @UserId
+                      )
+                    ORDER BY d.DonationExpiry;
+            ";
             var parameters = new Dictionary<string, object>()
             {
                 { "@CurrentDate", DateTime.Now.ToString("yyyy-MM-dd") },
+                { "@UserId", userId }
             };
 
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);

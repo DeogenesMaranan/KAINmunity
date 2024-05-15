@@ -76,10 +76,10 @@ namespace KainmunityServer.Controllers
             return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 
-        [HttpGet("available")]
-        public async Task<JsonResult> GetAvailableDonations()
+        [HttpGet("available/{UserId}")]
+        public async Task<JsonResult> GetAvailableDonations(int UserId)
         {
-            var donations = await DonationsManager.GetAvailable();
+            var donations = await DonationsManager.GetAvailable(UserId);
             return new JsonResult(Ok(donations));
         }
 
