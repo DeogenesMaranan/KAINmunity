@@ -37,6 +37,18 @@ namespace KainmunityServer.Controllers
             });
         }
 
+        [HttpGet("pending")]
+        public async Task<JsonResult> GetPendingDonations()
+        {
+            var pendingDonations = await DonationsManager.GetPendingDonations();
+
+            return new JsonResult(new
+            {
+                statusCode = StatusCodes.Status200OK,
+                value = pendingDonations
+            });
+        }
+
         [HttpPost("request")]
         public async Task<JsonResult> RequestDonation(DonationRequest[] donationRequests)
         {

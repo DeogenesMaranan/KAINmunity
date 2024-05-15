@@ -134,5 +134,19 @@ namespace KainmunityClient.ServerAPI
 
             return res;
         }
+        public static async Task<List<Dictionary<string, object>>> GetPendingDonations()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"donations/pending");
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+            return dictionary;
+        }
     }
 }
