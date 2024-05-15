@@ -57,7 +57,7 @@ namespace KainmunityServer.DataAccess
                 SELECT Donations.DonationId, DonorId, (CONCAT(UserFirstName, ' ', UserLastName)) AS DonorName, DonationName, DonationQuantity, DonationExpiry, DonationDate, DonationOriginalQuantity, DonationStatus
                 FROM Donations
                 JOIN UserInformations ON Donations.DonorId = UserInformations.UserId
-                WHERE DonationQuantity <= 0 AND DonationStatus = 'Pending'
+                WHERE DonationStatus = 'Accepted'
                 ORDER BY DonationId DESC";
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
@@ -149,7 +149,7 @@ namespace KainmunityServer.DataAccess
     {
         string query = @"
                         UPDATE Requests
-                        SET RequestStatus = 'Recieved'
+                        SET RequestStatus = 'Delivered'
                         WHERE RequestId = @RequestId
                     ";
 
@@ -166,7 +166,7 @@ namespace KainmunityServer.DataAccess
     {
         string query = @"
                         UPDATE Donations
-                        SET DonationStatus = 'Delivered'
+                        SET DonationStatus = 'Received'
                         WHERE DonationId = @DonationId
                     ";
 
