@@ -127,7 +127,7 @@ namespace KainmunityServer.DataAccess
 
             if (res.Count == 0)
             {
-                Console.WriteLine("hehe");
+                Console.WriteLine("Failed to Get Account Info");
                 return null;
             }
 
