@@ -31,8 +31,6 @@ namespace KainmunityClient.Forms
         private async void FetchDonations(object sender, EventArgs e)
         {
             var donations = await DonationManager.GetDonations();
-            var account = await AccountManager.GetAccountInfo();
-            int currentUser = Convert.ToInt32(account["UserId"]);
 
             if (donations == null)
             {
@@ -42,7 +40,7 @@ namespace KainmunityClient.Forms
 
             foreach (DonationItem donation in donations)
             {
-                if(donation.Status != "Received" || donation.DonorId == currentUser)
+                if(donation.Status != "Received" || donation.DonorId == Convert.ToInt32(APIConnector.UserId))
                 {
                     continue;
                 }

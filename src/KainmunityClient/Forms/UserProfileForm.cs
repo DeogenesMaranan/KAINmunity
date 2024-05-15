@@ -26,6 +26,11 @@ namespace KainmunityClient.Forms
 
         private async void FillUpInformation(object sender, EventArgs e)
         {
+            if (APIConnector.AccountType == "Admin")
+            {
+                donationHistory.Visible = false;
+                viewRequestsButton.Visible = false;
+            }
             var info = await AccountManager.GetAccountInfo(_userId);
 
             firstName.Text = Convert.ToString(info["UserFirstName"]);
