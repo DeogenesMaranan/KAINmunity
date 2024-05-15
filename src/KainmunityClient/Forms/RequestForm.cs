@@ -40,7 +40,7 @@ namespace KainmunityClient.Forms
 
             foreach (DonationItem donation in donations)
             {
-                if(donation.Status != "Recieved")
+                if(donation.Status != "Received")
                 {
                     continue;
                 }

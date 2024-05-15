@@ -96,7 +96,7 @@ namespace KainmunityClient.Forms
             acceptBtn.ForeColor = SystemColors.Window;
             acceptBtn.Name = $"resolveBtn_{rowId}";
             acceptBtn.Size = new Size(109, 39);
-            acceptBtn.Text = (transactiontType == 1) ? "RECIEVED" : "DELIVERED";
+            acceptBtn.Text = (transactiontType == 1) ? "RECEIVED" : "DELIVERED";
             acceptBtn.UseVisualStyleBackColor = false;
 
             Panel namePanel = new Panel();
