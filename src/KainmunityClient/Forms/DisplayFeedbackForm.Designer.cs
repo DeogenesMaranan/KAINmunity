@@ -30,6 +30,7 @@ namespace KainmunityClient.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayFeedbackForm));
             this.feedbackContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.head = new System.Windows.Forms.Panel();
             this.back = new System.Windows.Forms.Button();
@@ -94,6 +95,7 @@ namespace KainmunityClient.Forms
             this.Controls.Add(this.feedbackContainer);
             this.Controls.Add(this.head);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DisplayFeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";
