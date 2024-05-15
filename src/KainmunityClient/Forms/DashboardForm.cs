@@ -27,9 +27,15 @@ namespace KainmunityClient.Forms
         }
         private void donationBox_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DonationForm donation = new DonationForm();
-            donation.Show();
+            Hide();
+            if (APIConnector.AccountType == "Admin")
+            {
+                new DonationApprovalForm().Show();
+            }
+            else
+            {
+                new DonationForm().Show();
+            }
         }
         private void requestButton_Click(object sender, EventArgs e)
         {

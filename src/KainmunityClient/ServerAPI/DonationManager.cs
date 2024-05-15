@@ -44,6 +44,7 @@ namespace KainmunityClient.ServerAPI
                 donations.Add(new DonationItem()
                 {
                     DonationId = Convert.ToInt32(item["DonationId"]),
+                    DonationDate = Convert.ToString(item["DonationDate"]),
                     DonorId = Convert.ToInt32(item["DonorId"]),
                     Name = Convert.ToString(item["DonationName"]),
                     Quantity = Math.Max(Convert.ToInt32(item["DonationQuantity"]), 0),
