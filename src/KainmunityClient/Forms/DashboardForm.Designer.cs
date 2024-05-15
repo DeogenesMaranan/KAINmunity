@@ -38,13 +38,13 @@ namespace KainmunityClient.Forms
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.feedbackPanel = new System.Windows.Forms.Panel();
+            this.error = new System.Windows.Forms.TextBox();
             this.submitFeedback = new System.Windows.Forms.Button();
             this.feedbackTextBox = new System.Windows.Forms.TextBox();
             this.profileButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.donationBox = new System.Windows.Forms.Button();
             this.requestButton = new System.Windows.Forms.Button();
-            this.error = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.feedbackPanel.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +130,20 @@ namespace KainmunityClient.Forms
             this.feedbackPanel.TabIndex = 8;
             this.feedbackPanel.Visible = false;
             // 
+            // error
+            // 
+            this.error.BackColor = System.Drawing.Color.White;
+            this.error.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.error.Enabled = false;
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(55, 146);
+            this.error.Name = "error";
+            this.error.ReadOnly = true;
+            this.error.Size = new System.Drawing.Size(145, 13);
+            this.error.TabIndex = 34;
+            this.error.TabStop = false;
+            this.error.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // submitFeedback
             // 
             this.submitFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(93)))), ((int)(((byte)(102)))));
@@ -213,20 +227,6 @@ namespace KainmunityClient.Forms
             this.requestButton.UseVisualStyleBackColor = false;
             this.requestButton.Click += new System.EventHandler(this.requestButton_Click);
             // 
-            // error
-            // 
-            this.error.BackColor = System.Drawing.Color.White;
-            this.error.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.error.Enabled = false;
-            this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(55, 146);
-            this.error.Name = "error";
-            this.error.ReadOnly = true;
-            this.error.Size = new System.Drawing.Size(145, 13);
-            this.error.TabIndex = 34;
-            this.error.TabStop = false;
-            this.error.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +234,7 @@ namespace KainmunityClient.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
             this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

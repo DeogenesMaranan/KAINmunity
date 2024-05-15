@@ -225,6 +225,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.historyContainer);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DonationHistoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Donation History";

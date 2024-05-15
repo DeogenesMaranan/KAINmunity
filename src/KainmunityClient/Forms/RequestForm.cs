@@ -195,6 +195,8 @@ namespace KainmunityClient.Forms
                 {
                     MessageBox.Show("Failed to process your request.");
                 }
+                new RequestForm().Show();
+                Close();
             }
         }
 

@@ -93,6 +93,7 @@ namespace KainmunityClient.Forms
             this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.feedbackContainer);
             this.Controls.Add(this.head);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DisplayFeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";
