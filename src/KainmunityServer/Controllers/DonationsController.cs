@@ -89,5 +89,12 @@ namespace KainmunityServer.Controllers
             var donations = await DonationsManager.FetchLeaderboard();
             return new JsonResult(Ok(donations));
         }
+
+        [HttpGet("accept/{donationId}")]
+        public async Task<JsonResult> AcceptDonation(int donationId)
+        {
+            var donations = await DonationsManager.AcceptDonation(donationId);
+            return new JsonResult(Ok(donations));
+        }
     }
 }

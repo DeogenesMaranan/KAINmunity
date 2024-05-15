@@ -57,7 +57,7 @@ namespace KainmunityClient.Forms
             requestQuantityPlace.Name = $"requestQuantity_{itemId}";
             requestQuantityPlace.Size = new Size(137, 21);
             requestQuantityPlace.TextAlign = HorizontalAlignment.Center;
-            requestQuantityPlace.Location = new Point(0, 5);
+            requestQuantityPlace.Location = new Point(3, 5);
             requestQuantityPlace.TabIndex = 0;
 
             TextBox availableQuantityPlace = new TextBox();

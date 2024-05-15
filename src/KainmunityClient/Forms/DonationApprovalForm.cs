@@ -173,6 +173,21 @@ namespace KainmunityClient.Forms
             dnametb.TextAlign = HorizontalAlignment.Center;
             dnametb.Text = donorName;
 
+            accptbtn.Click += async (sender, e) =>
+            {
+                var updateDonate = await DonationManager.AcceptDonation(donationId);
+                if (updateDonate)
+                {
+                    this.Hide();
+                    DonationApprovalForm form = new DonationApprovalForm();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Failed");
+                }
+            };
+
             donationsPlaceholder.Controls.Add(entryPlaceholder);
         }
 

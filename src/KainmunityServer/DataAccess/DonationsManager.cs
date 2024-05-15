@@ -1,4 +1,6 @@
 ﻿using KainmunityServer.Models;
+using Mysqlx.Crud;
+using System.Collections.Generic;
 
 namespace KainmunityServer.DataAccess
 {
@@ -178,6 +180,18 @@ namespace KainmunityServer.DataAccess
 
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
+        }
+
+        public static async Task<bool> AcceptDonation(int donationId)
+        {
+            string query = "UPDATE Donations SET DonationStatus = 'Accepted' WHERE DonationId = @DonationId;";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonationId", donationId }
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+            return res == 1;
         }
     }
 }
