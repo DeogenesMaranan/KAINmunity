@@ -16,6 +16,7 @@ namespace KainmunityClient.Forms
     {
         private readonly string _userId;
         private readonly bool _isViewer;
+        private bool isPasswordModified = false;
         public UserProfileForm(string userId, bool isViewer = false)
         {
             _userId = userId;
@@ -34,7 +35,6 @@ namespace KainmunityClient.Forms
             homeAddress.Text = Convert.ToString(info["UserHomeAddress"]);
             yearlyIncome.Text = Convert.ToString(info["UserYearlyIncome"]);
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
-            password.Text = Convert.ToString(info["UserPassword"]);
 
             if (!_isViewer)
             {
@@ -70,7 +70,8 @@ namespace KainmunityClient.Forms
                 contactNumber.Text,
                 homeAddress.Text,
                 Convert.ToDouble(yearlyIncome.Text),
-                Convert.ToInt32(householdSize.Text)
+                Convert.ToInt32(householdSize.Text),
+                isPasswordModified
                 );
 
             if (isSuccess)
@@ -125,6 +126,7 @@ namespace KainmunityClient.Forms
         private void showIcon(object sender, EventArgs e)
         {
             showPassword.Visible = true;
+            isPasswordModified = true;
         }
 
     }

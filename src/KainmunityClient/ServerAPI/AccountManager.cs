@@ -46,7 +46,7 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
-        public static async Task<bool> EditAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size)
+        public static async Task<bool> EditAccount(string firstName, string lastName, string pass, string email, string contactNumber, string address, double income, int size, bool isPasswordModified)
         {
             var res = await APIConnector.SendRequest(RequestMethod.PUT, "account/edit", new Dictionary<string, object>
             {
@@ -57,7 +57,8 @@ namespace KainmunityClient.ServerAPI
                 { "homeAddress", address },
                 { "yearlyIncome", income },
                 { "householdSize", size },
-                { "password", pass }
+                { "password", pass },
+                { "isPasswordModified", isPasswordModified }
             });
 
             return Convert.ToInt64(res["statusCode"]) == 200;

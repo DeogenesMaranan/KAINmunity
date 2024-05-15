@@ -10,5 +10,6 @@
         public decimal YearlyIncome {  get; set; }
         public int HouseholdSize { get; set; }
         public string? Password { get; set; }
+        public bool isPasswordModified {  get; set; }
     }
 }
