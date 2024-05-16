@@ -16,6 +16,7 @@ namespace KainmunityClient.Forms
     {
         private readonly string _userId;
         private readonly bool _isViewer;
+        private bool isPasswordModified = false;
         public UserProfileForm(string userId, bool isViewer = false)
         {
             _userId = userId;
@@ -25,6 +26,11 @@ namespace KainmunityClient.Forms
 
         private async void FillUpInformation(object sender, EventArgs e)
         {
+            if (APIConnector.AccountType == "Admin")
+            {
+                donationHistory.Visible = false;
+                viewRequestsButton.Visible = false;
+            }
             var info = await AccountManager.GetAccountInfo(_userId);
 
             firstName.Text = Convert.ToString(info["UserFirstName"]);
@@ -34,7 +40,6 @@ namespace KainmunityClient.Forms
             homeAddress.Text = Convert.ToString(info["UserHomeAddress"]);
             yearlyIncome.Text = Convert.ToString(info["UserYearlyIncome"]);
             householdSize.Text = Convert.ToString(info["UserHouseholdSize"]);
-            password.Text = Convert.ToString(info["UserPassword"]);
 
             if (!_isViewer)
             {
@@ -70,16 +75,19 @@ namespace KainmunityClient.Forms
                 contactNumber.Text,
                 homeAddress.Text,
                 Convert.ToDouble(yearlyIncome.Text),
-                Convert.ToInt32(householdSize.Text)
+                Convert.ToInt32(householdSize.Text),
+                isPasswordModified
                 );
 
             if (isSuccess)
             {
-                MessageBox.Show("Account edited successfully.");
+                error.ForeColor = Color.Green;
+                error.Text = "Account edited successfully.";
             }
             else
             {
-                MessageBox.Show("Account failed to edit.");
+                error.ForeColor = Color.Red;
+                error.Text = "Account failed to edit.";
             }
         }
         private void ShowDonationHistory(object sender, EventArgs e)
@@ -123,6 +131,7 @@ namespace KainmunityClient.Forms
         private void showIcon(object sender, EventArgs e)
         {
             showPassword.Visible = true;
+            isPasswordModified = true;
         }
 
     }

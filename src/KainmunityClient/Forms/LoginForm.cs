@@ -33,10 +33,20 @@ namespace KainmunityClient.Forms
 
                 if (isSuccess)
                 {
-                    invalidPass.Text = "";
-                    this.Hide();
-                    DashboardForm dashboard = new DashboardForm();
-                    dashboard.Show();
+                    if (APIConnector.AccountType == "Logistics")
+                    {
+                        invalidPass.Text = "";
+                        this.Hide();
+                        LogisticDashboardForm dashboard = new LogisticDashboardForm();
+                        dashboard.Show();
+                    }
+                    else
+                    {
+                        invalidPass.Text = "";
+                        this.Hide();
+                        DashboardForm dashboard = new DashboardForm();
+                        dashboard.Show();
+                    }
                 }
                 else
                 {

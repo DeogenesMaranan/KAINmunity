@@ -37,6 +37,18 @@ namespace KainmunityServer.Controllers
             });
         }
 
+        [HttpGet("pending")]
+        public async Task<JsonResult> GetPendingDonations()
+        {
+            var pendingDonations = await DonationsManager.GetPendingDonations();
+
+            return new JsonResult(new
+            {
+                statusCode = StatusCodes.Status200OK,
+                value = pendingDonations
+            });
+        }
+
         [HttpPost("request")]
         public async Task<JsonResult> RequestDonation(DonationRequest[] donationRequests)
         {
@@ -64,10 +76,10 @@ namespace KainmunityServer.Controllers
             return new JsonResult(isSuccess ? Ok() : Unauthorized());
         }
 
-        [HttpGet("available")]
-        public async Task<JsonResult> GetAvailableDonations()
+        [HttpGet("available/{UserId}")]
+        public async Task<JsonResult> GetAvailableDonations(int UserId)
         {
-            var donations = await DonationsManager.GetAvailable();
+            var donations = await DonationsManager.GetAvailable(UserId);
             return new JsonResult(Ok(donations));
         }
 
@@ -75,6 +87,13 @@ namespace KainmunityServer.Controllers
         public async Task<JsonResult> GetLeaderboard()
         {
             var donations = await DonationsManager.FetchLeaderboard();
+            return new JsonResult(Ok(donations));
+        }
+
+        [HttpGet("accept/{donationId}")]
+        public async Task<JsonResult> AcceptDonation(int donationId)
+        {
+            var donations = await DonationsManager.AcceptDonation(donationId);
             return new JsonResult(Ok(donations));
         }
     }

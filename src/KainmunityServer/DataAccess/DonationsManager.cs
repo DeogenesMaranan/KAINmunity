@@ -1,4 +1,6 @@
 ﻿using KainmunityServer.Models;
+using Mysqlx.Crud;
+using System.Collections.Generic;
 
 namespace KainmunityServer.DataAccess
 {
@@ -98,12 +100,24 @@ namespace KainmunityServer.DataAccess
             return true;
         }
 
-        public static async Task<List<Dictionary<string, object>>> GetAvailable()
+        public static async Task<List<Dictionary<string, object>>> GetAvailable(int userId)
         {
-            string query = "SELECT * FROM Donations WHERE DonationQuantity > 0 AND DonationExpiry > @CurrentDate ORDER BY DonationExpiry";
+            string query = @"SELECT *
+                    FROM Donations d
+                    WHERE d.DonationQuantity > 0
+                      AND d.DonationExpiry > @CurrentDate
+                      AND NOT EXISTS(
+                          SELECT 1
+                          FROM Requests r
+                          WHERE r.DonationId = d.DonationId
+                            AND r.RequesterId = @UserId
+                      )
+                    ORDER BY d.DonationExpiry;
+            ";
             var parameters = new Dictionary<string, object>()
             {
                 { "@CurrentDate", DateTime.Now.ToString("yyyy-MM-dd") },
+                { "@UserId", userId }
             };
 
             var res = await DatabaseConnector.ExecuteQuery(query, parameters);
@@ -118,6 +132,18 @@ namespace KainmunityServer.DataAccess
                 JOIN UserInformations ON Requests.RequesterId = UserInformations.UserId
                 JOIN Donations ON Requests.DonationId = Donations.DonationId
                 ORDER BY FIELD(RequestStatus, 'Pending', 'Accepted', 'Declined')";
+
+            var res = await DatabaseConnector.ExecuteQuery(query);
+            return res;
+        }
+
+        public static async Task<List<Dictionary<string, object>>> GetPendingDonations()
+        {
+            string query = @"
+                SELECT DonationId, DonationDate, DonorId, (CONCAT(UserFirstName, ' ', UserLastName)) AS DonorName, DonationName, DonationQuantity, DonationExpiry FROM Donations
+                JOIN UserInformations ON DonorId = UserId
+                WHERE DonationStatus = 'Pending'
+            ";
 
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
@@ -166,6 +192,18 @@ namespace KainmunityServer.DataAccess
 
             var res = await DatabaseConnector.ExecuteQuery(query);
             return res;
+        }
+
+        public static async Task<bool> AcceptDonation(int donationId)
+        {
+            string query = "UPDATE Donations SET DonationStatus = 'Accepted' WHERE DonationId = @DonationId;";
+            var parameters = new Dictionary<string, object>()
+            {
+                { "@DonationId", donationId }
+            };
+
+            var res = await DatabaseConnector.ExecuteNonQuery(query, parameters);
+            return res == 1;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace KainmunityClient.Forms
         {
             public int DonationId { get; set; }
             public TextBox RequestQuantityTextBox { get; set; }
+            public int AvailableQuantity { get; set; }
         }
 
         private List<DonationEntry> _donationEntries = new List<DonationEntry>();
@@ -39,6 +40,10 @@ namespace KainmunityClient.Forms
 
             foreach (DonationItem donation in donations)
             {
+                if(donation.Status != "Received" || donation.DonorId == Convert.ToInt32(APIConnector.UserId))
+                {
+                    continue;
+                }
                 AddListItem(donation.DonationId, donation.ExpiryDate, donation.Name, donation.Quantity);
             }
         }
@@ -52,7 +57,7 @@ namespace KainmunityClient.Forms
             requestQuantityPlace.Name = $"requestQuantity_{itemId}";
             requestQuantityPlace.Size = new Size(137, 21);
             requestQuantityPlace.TextAlign = HorizontalAlignment.Center;
-            requestQuantityPlace.Location = new Point(0, 5);
+            requestQuantityPlace.Location = new Point(3, 5);
             requestQuantityPlace.TabIndex = 0;
 
             TextBox availableQuantityPlace = new TextBox();
@@ -130,6 +135,7 @@ namespace KainmunityClient.Forms
             {
                 DonationId = itemId,
                 RequestQuantityTextBox = requestQuantityPlace,
+                AvailableQuantity = availableQuantity
             });
 
             namePlace.Click += delegate (object sender, EventArgs e)
@@ -138,9 +144,9 @@ namespace KainmunityClient.Forms
                 new DonationDetails(this, itemId).Show();
             };
         }
-        private static bool IsNumber(string text)
+        private bool IsNumber(string input)
         {
-            return ErrorHandling.IsNumber(text);
+            return int.TryParse(input, out _);
         }
 
         private async void UploadRequests(object sender, EventArgs e)
@@ -150,37 +156,45 @@ namespace KainmunityClient.Forms
             foreach (var entry in _donationEntries)
             {
                 if (entry.RequestQuantityTextBox.Text.Length == 0) continue;
-                if(!(IsNumber(entry.RequestQuantityTextBox.Text)))
+                if (!IsNumber(entry.RequestQuantityTextBox.Text))
                 {
                     isFormatted = false;
                     break;
                 }
+
+                int requestedQuantity = Convert.ToInt32(entry.RequestQuantityTextBox.Text);
+                if (requestedQuantity > entry.AvailableQuantity)
+                {
+                    entry.RequestQuantityTextBox.ForeColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+                    isFormatted = false;
+                    break;
+                }
+
                 donationRequests.Add(new DonationRequest()
                 {
                     DonationId = entry.DonationId,
-                    Quantity = Convert.ToInt32(entry.RequestQuantityTextBox.Text),
+                    Quantity = requestedQuantity,
                 });
             }
 
-            var isSuccess = await DonationManager.UploadRequests(donationRequests);
-
-            if (isFormatted)
+            if (!isFormatted)
             {
-                if (isSuccess)
-                {
-                    statusText.ForeColor = Color.Green;
-                    statusText.Text = "You may now wait for the approval.";
-                }
-                else
-                {
-                    statusText.ForeColor = Color.Red;
-                    statusText.Text = "Failed to process your request.";
-                }
+                MessageBox.Show("Please enter a valid number for each input box.");
             }
             else
             {
-                statusText.ForeColor = Color.Red;
-                statusText.Text = "Please follow a proper format for each input box.";
+                var isSuccess = await DonationManager.UploadRequests(donationRequests);
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("You may now wait for the approval.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to process your request.");
+                }
+                new RequestForm().Show();
+                Close();
             }
         }
 

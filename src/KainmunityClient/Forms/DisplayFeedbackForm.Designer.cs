@@ -30,6 +30,7 @@ namespace KainmunityClient.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisplayFeedbackForm));
             this.feedbackContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.head = new System.Windows.Forms.Panel();
             this.back = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@ namespace KainmunityClient.Forms
             // 
             // head
             // 
-            this.head.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.head.BackColor = System.Drawing.Color.White;
             this.head.Controls.Add(this.back);
             this.head.Controls.Add(this.title);
             this.head.Location = new System.Drawing.Point(115, 12);
@@ -59,7 +60,7 @@ namespace KainmunityClient.Forms
             // 
             // back
             // 
-            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(254)))), ((int)(((byte)(247)))));
+            this.back.BackColor = System.Drawing.Color.White;
             this.back.FlatAppearance.BorderSize = 0;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +94,8 @@ namespace KainmunityClient.Forms
             this.ClientSize = new System.Drawing.Size(802, 502);
             this.Controls.Add(this.feedbackContainer);
             this.Controls.Add(this.head);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DisplayFeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feedback";

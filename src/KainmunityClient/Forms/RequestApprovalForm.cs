@@ -48,6 +48,11 @@ namespace KainmunityClient.Forms
                 int requestQuantity = Convert.ToInt32(request["RequestQuantity"]);
                 string requestStatus = Convert.ToString(request["RequestStatus"]);
 
+                if (requestStatus  == "Delivered" || requestStatus == "Declined")
+                {
+                    continue;
+                }
+
                 AddRequestEntry(requestId, requesterId, requesterName, donationId, itemName, requestQuantity, requestStatus);
             }
         }

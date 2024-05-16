@@ -51,25 +51,25 @@ namespace KainmunityClient.Forms
 
                     if (isSuccess)
                     {
-                        statusText.ForeColor = Color.Green;
-                        statusText.Text = "You've registered!";
+                        error.ForeColor = Color.Green;
+                        error.Text = "You've registered!";
                     }
                     else
                     {
-                        statusText.ForeColor = Color.Red;
-                        statusText.Text = "Failed to register your account. Please Try again.";
+                        error.ForeColor = Color.Red;
+                        error.Text = "Failed to register your account. Please Try again.";
                     }
                 }
                 else
                 {
-                    statusText.ForeColor = Color.Red;
-                    statusText.Text = "Please follow a proper format for each input box.";
+                    error.ForeColor = Color.Red;
+                    error.Text = "Please follow a proper format for each input box.";
                 }
             }
             else
             {
-                statusText.ForeColor = Color.Red;
-                statusText.Text = "Please complete all fields.";
+                error.ForeColor = Color.Red;
+                error.Text = "Please complete all fields.";
             }
         }
 

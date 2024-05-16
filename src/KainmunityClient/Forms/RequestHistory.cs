@@ -39,7 +39,7 @@ namespace KainmunityClient.Forms
             TextBox dateSection = new TextBox();
             dateSection.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
             dateSection.BorderStyle = BorderStyle.None;
-            dateSection.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            dateSection.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             dateSection.Name = $"date_{requestId}";
             dateSection.Size = new Size(126, 21);
             dateSection.ReadOnly = true;
@@ -50,7 +50,7 @@ namespace KainmunityClient.Forms
             TextBox nameSection = new TextBox();
             nameSection.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
             nameSection.BorderStyle = BorderStyle.None;
-            nameSection.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            nameSection.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             nameSection.Name = $"name_{requestId}";
             nameSection.Size = new Size(169, 21);
             nameSection.ReadOnly = true;
@@ -61,7 +61,7 @@ namespace KainmunityClient.Forms
             TextBox quantitySection = new TextBox();
             quantitySection.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
             quantitySection.BorderStyle = BorderStyle.None;
-            quantitySection.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            quantitySection.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             quantitySection.Name = $"quantity_{requestId}";
             quantitySection.Size = new Size(128, 21);
             quantitySection.ReadOnly = true;
@@ -72,7 +72,7 @@ namespace KainmunityClient.Forms
             TextBox statusSection = new TextBox();
             statusSection.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(246)))), ((int)(((byte)(207)))));
             statusSection.BorderStyle = BorderStyle.None;
-            statusSection.Font = new Font("Tw Cen MT", 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            statusSection.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             statusSection.Name = $"status_{requestId}";
             statusSection.Size = new Size(130, 21);
             statusSection.ReadOnly = true;

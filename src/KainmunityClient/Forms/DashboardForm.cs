@@ -27,9 +27,15 @@ namespace KainmunityClient.Forms
         }
         private void donationBox_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            DonationForm donation = new DonationForm();
-            donation.Show();
+            Hide();
+            if (APIConnector.AccountType == "Admin")
+            {
+                new DonationApprovalForm().Show();
+            }
+            else
+            {
+                new DonationForm().Show();
+            }
         }
         private void requestButton_Click(object sender, EventArgs e)
         {
@@ -82,13 +88,13 @@ namespace KainmunityClient.Forms
             bool isSuccess = await FeedbackManager.AddFeedback(feedbackTextBox.Text);
             if (isSuccess)
             {
-                statusText.ForeColor = Color.Green;
-                statusText.Text = "Feedback sent";
+                error.ForeColor = Color.Green;
+                error.Text = "Feedback sent";
             }
             else
             {
-                statusText.ForeColor = Color.Red;
-                statusText.Text = "Failed to send feedback";
+                error.ForeColor = Color.Red;
+                error.Text = "Failed to send feedback";
             }
 
         }

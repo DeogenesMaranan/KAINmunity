@@ -26,7 +26,7 @@ namespace KainmunityClient.ServerAPI
 
         public static async Task<List<DonationItem>> GetDonations()
         {
-            var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/available");
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"donations/available/{APIConnector.UserId}");
             var donations = new List<DonationItem>();
 
             int statusCode = Convert.ToInt32(res["statusCode"]);
@@ -44,10 +44,12 @@ namespace KainmunityClient.ServerAPI
                 donations.Add(new DonationItem()
                 {
                     DonationId = Convert.ToInt32(item["DonationId"]),
+                    DonationDate = Convert.ToString(item["DonationDate"]),
                     DonorId = Convert.ToInt32(item["DonorId"]),
                     Name = Convert.ToString(item["DonationName"]),
-                    Quantity = Convert.ToInt32(item["DonationQuantity"]),
+                    Quantity = Math.Max(Convert.ToInt32(item["DonationQuantity"]), 0),
                     ExpiryDate = Convert.ToString(item["DonationExpiry"]),
+                    Status = Convert.ToString(item["DonationStatus"])
                 });
             }
 
@@ -105,6 +107,12 @@ namespace KainmunityClient.ServerAPI
             return Convert.ToInt64(res["statusCode"]) == 200;
         }
 
+        public static async Task<bool> AcceptDonation(int donationId)
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"donations/accept/{donationId}");
+            return Convert.ToInt64(res["statusCode"]) == 200;
+        }
+
         public static async Task<List<Dictionary<string, object>>> GetLeaderboard()
         {
             var res = await APIConnector.SendRequest(RequestMethod.GET, "donations/leaderboard");
@@ -131,6 +139,20 @@ namespace KainmunityClient.ServerAPI
             }
 
             return res;
+        }
+        public static async Task<List<Dictionary<string, object>>> GetPendingDonations()
+        {
+            var res = await APIConnector.SendRequest(RequestMethod.GET, $"donations/pending");
+
+            long statusCode = Convert.ToInt64(res["statusCode"]);
+            if (statusCode != 200)
+            {
+                return null;
+            }
+
+            var json = JsonConvert.SerializeObject(res["value"]);
+            var dictionary = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(json);
+            return dictionary;
         }
     }
 }
