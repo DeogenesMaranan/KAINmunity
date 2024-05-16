@@ -65,9 +65,9 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.back);
-            this.panel1.Location = new System.Drawing.Point(202, 12);
+            this.panel1.Location = new System.Drawing.Point(118, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 78);
+            this.panel1.Size = new System.Drawing.Size(557, 78);
             this.panel1.TabIndex = 19;
             // 
             // label4
@@ -75,7 +75,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.label4.Location = new System.Drawing.Point(56, 9);
+            this.label4.Location = new System.Drawing.Point(149, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(290, 60);
             this.label4.TabIndex = 1;
